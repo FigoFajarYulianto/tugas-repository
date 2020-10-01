@@ -1,0 +1,34 @@
+<html>
+<head>belajar</head>
+      
+    
+ <body>
+    <script languange = "Javascript">
+        function tekan(){
+            var nimtr = (document.fform.nim.value);
+            var namamahasiswatr = (document.fform.namamahasiswa.value);
+            document.fform.onim.value = nimtr;
+            document.fform.onamamahasiswa.value = namamahasiswatr;   
+    }
+    
+    </script> 
+    
+<form name ="fform">
+
+<PRE>
+    Nim             : <input type="text" size="15" name="nim"><br>
+    Nama Mahasiswa  : <input type="text" size="30" name="namamahasiswa"><br>
+</PRE>
+<br>
+<input type="button" value= "kirim" onclick= "tekan()">
+<input type="reset" value= "ulang">
+
+<PRE>
+    Nim             : <input type="text" size="15" name="onim"><br>
+    Nama Mahasiswa  : <input type="text" size="30" name="onamamahasiswa"><br>
+</PRE>
+
+
+</form>
+</body>
+</html>
