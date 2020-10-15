@@ -1,0 +1,20 @@
+h3{
+	color: plum;
+	font-family: sans-serif;
+	text-align: center;
+}
+ 
+.kotak{
+	padding: 50px;
+	width: 100px;
+	color: #fff;
+	margin: 10px;
+	background: palevioletred;	
+}
+ 
+#kotak{
+	width: 400px;
+	color: #fff;
+	background: palegreen;
+	padding: 50px;
+}
