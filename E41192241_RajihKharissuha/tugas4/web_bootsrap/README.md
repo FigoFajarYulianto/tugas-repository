@@ -6,7 +6,7 @@ For the legacy Bootstrap 3 version of this theme, you can view the [last stable 
 
 ## Preview
 
-[![SB Admin 2 Preview](https://startbootstrap.com/assets/img/screenshots/themes/sb-admin-2.png)](https://github.com/FigoFajarYulianto/tugas-repository/tree/master/E41192241_RajihKharissuha/tugas4/web_bootsrap/)
+[![SB Admin 2 Preview](https://github.com/FigoFajarYulianto/tugas-repository/tree/master/E41192241_RajihKharissuha/tugas4/web_bootsrap)](https://github.com/FigoFajarYulianto/tugas-repository/tree/master/E41192241_RajihKharissuha/tugas4/web_bootsrap/)
 
 **[Launch Live Preview](https://github.com/FigoFajarYulianto/tugas-repository/tree/master/E41192241_RajihKharissuha/tugas4/web_bootsrap)**
 
