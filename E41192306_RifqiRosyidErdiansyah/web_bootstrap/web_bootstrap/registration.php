@@ -256,17 +256,23 @@
    <div class="form-group">
      <input type="password" class="form-control form-control-user" id="password" name="password" placeholder="Password Anda" required>
    </div>
+   <div>
    <div class="form-group">
-        <label>Jenis Kelamin</label>
-            <div class="form-check">
-                <input type="radio" class="form-check-input" name="radio1" id="radio2" >
-                <label> Laki-laki </label>
-            </div>
-            <div class="form-check">
-                <input type="radio" class="form-check-input" name="radio1" id="radio2" >
-                <label> Perempuan </label>
-            </div>
-    </div>
+   <input type="radio" name="radio" value="laki-laki"> Laki - Laki
+   <input type="radio" name="radio" value="perempuan"> perempuan
+   </div>
+   <div>
+    <div class="form-group">
+    <select name="agama">
+    <label for="agama">Pilih Agama</label>
+    <option value="Islam">Islam</option>
+    <option value="Kristen">Kristen</option>
+    </select>
+   </div>
+   <div>
+   <div class="form-group">
+     <input type="textbox" class="form-control form-control-user" id="textbox" name="textbox" required>
+   </div>
    <!--   <div class="form-check"> 
   <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="option2">
   <label class="form-check-label" for="exampleRadios2">
@@ -279,14 +285,16 @@
    $subject = @$_GET['subject'];
    $email = @$_GET['email'];
    $password = @$_GET['password'];
-   $radio1 = @$_GET['radio1'];
-   $radio2 = @$_GET['radio2'];
+   $radio = @$_GET['radio'];
+   $agama = @$_GET['agama'];
+   $textbox = @$_GET['textbox'];
+   
    if ($name) {
        echo "<br><br><strong>nama:</strong> {$name} <br>";
    }
 
    if ($subject){
-       echo "<strong>Subject:</strong> {$subject} <br>";
+       echo "<strong>Username:</strong> {$subject} <br>";
    }
 
    if ($email) {
@@ -295,12 +303,16 @@
    if ($password) {
     echo "<strong>password:</strong> {$password} <br>";
     }
-    if ($radio1) {
-        echo "<strong>Jenis Kelamin:</strong> {$radio1} <br>";
+    if ($radio) {
+        echo "<strong>Jenis Kelamin:</strong> {$radio} <br>";
         }
-        if ($radio2) {
-            echo "<strong>Jenis Kelamin:</strong> {$radio2} <br>";
+    if ($agama) {
+            echo "<strong>Agama:</strong> {$agama} <br>";
             }
+    if ($textbox) {
+            echo "<strong>Textbox:</strong> {$textbox} <br>";
+            }
+    
   
    ?>
 </form>
