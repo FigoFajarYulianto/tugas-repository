@@ -1,0 +1,13 @@
+div{
+	color: plum;
+	font-family: sans-serif;
+	text-align: center;
+}
+ 
+.kotak{
+	padding: 100px;
+	width: 500px;
+	color: #fff;
+	margin: 10px;
+	background: plum;	
+}
