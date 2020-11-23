@@ -419,7 +419,7 @@ iframe {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  padding-top: 22px;
+  
 }
 
 .wrap-register-form-btn {
@@ -432,6 +432,9 @@ iframe {
   overflow: hidden;
   margin: 0 auto;
   left: 100px;
+  bottom: 26px;
+
+  
 }
 
 .register-form-bgbtn{
@@ -440,12 +443,13 @@ iframe {
   width: 600px;
   height: 100px;
   background: grey;
-  display: inline-block;
-  padding: ;
+  display: block;
+  
   
   
   top: 0;
   left: -100%;
+  
 
   -webkit-transition: all 0.4s;
   -o-transition: all 0.4s;
