@@ -1,6 +1,6 @@
 <!-- CSS -->
 <style>
-    *{
+*  {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -12,9 +12,9 @@ body {
 }
 
 html {
-   font-family: Arial, Helvetica, sans-serif;
-   background: linear-gradient(to right, #57c1eb 0%, #246fa8 100%);
-   font-size: 10px; 
+    font-family: Arial, Helvetica, sans-serif;
+    background: linear-gradient(to right, #57c1eb 0%, #246fa8 100%);
+    font-size: 10px;
 }
 
 body {
@@ -25,10 +25,10 @@ body {
 #chat-container {
     display: grid;
     grid:
-        'search-container chat-title' 71px
-        'conversation-list chat-message-list' 1fr
-        'new-message-container chat-form' 78px
-        / 275px 1fr;
+       'search-container chat-title' 71px
+       'conversation-list chat-message-list' 1fr
+       'new-message-container chat-form' 78px
+       / 275px 1fr;
     min-width: 800px;
     max-width: 1000px;
     max-height: 800px;
@@ -47,7 +47,7 @@ body {
 #search-container {
     display: grid;
     align-items: center;
-    padding: 0 20px; 
+    padding: 0 20px;
     grid-area: search-container;
     border-radius: 10px 0 0 0;
     box-shadow: 0 1px 3px -1px rgba(0,0,0,0.75);
@@ -55,7 +55,7 @@ body {
 }
 
 #search-container input {
-    color: #000000;
+    color: #eee;
     outline: none;
     font-weight: bold;
     border-radius: 2px;
@@ -64,14 +64,16 @@ body {
     padding-left: 48px;
     padding-right: 20px;
     font-size: 1.4rem;
-    background: url('img/search.svg') no-repeat rgba(255, 255, 255);
+    background: url('img/search.svg') no-repeat rgba(255, 255, 255, 0.3);
     background-position: 15px center;
     background-size: 20px 20px;
+
 }
 
 #search-container input::placeholder {
     color: #ddd;
     font-weight: bold;
+
 }
 
 #conversation-list {
@@ -86,7 +88,7 @@ body {
     color: #ddd;
     font-size: 1.3rem;
     border-bottom: 1px solid #002C88;
-    padding: 20px 20px 20px 15px; 
+    padding: 20px 20px 20px 15px;
 }
 
 .conversation.active,
@@ -99,7 +101,7 @@ body {
 }
 
 .conversation > img {
-    grid-row: span 2;
+    grid-row: span 2;    
     height: 40px;
     width: 40px;
     border-radius: 100%;
@@ -116,7 +118,7 @@ body {
 
 .created-date {
     color: #ddd;
-    font-size: lrem;
+    font-size: 1rem;
 }
 
 .conversation-message {
@@ -124,7 +126,7 @@ body {
     padding-left: 5px;
     white-space: nowrap;
     overflow-x: hidden;
-    text-overflow: ellipsis;
+    text-overflow: ellipsis;   
 }
 
 #new-message-container {
@@ -132,7 +134,7 @@ body {
     grid: 40px / 40px;
     align-content: center;
     grid-area: new-message-container;
-    border-top: 1px solid rgba(0,0,0,0.25);
+    border-top: 1px solid rgb(0,0,0,0.25);
     border-radius: 0 0 0 10px;
     padding: 0 15px;
 }
@@ -163,42 +165,39 @@ body {
     font-size: 2.0rem;
     border-radius: 0 10px 0 0;
     box-shadow: 0 1px 3px -1px rgba(0,0,0,0.75);
-    padding: 0 20px;
+    padding: 0 20px; 
 }
 
 #chat-title > img {
-    cursor: pointer;
-
+     cursor: pointer;
 }
 
 #chat-message-list {
     grid-area: chat-message-list;
     display: flex;
     flex-direction: column-reverse;
-    padding: 0 20 px;
+    padding: 0 20px;
 }
 
 .message-row {
     display: grid;
     grid-template-columns: 70%;
     margin-bottom: 20px;
-
 }
 
 .you-message {
     justify-content: end;
     justify-items: end;
-
 }
 
 .other-message {
-    justify-items: start;   
+    justify-items: start;
 }
 
 .message-text {
     padding: 9px 14px;
     font-size: 1.6rem;
-    margin-bottom: 5px; 
+    margin-bottom: 5px;
 }
 
 .message-time {
@@ -218,19 +217,19 @@ body {
     color: #111;
     border: 1px solid #ddd;
     border-radius: 14px 14px 14px 0;
+}
 
-#chat-form{
+#chat-form {
     display: grid;
     grid: 51px / 32px 1fr;
     align-content: center;
     align-items: center;
-    grid-gap: 15px;
+    grid-gap: 15px; 
     grid-area: chat-form;
     border-radius: 0 0 10px 0;
     border-top: 1px solid rgba(0,0,0,0.25);
     padding-left: 42px;
     padding-right: 22px;
-
 }
 
 #chat-form input {
@@ -244,7 +243,9 @@ body {
 
 ::-webkit-scrollbar {
     display: none;
+
 }
+
 </style>
 
 <!-- HTML -->
@@ -253,86 +254,112 @@ body {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Chat App</title>
+    <title>Message</title>
 </head>
 <body>
-    <div id="chat-container">
-      <div id="search-container">
-          <input type="text" placeholder="search" />
-    </div>
-    <div id="conversation-list">
-          <div class="conversation active">
-              <img src="img/orang/orang1_2.jpg" alt="Dewi Pertiwi" />
-              <div class="title-text">
-                  Dewi Pertiwi 
-              </div>
-              <div class="created-date">
-                  Apr 16
-              </div>
-              <div class="conversation-message">
-                  This is a message 
-              </div>
-          </div>
-          <div class="conversation active">
-            <img src="img/orang/orang1_2.jpg" alt="Dewi Pertiwi" />
+   <div id="chat-container">
+       <div id="search-container">
+           <input type="text" placeholder="search" />
+       </div>
+       <div id="conversation-list">
+           <div class="conversation">
+               <img src="img/orang/orang1_2.jpg" alt="Bagas Prakoso" />
+               <div class="title-text">
+                   Bagas Prakoso
+               </div>
+               <div class="created-date">
+                   Apr 16
+               </div>
+               <div class="conversation-message">
+                   This is a message 
+               </div>
+           </div>
+           <div class="conversation">
+            <img src="img/orang/orang1_2.jpg" alt="Bagas Prakoso" />
             <div class="title-text">
-                Bagas Punten
+                Bagas Prakoso 
             </div>
             <div class="created-date">
-                5 hours Ago
+                Apr 16
             </div>
             <div class="conversation-message">
-                Barangnya mantab gan sesuai ekspetasi dan sampai dengan selamat
+                This is a message 
             </div>
         </div>
-        <div class="conversation active">
-            <img src="img/orang/orang1_2.jpg" alt="Dewi Pertiwi" />
+        <div class="conversation">
+            <img src="img/orang/orang1_2.jpg" alt="Bagas Prakoso" />
             <div class="title-text">
-                Bayu Perkoso
+                Bagas Prakoso 
             </div>
             <div class="created-date">
-                Apr 20
+                Apr 16
             </div>
             <div class="conversation-message">
-                matur sembah nuwun gan !
+                This is a message
             </div>
         </div>
-        <div class="conversation active">
-            <img src="img/orang/orang1_2.jpg" alt="Dewi Pertiwi" />
+        <div class="conversation">
+            <img src="img/orang/orang1_2.jpg" alt="Bagas Prakoso" />
             <div class="title-text">
-                Aldi Prasetyo
+                Bagas Prakoso 
             </div>
             <div class="created-date">
-                Apr 23
+                Apr 16
             </div>
             <div class="conversation-message">
-                apakah barang yang "Itu" ready gan ?
+                This is a message 
             </div>
         </div>
-        <div class="conversation active">
-            <img src="img/orang/orang1_2.jpg" alt="Dewi Pertiwi" />
+        <div class="conversation">
+            <img src="img/orang/orang1_2.jpg" alt="Bagas Prakoso" />
             <div class="title-text">
-                Bayu prasetya
+                Bagas Prakoso 
             </div>
             <div class="created-date">
-                Apr 25
+                Apr 16
             </div>
             <div class="conversation-message">
-                Mantab gan barang yang "itu"
+                This is a message 
             </div>
         </div>
-    </div>
-    <div id="new-message-container">
-         <a href="#">+</a>
-    </div>
-    <div id="chat-title">
-        <span>Dewi Pertiwi</span>
-        <img src="img/delete.svg" alt="Delete Conversation" />
-    </div>
-      <div id="chat-message-list">
-        <div class="message-row you-message">
-            <div class="message-text">Okelah kalau begitu</div>
-            <div class="message-time">Apr 16</div>
+        <div class="conversation">
+            <img src="img/orang/orang1_2.jpg" alt="Bagas Prakoso" />
+            <div class="title-text">
+                Bagas Prakoso 
+            </div>
+            <div class="created-date">
+                Apr 16
+            </div>
+            <div class="conversation-message">
+                This is a message 
+            </div>
         </div>
-        <div class="message-row other-message">
-            <img src="img/orang/orang1_2.jpg" <div class="message-text">saya kira sebaiknya kita lakukan itu jika tidak akan tidak berjalan dengan semestinya</div> <div class="message-time">Apr 16</div> </div> </div> <div id="chat-form"> <img src="img/attachment.svg" alt="Add Attachment" /> <input type="text" placeholder="type a message" /> </div> </div> </body> </html>
+       </div>
+       <div id="new-message-container">
+            <a href="#">+</a>
+       </div>
+       <div id="chat-title">
+            <span>Bagas Prakoso</span>
+            <img src="img/delete.svg" alt="Delete Conversation" />
+       </div>
+       <div id="chat-message-list">
+            <div class="message-row you-message">
+                <div class="message-text">Woooooh readddddy gannn silahkan langsung pesan</div>
+                <div class="message-time">Apr 16</div>
+            </div>
+            <div class="message-row other-message">
+                <div class="message-content">
+                    
+                </div>
+                <img src="img/orang/orang1_2.jpg" alt="Bagas Prakoso" />
+                <div class="message-text">Barang ready gan ?</div>
+                <div class="message-time">Apr 16</div>
+            </div>
+        </div>
+        <div id="chat-form">
+            <img src="img/attachment.svg" alt="Add Attachment" />
+            <input type="text" placeholder="type a message" />
+        </div>
+    </div>
+</body>
+</html>
