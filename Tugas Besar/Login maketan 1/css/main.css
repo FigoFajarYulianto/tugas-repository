@@ -253,10 +253,33 @@ iframe {
 .wrap-input100 {
   width: 100%;
   position: relative;
-  border-bottom: 2px solid #1f1e1e;
-  margin-bottom: 30px;
-  
+  border-bottom: 2px solid #adadad;
+  margin-bottom: 22px;
+
 }
+
+.btn-show-pass {
+  font-size: 20px;
+  color: #999999;
+
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: flex;
+  align-items: center;
+  position: absolute;
+  height: 100%;
+  top: 0;
+  right: 0;
+  padding-right: 5px;
+  cursor: pointer;
+  -webkit-transition: all 0.4s;
+  -o-transition: all 0.4s;
+  -moz-transition: all 0.4s;
+  transition: all 0.4s;
+}
+
 
 .input100 {
   font-family: Poppins-Regular;
