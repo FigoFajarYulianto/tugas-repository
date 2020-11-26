@@ -1,0 +1,114 @@
+<html>
+    <head>
+        <title> tugas</title>
+        <style type="text/css">
+        .pertama{
+            width: 40%;
+            margin: auto;
+            background-color: rgba(128, 73, 0, 0.767);
+            color:red;
+            
+        }
+        .header{
+            text-align: center;
+            font-family: lucida;
+            margin: auto;
+            
+            
+        }
+
+        .table{
+            margin:auto;
+            color: white;
+            font-weight:bold;
+            
+            
+
+                   }
+        
+        .table td{
+            padding-bottom: 20px;
+        }
+
+        .input{
+            border-radius: 10px;
+
+                    }
+
+         .submit{
+             padding: 5px 20px;
+             font-family: lucida;
+             font-weight: bold;
+             border-radius: 10px;
+         } 
+         body{
+             background-image: url(2.jpg);
+             background-size: cover;
+              
+         
+         }
+
+
+
+        </style>
+    </head>
+
+
+    <body>
+
+    <div class="pertama">
+<h1 class="header">Form Kasir</h1>    
+<form action="suksek-1.html ">
+
+<table class="table">
+<tr>
+    <td><label for="name">ID KASIR</label></td>  
+    <td>:<input type="text" placeholder="ID" class="input"></td><br>
+</tr> 
+
+<tr>
+    <td><label for="name"> KASIR</label></td>   
+    <td>:<input type="text" placeholder="NAMA" class="input"></td><br>
+</tr> 
+
+<tr>   
+<td><label for="name">ALAMAT</label></td>   
+            <td>:<select name="ALAMAT" class="input">
+            <option value ="JEMBER"> JEMBER </option>
+            <option value ="BONDOWOSO"> BONDOWOSO </option></select></td><br>
+</tr>
+    
+<tr>
+    <td><label for= "name">TELEPON</label></td>   
+    <td>:<input type="text" placeholder="Telp" class="input"></td><br>
+</tr>
+    
+<tr>
+    <td><label for="name">STATUS </label></label></td>
+    <td>:<input type ="radio" value="PRIA" name="status" class="input">PRIA   <input type ="radio" value="WANITA" name="status" class="input">WANITA</td><br> 
+</tr>
+
+<tr>                
+    <td><label for="name">USERNAME </label></td>
+    <td>:<input type="text" placeholder="User Name" name="USERNAME" class="input"></td><br>
+</tr>
+
+<tr>
+    <td><label for="name">PASSWORD</label></td>   
+    <td>:<input type="password" name="PASSWORD" class="input"></td><br>
+</tr>
+</div>
+
+
+    <div class="button">
+    <tr>    
+    <td><button type="submit" class="submit"><a href="tugas 1.html">kirim</a></button></td>
+    </tr>    
+
+    </div>
+
+
+</table>
+</form>
+</body>
+ </html>
