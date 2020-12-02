@@ -2,23 +2,22 @@
 session_start();
 
 //cek cookie
-if(isset($_COOKIE['id']) && isset($_COOKIE['key']) ){
+if (isset($_COOKIE['id']) && isset($_COOKIE['key'])) {
     $id = $_COOKIE['id'];
     $key = $_COOKIE['key'];
 
     //ambil username berdasarkan id
-    $result = mysqli_query($conn,"SELECT username FROM user WHERE id = $id");
+    $result = mysqli_query($conn, "SELECT username FROM user WHERE id = $id");
     $row = mysqli_fetch_assoc($result);
 
     //cek cookie dan username
-    if( $key === hash('sha256', $row['username']) ){
+    if ($key === hash('sha256', $row['username'])) {
         $_SESSION['login'] = true;
     }
+}
 
-    }
 
-
-if( isset($_SESSION["login"]) ){
+if (isset($_SESSION["login"])) {
     header("Location: index.php");
     exit;
 }
@@ -26,9 +25,9 @@ if( isset($_SESSION["login"]) ){
 
 
 
-require 'functions.php'; 
+require 'functions.php';
 
-if( isset($_POST["login"]) ){
+if (isset($_POST["login"])) {
 
     $username = $_POST["username"];
     $password = $_POST["password"];
@@ -36,27 +35,25 @@ if( isset($_POST["login"]) ){
     $result = mysqli_query($conn, "SELECT * FROM user WHERE username = '$username'");
 
     //cek username
-    if(mysqli_num_rows($result) === 1){
+    if (mysqli_num_rows($result) === 1) {
 
-     //cek password
-    $row = mysqli_fetch_assoc($result);
-    if (password_verify($password, $row["password"]) ){
+        //cek password
+        $row = mysqli_fetch_assoc($result);
+        if (password_verify($password, $row["password"])) {
 
             //set session
             $_SESSION["login"] = true;
 
             // cek remember me
-            if( isset($_POST['remember']) ) {
-               
-            //buat cookie
-            setcookie('id', $row['id'], time()+60);
-            setcookie('key', hash('sha256', $row["username"]) );
-            
-        }
+            if (isset($_POST['remember'])) {
+                //buat cookie
+                setcookie('id', $row['id'], time() + 60);
+                setcookie('key', hash('sha256', $row["username"]));
+            }
 
 
-        header("Location: index.php");
-        exit;
+            header("Location: Dasboard.php");
+            exit;
         }
     }
     $error = true;
@@ -102,8 +99,8 @@ if( isset($_POST["login"]) ){
     <div class="limiter">
         <div class="container-login100" style="background-image: url();">
             <div class="wrap-login100">
-                <?php if( isset($error) ) : ?>
-                <p style="color: red; font-style: italic;">username / password salah </p>
+                <?php if (isset($error)) : ?>
+                    <p style="color: red; font-style: italic;">username / password salah </p>
                 <?php endif; ?>
                 <form action="" method="POST" class="login100-form validate-form">
                     <span class="login100-form-logo">
@@ -151,8 +148,7 @@ if( isset($_POST["login"]) ){
                         </button>
                         </span>
                         <span class="register1">
-                            <a style="color: black; font-family: Poppins-Medium;  font-size: 16px" ; class="register"
-                                type="submit" name="register" href="registrasi.php">
+                            <a style="color: black; font-family: Poppins-Medium;  font-size: 16px" ; class="register" type="submit" name="register" href="registrasi.php">
                                 Register
                             </a>
                         </span>
