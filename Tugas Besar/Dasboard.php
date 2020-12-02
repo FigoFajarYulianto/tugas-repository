@@ -25,7 +25,7 @@ $koneksi = new mysqli("localhost", "root", "", "web");
 
 <body>
   <!-- Navbar -->
-  <div class="header">
+  <div class="header header-re">
     <class class="item-header-1 d-flex flex-column">
       <div class="d-flex justify-content-between lign-items-center">
         <a class="navbar-brand" href="#">MAKETAN</a>
@@ -45,26 +45,28 @@ $koneksi = new mysqli("localhost", "root", "", "web");
       </div>
 
       <div class="item-header-2 d-flex flex-column">
-        <div class="d-flex justify-content-between align-items-center"></div>
-        <div class="d-flex justify-content-around mt-2">
-          <span class"mr-3">
-            <h6>Pertanian</h6>
-          </span>
-          <span class"mr-3">
-            <h6>Bibit</h6>
-          </span>
-          <span class"mr-3">
-            <h6>Obat</h6>
-          </span>
-          <span class"mr-3">
-            <h6>Alat Pertanian</h6>
-          </span>
-          <span class"mr-3">
-            <h6>Perkebunan</h6>
-          </span>
+        <div class="container" style="width: 100%; min-height:100%; word-spacing: 3px">
+          <div class="d-flex justify-content-around mt-2">
+            <span class"mr-3">
+              <h6>Pertanian</h6>
+            </span>
+            <span class"mr-3">
+              <h6>Bibit</h6>
+            </span>
+            <span class"mr-3">
+              <h6>Obat</h6>
+            </span>
+            <span class"mr-3">
+              <h6>Alat Pertanian</h6>
+            </span>
+            <span class"mr-3">
+              <h6>Perkebunan</h6>
+            </span>
+          </div>
         </div>
       </div>
-    </class>
+  </div>
+  </class>
   </div>
   <!-- Akhir navbar -->
 
@@ -96,127 +98,38 @@ $koneksi = new mysqli("localhost", "root", "", "web");
 
   <!-- Kategori Pilihan -->
   <div class="wrap-affix mt-4">
-    <div class="row mx-0 mt-5 d-flex justify-content-center">
+    <div class="row mx-0 mt-5">
       <div class="col-2 pl-0">
-        <div class=" card">
-          <img src="img/img_katalog/pupuk1.jpg" class="card-img-top" alt="...">
-          <div class="card-body">
-            <h5 class="card-title">Pupuk Urea</h5>
-            <div class="d-flex">
-              <!--  diskon
-                <span class="badge badge-pill" style="background-color: #ff00d13b; color: d50000;">
-                  47%
-                </span>
-                <span class="badge-pill badge" style="color: #989898;"> Rp 50.000</span>-->
+        <div class="container">
+          <div class=" card">
+            <img src="img/img_katalog/pupuk1.jpg" class="card-img-top" alt="...">
+            <div class="card-body">
+              <h5 class="card-title">Pupuk Urea</h5>
+              <div class="d-flex">
+                <!--  diskon
+                  <span class="badge badge-pill" style="background-color: #ff00d13b; color: d50000;">
+                    47%
+                  </span>
+                  <span class="badge-pill badge" style="color: #989898;"> Rp 50.000</span>-->
+              </div>
+              <h4 class="mt-1"> IDR 30.000 / kg</h4>
+              <hr>
+              <div class="d-flex  align-items-center " style="position: relative; bottom: 10px; height: 60px;">
+                <img src="logo/store.png" class="card-img-store" alt="">
+                <span style="font-size: 16px; margin-bottom: auto;">Mayubi</span>
+                <button type="button" class="btn btn-light">4.5</button>
+              </div>
+              <span style="font-size: 16px; position: relative; bottom: 40px;">Kab.Yogyakarta</span>
             </div>
-            <h4 class="mt-1"> IDR 30.000 / kg</h4>
-            <hr>
-            <div class="d-flex  align-items-center " style="position: relative; bottom: 10px; height: 60px;">
-              <img src="logo/store.png" class="card-img-store" alt="">
-              <span style="font-size: 16px; margin-bottom: auto;">Mayubi</span>
-              <button type="button" class="btn btn-light">4.5</button>
-            </div>
-            <span style="font-size: 16px; position: relative; bottom: 40px;">Kab.Yogyakarta</span>
-          </div>
-        </div>
-      </div>
-      <div class="col-2 pl-0">
-        <div class="card">
-          <img src="img/img_katalog/pupuk1.jpg" class="card-img-top" alt="...">
-          <div class="card-body">
-            <h5 class="card-title">Pupuk Urea</h5>
-            <div class="d-flex">
-              <!--  diskon
-                <span class="badge badge-pill" style="background-color: #ff00d13b; color: d50000;">
-                  47%
-                </span>
-                <span class="badge-pill badge" style="color: #989898;"> Rp 50.000</span>-->
-            </div>
-            <h4 class="mt-1"> IDR 30.000 / kg</h4>
-            <hr>
-            <div class="d-flex  align-items-center " style="position: relative; bottom: 10px; height: 60px;">
-              <img src="logo/store.png" class="card-img-store" alt="">
-              <span style="font-size: 16px; margin-bottom: auto;">Mayubi</span>
-              <button type="button" class="btn btn-light">4.5</button>
-            </div>
-            <span style="font-size: 16px; position: relative; bottom: 40px;">Kab.Yogyakarta</span>
-          </div>
-        </div>
-      </div>
-      <div class="col-2 pl-0">
-        <div class="card">
-          <img src="img/img_katalog/pupuk1.jpg" class="card-img-top" alt="...">
-          <div class="card-body">
-            <h5 class="card-title">Pupuk Urea</h5>
-            <div class="d-flex">
-              <!--  diskon
-                <span class="badge badge-pill" style="background-color: #ff00d13b; color: d50000;">
-                  47%
-                </span>
-                <span class="badge-pill badge" style="color: #989898;"> Rp 50.000</span>-->
-            </div>
-            <h4 class="mt-1"> IDR 30.000 / kg</h4>
-            <hr>
-            <div class="d-flex  align-items-center " style="position: relative; bottom: 10px; height: 60px;">
-              <img src="logo/store.png" class="card-img-store" alt="">
-              <span style="font-size: 16px; margin-bottom: auto;">Mayubi</span>
-              <button type="button" class="btn btn-light">4.5</button>
-            </div>
-            <span style="font-size: 16px; position: relative; bottom: 40px;">Kab.Yogyakarta</span>
-          </div>
-        </div>
-      </div>
-      <div class="col-2 pl-0">
-        <div class="card">
-          <img src="img/img_katalog/pupuk1.jpg" class="card-img-top" alt="...">
-          <div class="card-body">
-            <h5 class="card-title">Pupuk Urea</h5>
-            <div class="d-flex">
-              <!--  diskon
-                <span class="badge badge-pill" style="background-color: #ff00d13b; color: d50000;">
-                  47%
-                </span>
-                <span class="badge-pill badge" style="color: #989898;"> Rp 50.000</span>-->
-            </div>
-            <h4 class="mt-1"> IDR 30.000 / kg</h4>
-            <hr>
-            <div class="d-flex  align-items-center " style="position: relative; bottom: 10px; height: 60px;">
-              <img src="logo/store.png" class="card-img-store" alt="">
-              <span style="font-size: 16px; margin-bottom: auto;">Mayubi</span>
-              <button type="button" class="btn btn-light">4.5</button>
-            </div>
-            <span style="font-size: 16px; position: relative; bottom: 40px;">Kab.Yogyakarta</span>
-          </div>
-        </div>
-      </div>
-      <div class="col-2 pl-0">
-        <div class="card">
-          <img src="img/img_katalog/pupuk1.jpg" class="card-img-top" alt="...">
-          <div class="card-body">
-            <h5 class="card-title">Pupuk Urea</h5>
-            <div class="d-flex">
-              <!--  diskon
-                <span class="badge badge-pill" style="background-color: #ff00d13b; color: d50000;">
-                  47%
-                </span>
-                <span class="badge-pill badge" style="color: #989898;"> Rp 50.000</span>-->
-            </div>
-            <h4 class="mt-1"> IDR 30.000 / kg</h4>
-            <hr>
-            <div class="d-flex  align-items-center " style="position: relative; bottom: 10px; height: 60px;">
-              <img src="logo/store.png" class="card-img-store" alt="">
-              <span style="font-size: 16px; margin-bottom: auto;">Mayubi</span>
-              <button type="button" class="btn btn-light">4.5</button>
-            </div>
-            <span style="font-size: 16px; position: relative; bottom: 40px;">Kab.Yogyakarta</span>
           </div>
         </div>
       </div>
     </div>
+  </div>
 
-    <div class="row mx-0 mt-5 justify-content-center">
-      <button class="btn btn-green"> Tampilkan Lebih banyak</button>
-    </div>
+  <div class="row mx-0 mt-5 justify-content-center">
+    <button class="btn btn-green"> Tampilkan Lebih banyak</button>
+  </div>
   </div>
 
   <!-- footer -->

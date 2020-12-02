@@ -188,28 +188,33 @@
     margin-right: 2px;
 }
 
-.btn-green{
+.btn-green {
     color: #465047c4;
     border: 1px solid #465047c4;
     background-color: transparent;
-    padding:10px  70px;
+    padding: 10px 70px;
     font-size: 20px;
 }
-.card-footer{
+
+.card-footer {
     margin-top: 50px;
     margin-bottom: auto;
 }
-.card-body{
+
+.card-body {
     margin-left: auto;
-    margin-right:auto ;
+    margin-right: auto;
 }
-.card-footer .card-body{
+
+.card-footer .card-body {
     max-height: 200px;
 }
-.card-footer .card-body img{
+
+.card-footer .card-body img {
     width: 50%;
     height: 50%;
 }
-.card-footer .card-body a img{
+
+.card-footer .card-body a img {
     padding: 10px;
 }
