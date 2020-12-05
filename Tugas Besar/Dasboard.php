@@ -44,33 +44,29 @@ $koneksi = new mysqli("localhost", "root", "", "web");
         </div>
       </div>
 
-      <div class="item-header-2 d-flex flex-column">
-        <div class="container" style="width: 100%; min-height:100%; word-spacing: 3px">
-          <div class="d-flex justify-content-around mt-2">
-            <span class"mr-3">
-              <h6>Pertanian</h6>
-            </span>
-            <span class"mr-3">
-              <h6>Bibit</h6>
-            </span>
-            <span class"mr-3">
-              <h6>Obat</h6>
-            </span>
-            <span class"mr-3">
-              <h6>Alat Pertanian</h6>
-            </span>
-            <span class"mr-3">
-              <h6>Perkebunan</h6>
-            </span>
-          </div>
-        </div>
+      <div class="d-flex justify-content-around mt-2" style="max-width: 100%;">
+        <span class"mr-3">
+          <h6>Pertanian</h6>
+        </span>
+        <span class"mr-3">
+          <h6>Bibit</h6>
+        </span>
+        <span class"mr-3">
+          <h6>Obat</h6>
+        </span>
+        <span class"mr-3">
+          <h6>Alat</h6>
+        </span>
+        <span class"mr-3">
+          <h6>Perkebunan</h6>
+        </span>
       </div>
-  </div>
-  </class>
+    </class>
   </div>
   <!-- Akhir navbar -->
 
   <!-- Carousel -->
+  
   <div id="carouselExampleIndicators" class="carousel slide d-flex flex-column align-items-center" data-ride="carousel">
     <ol class="carousel-indicators">
       <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
