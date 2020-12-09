@@ -9,9 +9,7 @@
         if($password == $data['password']){
             header("location:index.php?pesan=berhasil");
         }else {
-            header("location:login.php?pesan=passwordsalah");
+            header("location:login.php?pesan=gagal");
         }
-    }else{
-        header("location:login.php?pesan=emailsalah");
     }
     ?>
