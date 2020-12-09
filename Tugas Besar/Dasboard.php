@@ -158,15 +158,30 @@ $koneksi = new mysqli("localhost", "root", "", "web");
   </div>
   <!-- Penutup Modal Pencarian -->
 
+  <!-- Css Chat -->
+<style>
+.button_message {
+background-color: rgb(85, 85, 85);
+color: white;
+padding: 5px 0px;
+border: none;
+cursor: pointer;
+opacity: 0.8;
+position: fixed;
+bottom: 23px;
+right: 28px;
+width: 280px;
+border-radius: 12px;
+font-size: 30px;
+font-variant: small-caps;
+}
+</style>
 
-
-
-
-
-
-
-
-
+<!-- Chat -->
+<button class="button_message">
+<a href="" style="color:#0e0d0d;" >Chat</a>
+<img src="img/chat.svg" alt="logo chat">
+</button>
 
 
 
