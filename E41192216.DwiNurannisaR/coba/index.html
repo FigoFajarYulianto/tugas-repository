@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>kasir</title>
+</head>
+<body style="background-color: rosybrown;">
+    <h1><center>FORM DATA KASIR</center></h1>
+
+
+
+    <tr>
+        <th>ID KASIR :</th>
+        <th><input type="number" id="kasir" onchange="total()"></th>
+   
+    </tr>
+
+    <p>
+       <th>NAMA KASIR :</th>
+       <th><input type="text" id="nama" onchange="total"></th>
+    
+    </p>
+
+    <p>
+        <th>ALAMAT KASIR :</th>
+        <th><select id="status" onchange="total">
+        <option>Jember</option>
+        <option>Bondowoso</option>
+        <option>Surabaya</option>
+        </select></th>
+   
+    </p>
+
+    <p>
+        <th>TELEPON KASIR :</th>
+        <th><input type="number" id="kasir" onchange="total()"></th>
+   
+    </p>
+
+    <p>
+        <th>STATUS :</th>
+        <input type="radio" name="jenis_kelamin1" value="PRIA"/>PRIA
+        <input type="radio" name="jenis_kelamin2" value="WANITA"/>WANITA
+        <br/>
+    
+      </p>
+
+      <p>
+        <th>USERNAME :</th>
+        <TH><input type="text" id="username" onchange="total"></TH>
+  
+    </p>
+    
+    <p>
+        <th>PASSWORD :</th>
+        <input type="password" id="pass" onchange="total">
+   
+    </p>
+
+    <nav>
+        <a href="target.html"> <button>Kirim</button></a>
+    </nav>
+</body>
+</html>
