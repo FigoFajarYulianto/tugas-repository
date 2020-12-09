@@ -1,6 +1,6 @@
 <?php
 //skrip koneksi
-$koneksi = new mysqli("localhost", "root", "", "web");
+$koneksi = new mysqli("localhost", "root", "", "project_chat");
 ?>
 <!doctype html>
 <html lang="en">
@@ -37,7 +37,7 @@ $koneksi = new mysqli("localhost", "root", "", "web");
           </div>
           <div class="login-navbar">
             <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-              <a href="User/login.php" class="btn btn-primary" role="button" data-bs-toggle="button">Masuk</a>
+              <a href="Login/index.php" class="btn btn-primary" role="button" data-bs-toggle="button">Masuk</a>
               <a href="User/registrasi.php" class="btn btn-primary" role="button" data-bs-toggle="button">Daftar</a>
             </div>
           </div>
@@ -94,6 +94,7 @@ $koneksi = new mysqli("localhost", "root", "", "web");
     <!-- Kategori Pilihan -->
     <div class="pilihan-barang">
       <div class="wrapper">
+      <?php  $ambil = $koneksi->query("SELECT * FROM produk");s?>
         <div class="card">
           <img src="img/img_katalog/pacul.jpg">
           <div class="content">

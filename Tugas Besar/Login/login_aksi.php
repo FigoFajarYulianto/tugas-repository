@@ -15,7 +15,7 @@ if($cek == 1) {
 
 	$_SESSION['user_id'] = $data['user_id']; 
 	$_SESSION['user_status'] = 'login'; 
-	header("Location:index.php");
+	header("Location:../Dasboard.php");
 	return;
 }else{
 	header("location:index.php?alert=gagal");
