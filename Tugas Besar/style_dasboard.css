@@ -1,5 +1,9 @@
+*{
+	margin: 0;
+	padding: 0;
+}
 /* navbar */
-.header {
+header {
     position: relative;
     z-index: 9999;
     width: 100%;
@@ -70,7 +74,10 @@
     border-image-width: 100%;
 }
 
-.header .btn {
+header .login-navbar{
+    margin-left: 30px;
+}
+header .btn {
     border-radius: 20px;
     font-size: 17px;
     background-color: #0673f0;
@@ -132,6 +139,10 @@
 }
 
 /* Caraousel Style */
+.isi{
+    margin-left: 10%;
+    margin-right: 10%;
+}
 .carousel {
     position: relative;
     top: 36px;
@@ -154,48 +165,107 @@
     border-bottom: 0;
     border-top: 0;
 }
-.container{
-    padding-left: 50px;
+/* card */
+.pilihan-barang .wrapper{
+    margin-top: 4%;
+    padding-left:30px;
+    padding-right: 30px;
+	max-width: 100%;
+	display: flex;
+	align-items: center; 
+	justify-content: space-between;
 }
-.card {
-    box-shadow: rgba(49, 53, 59, 0.12) 0px 1px 6px 0px;
-    border-radius: 12px;
-    width: 255px;
-    height: 370px;
-    margin-left: auto;
-    margin-top: 28px;
-    margin-right: auto;
+.pilihan-barang .wrapper .card {
+    position: relative;
+    ;
+	width: calc(20% - 50px);
+	border-radius: 3px;
+	background: #fff;
+	overflow: hidden;
+}
+.pilihan-barang .wrapper .card img{
+    max-width: 100%;
+    width:100%;
+    height: 100%;
+	border-radius:3px;
+	transition: all 0.3s ease;
+}
+.pilihan-barang .wrapper .card:hover img{
+	transform: scale(1.1) ;
+}
+.pilihan-barang .wrapper .card .content{
+	position: absolute;
+    width: 100%;
+    height: 60%;
+    background: #fff;
+	bottom: -90%;
+	padding: 10px 20px 22px 20px;
+	box-shadow: 0px -3px 10px 0px rgba(0, 0, 0, 0.15);
+	transition: all 0.3s ease;
+}
+.pilihan-barang .wrapper .card:hover .content{
+	bottom: 0;
 }
 
-.card-img-top {
-    width: 200px;
-    height: 200px;
-    margin-left: auto;
-    margin-right: auto;
+.pilihan-barang .card .content .buttons{
+	display: flex;
+	justify-content: space-between;
 }
-
-.card-body {
-    padding: 20px;
-    width: 255px;
-    height: 361px;
+.pilihan-barang .content .row .details span{
+	font-size: 22px;
+	font-weight: 500;
 }
-
-.card .card-body .btn {
-    margin-left: auto;
+.pilihan-barang .content .row .details p{
+	color :#333;
+	font-size: 17px;
+	font-weight: 400;
 }
-
-.card-title {
-    margin-bottom: 3px;
-    color: rgba(128, 128, 128, 0.842);
+.pilihan-barang .content .row .price{
+	color: #ff7979;
+	font-size: 20px;
+    font-weight: 600;
+    max-width: 100%;
+    padding-left: 27px;
 }
-
-.card-img-store {
-    width: 24px;
-    height: 24px;
-    margin-bottom: auto;
-    margin-right: 2px;
+.pilihan-barang .content .buttons{
+	margin-top: 20px;
 }
-
+.pilihan-barang .content .buttons button{
+    margin-top: -10px;
+    width: 100%;
+	outline: none;
+	padding: 5px 0 ;
+	font-size: 17px;
+	font-weight: 500;
+	border-radius: 3px;
+	border: 2px solid #ff7979;
+	cursor: pointer;
+	margin-bottom: 10px;
+	text-transform: uppercase;
+	transition: all 0.3s ease;
+}
+.pilihan-barang .buttons button:first-child{
+	color: #ff7979;
+	background: #fff;
+	margin-left: 10px;
+	margin-right: 10px;
+}
+.pilihan-barang button:first-child:hover{
+	color: #fff;
+	background: #ff7979;
+}
+.pilihan-barang .buttons button:last-child{
+	color: #fff;
+	background: #ff7979;
+	margin-right: 10px;
+	margin-left: 10px;
+}
+.pilihan-barang button:last-child:hover{
+	background: #ff6666;
+	border-color: #ff6666;
+}
+/* akhir card */
+/* tampilkan lebih banyak */
 .btn-green {
     color: #465047c4;
     border: 1px solid #465047c4;
@@ -203,26 +273,26 @@
     padding: 10px 70px;
     font-size: 20px;
 }
-
-.card-footer {
+/* footer */
+.footer-ku .card-footer {
     margin-top: 50px;
     margin-bottom: auto;
 }
 
-.card-body {
+.footer-ku .card-body {
     margin-left: auto;
     margin-right: auto;
 }
 
-.card-footer .card-body {
+.footer-ku .card-footer .card-body {
     max-height: 200px;
 }
 
-.card-footer .card-body img {
-    width: 50%;
-    height: 50%;
+.footer-ku .card-footer .card-body img {
+    width: 5%;
+    height: 5%;
 }
 
-.card-footer .card-body a img {
+.footer-ku .card-footer .card-body a img {
     padding: 10px;
 }
