@@ -28,7 +28,7 @@ $koneksi = new mysqli("localhost", "root", "", "web");
   <header>
       <class class="item-header-1 d-flex flex-column">
         <div class="d-flex justify-content-between ">
-          <a class="navbar-brand" href="#">MAKETAN</a>
+          <a class="navbar-brand" href="Dasboard.php">MAKETAN</a>
           <div class="wrap-search">
             <input type="text" class="form-control" placeholder="cari barang" data-toggle="modal" data-target="#exampleModal">
             <div class="wrap-icon-search">
