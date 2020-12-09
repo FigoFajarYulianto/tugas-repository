@@ -94,7 +94,7 @@ $koneksi = new mysqli("localhost", "root", "", "project_chat");
     <!-- Kategori Pilihan -->
     <div class="pilihan-barang">
       <div class="wrapper">
-      <?php  $ambil = $koneksi->query("SELECT * FROM produk");s?>
+      <?php  $ambil = $koneksi->query("SELECT * FROM produk");?>
         <div class="card">
           <img src="img/img_katalog/pacul.jpg">
           <div class="content">
@@ -153,29 +153,28 @@ $koneksi = new mysqli("localhost", "root", "", "project_chat");
   <!-- Penutup Modal Pencarian -->
 
   <!-- Css Chat -->
-<style>
-.button_message {
-background-color: rgb(85, 85, 85);
-color: white;
-padding: 5px 0px;
-border: none;
-cursor: pointer;
-opacity: 0.8;
-position: fixed;
-bottom: 23px;
-right: 28px;
-width: 280px;
-border-radius: 12px;
-font-size: 30px;
-font-variant: small-caps;
-}
-</style>
+  <style>
+  .button_message .btn-secondary {
+  background-color: rgb(85, 85, 85);
+  color: white;
+  padding: 5px 0px;
+  border: none;
+  cursor: pointer;
+  opacity: 0.8;
+  position: fixed;
+  bottom: 23px;
+  right: 28px;
+  width: 280px;
+  border-radius: 12px;
+  font-size: 30px;
+  font-variant: small-caps;
+  }
+  </style>
 
-<!-- Chat -->
-<button class="button_message">
-<a href="" style="color:#0e0d0d;" >Chat</a>
-<img src="img/chat.svg" alt="logo chat">
-</button>
+  <!-- Chat -->
+  <div class="button_message">
+    <a class="btn btn-secondary" href="user/index.php" role="button">Chat</a>
+  </div>
 
 
 
