@@ -11,7 +11,7 @@
 	<script type="text/javascript" src="../assets/js/popper.js"></script>
 	<script type="text/javascript" src="../assets/js/bootstrap.js"></script>
 
-	<title>SapaTeman - Aplikasi Chatting</title>
+	<title>Chat</title>
 
 </head>
 <body>
