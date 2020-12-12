@@ -42,7 +42,7 @@ $koneksi = new mysqli("localhost", "root", "", "project_chat");
               <!-- asdsadasdasd -->
             <?php else: ?>
             <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-              <a href="Login/index.php" class="btn btn-primary" role="button" data-bs-toggle="button">Masuk</a>
+              <a href="Login/login.php" class="btn btn-primary" role="button" data-bs-toggle="button">Masuk</a>
               <a href="Login/daftar.php" class="btn btn-primary" role="button" data-bs-toggle="button">Daftar</a>
             </div>
             <?php endif ?>

@@ -1,6 +1,25 @@
 <?php
 include "koneksi.php";
 
+
+session_start();
+if(isset($_COOKIE['id']) && isset($_COOKIE['key']) ){
+	$id = $_COOKIE['id'];
+	$key = $_COOKIE['key'];
+
+}
+
+if($key === hash('sha256', $row['email']) ){
+	$_SESSION['login'] = true;
+}
+
+
+if(isset($_POST['remember'])){
+
+	setcookie('id', $row['id'], time()+60);
+	setcookie('key', hash('sha256', $row["email"]) );
+}
+
 $email = $_POST['email'];
 $password = md5($_POST['password']);
 
@@ -18,7 +37,7 @@ if($cek == 1) {
 	header("Location:../Dasboard.php");
 	return;
 }else{
-	header("location:index.php?alert=gagal");
+	header("location:login.php?alert=gagal");
 }
 
 ?>

@@ -21,7 +21,7 @@
 	session_start();
 	if($_SESSION['user_status'] != "login"){
 		session_destroy();
-		header("location:../index.php?alert=login-dulu");
+		header("location:../Login/index.php?alert=login-dulu");
 	}
 	$id_user = $_SESSION['user_id'];
 	$s = mysqli_query($koneksi,"select * from user where user_id='$id_user'");

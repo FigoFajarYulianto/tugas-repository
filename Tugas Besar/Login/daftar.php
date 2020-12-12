@@ -9,7 +9,6 @@
                 <center>
                     <a href="index.php"><img src="gambar/sistem/maketan.png" style="width:auto; height:150px;"></a>
                 </center>
-                <br>
 
 
                 <center>

@@ -11,7 +11,7 @@ if(mysqli_num_rows($cek) > 0){
 }else{
 	// daftar user
 	$sql = mysqli_query($koneksi,"INSERT INTO user (user_email,user_nama,user_password,user_foto,user_status) VALUES ('$email','$nama','$password','','online')"); 
-	header("Location:index.php?alert=registered");
+	header("Location:login.php?alert=registered");
 }
 
 ?>
