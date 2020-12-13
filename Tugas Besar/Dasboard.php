@@ -21,6 +21,8 @@ $koneksi = new mysqli("localhost", "root", "", "project_chat");
   <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
   <!-- My Css -->
   <link rel="stylesheet" href="style_dasboard.css">
+
+  <script src="https://kit.fontawesome.com/a076d05399.js"></script>
   <title>MAKETAN</title>
 </head>
 
@@ -39,14 +41,81 @@ $koneksi = new mysqli("localhost", "root", "", "project_chat");
           <div class="login-navbar">
             <?php if (isset($_SESSION['user_status'])):?>
               <a href="logout.php">logout</a>
-              <!-- asdsadasdasd -->
+              <!-- profil beranda -->
+              <div class="profil-pengunjung">
+                <nav>
+                  <div class="drop-btn">
+                    Drop down <span class="fas fa-caret-down"></span>
+                  </div>
+                  <div class="wrapper">
+                    <ul class="menu-bar">
+                      <li><a href="#">
+                        <div class="icon"><span class="fas fa-home"></span></div>
+                        Home
+                      </a></li>
+                      <li><a href="#">
+                        <div class="icon"><span class="fas fa-cog"></span></div>
+                        Setting & privacy <i class="fas fa-angle-right"></i>
+                      </a></li>
+                      <li><a href="#">
+                        <div class="icon"><span class="fas fa-question-circle"></span></div>
+                        Help & support <i class="fas fa-angle-right"></i>
+                      </a></li>
+                      <li><a href="#">
+                        <div class="icon"><span class="fas fa-user"></span></div>
+                        About us 
+                      </a></li>
+                      <li><a href="#">
+                        <div class="icon"><span class="fas fa-comment-alt"></span></div>
+                        feedback
+                      </a></li>
+                    </ul>
+                    <!-- setting & privacy Menu-item -->
+                    <ul class="setting-drop">
+                      <li class="arrow"><span class="fas fa-arrow-left"></span>setting & privacy</li>
+                      <li><a href="#">
+                        <div class="icon"><span class="fas fa-home"></span></div>
+                        Personal info 
+                      </a></li>
+                      <li><a href="#">
+                        <div class="icon"><span class="fas fa-lock"></span></div>
+                        Password </a></li>
+                      <li><a href="#">
+                        <div class="icon"><span class="fas fa-address-book"></span></div>
+                        activity</a></li>
+                      <li><a href="#">
+                        <div class="icon"><span class="fas fa-globe-asia"></span></div>
+                        language</a></li>
+                      <li><a href="#">
+                        <div class="icon"><span class="fas fa-sign-out-alt"></span></div>
+                        logout</a></li>
+                    </ul>
+
+                    <!-- help & support Menu-item -->
+                    <ul class="setting-drop">
+                      <li class="arrow"><span class="fas fa-arrow-left"></span>setting & privacy</li>
+                      <li><a href="#">
+                        <div class="icon"><span class="fas fa-question-circle"></span></div>
+                        Help centre </a></li>
+                      <li><a href="#">
+                        <div class="icon"><span class="fas fa-envelope"></span></div>
+                        Support inbox</a></li>
+                      <li><a href="#">
+                        <div class="icon"><span class="fas fa-comment-alt"></span></div>
+                        Send feedback</a></li>
+                      <li><a href="#">
+                        <div class="icon"><span class="fas fa-globe-asia"></span></div>
+                        language</a></li>
+                    </ul>
+                  </div>
+                </nav>
+              </div>
             <?php else: ?>
             <div class="d-grid gap-2 d-md-flex justify-content-md-end">
               <a href="Login/login.php" class="btn btn-primary" role="button" data-bs-toggle="button">Masuk</a>
               <a href="Login/daftar.php" class="btn btn-primary" role="button" data-bs-toggle="button">Daftar</a>
             </div>
             <?php endif ?>
-
           </div>
         </div>
 
@@ -192,8 +261,8 @@ $koneksi = new mysqli("localhost", "root", "", "project_chat");
   <!-- Optional JavaScript; choose one of the two! -->
 
   <!-- Option 1: jQuery and Bootstrap Bundle (includes Popper) -->
-  < src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></>
-  < src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></>
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
 
   <!-- Option 2: jQuery, Popper.js, and Bootstrap JS
     < src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></>

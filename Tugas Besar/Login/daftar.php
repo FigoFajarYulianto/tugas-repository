@@ -4,7 +4,7 @@
 
     <div class="row">
 
-        <div class="col-12 col-lg-4 mx-auto">
+        <div class="col-12 col-lg-4 mx-auto ">
             <div class="border_daftar">
                 <center>
                     <a href="index.php"><img src="gambar/sistem/maketan.png" style="width:auto; height:150px;"></a>
@@ -54,7 +54,7 @@
                         <p class="text-center mt-3">
                             Sudah punya akun?
                             <br>
-                            <small><a href="index.php">Login</a></small>
+                            <small><a href="login.php">Login</a></small>
                         </p>
 
                     </form>
