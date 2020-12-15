@@ -29,7 +29,7 @@ $koneksi = new mysqli("localhost", "root", "", "project_chat");
 <body>
   <!-- Navbar -->
   <header>
-      <class class="item-header-1 d-flex flex-column">
+      <class class="item-header-1 d-flex flex-column" style="padding-right: 3px; padding-left:3px;">
         <div class="d-flex justify-content-between ">
           <a class="navbar-brand" href="Dasboard.php">MAKETAN</a>
           <div class="wrap-search">
@@ -40,78 +40,20 @@ $koneksi = new mysqli("localhost", "root", "", "project_chat");
           </div>
           <div class="login-navbar">
             <?php if (isset($_SESSION['user_status'])):?>
-              <a href="logout.php">logout</a>
-              <!-- profil beranda -->
-              <div class="profil-pengunjung">
-                <nav>
-                  <div class="drop-btn">
-                    Drop down <span class="fas fa-caret-down"></span>
-                  </div>
-                  <div class="wrapper">
-                    <ul class="menu-bar">
-                      <li><a href="#">
-                        <div class="icon"><span class="fas fa-home"></span></div>
-                        Home
-                      </a></li>
-                      <li><a href="#">
-                        <div class="icon"><span class="fas fa-cog"></span></div>
-                        Setting & privacy <i class="fas fa-angle-right"></i>
-                      </a></li>
-                      <li><a href="#">
-                        <div class="icon"><span class="fas fa-question-circle"></span></div>
-                        Help & support <i class="fas fa-angle-right"></i>
-                      </a></li>
-                      <li><a href="#">
-                        <div class="icon"><span class="fas fa-user"></span></div>
-                        About us 
-                      </a></li>
-                      <li><a href="#">
-                        <div class="icon"><span class="fas fa-comment-alt"></span></div>
-                        feedback
-                      </a></li>
-                    </ul>
-                    <!-- setting & privacy Menu-item -->
-                    <ul class="setting-drop">
-                      <li class="arrow"><span class="fas fa-arrow-left"></span>setting & privacy</li>
-                      <li><a href="#">
-                        <div class="icon"><span class="fas fa-home"></span></div>
-                        Personal info 
-                      </a></li>
-                      <li><a href="#">
-                        <div class="icon"><span class="fas fa-lock"></span></div>
-                        Password </a></li>
-                      <li><a href="#">
-                        <div class="icon"><span class="fas fa-address-book"></span></div>
-                        activity</a></li>
-                      <li><a href="#">
-                        <div class="icon"><span class="fas fa-globe-asia"></span></div>
-                        language</a></li>
-                      <li><a href="#">
-                        <div class="icon"><span class="fas fa-sign-out-alt"></span></div>
-                        logout</a></li>
-                    </ul>
-
-                    <!-- help & support Menu-item -->
-                    <ul class="setting-drop">
-                      <li class="arrow"><span class="fas fa-arrow-left"></span>setting & privacy</li>
-                      <li><a href="#">
-                        <div class="icon"><span class="fas fa-question-circle"></span></div>
-                        Help centre </a></li>
-                      <li><a href="#">
-                        <div class="icon"><span class="fas fa-envelope"></span></div>
-                        Support inbox</a></li>
-                      <li><a href="#">
-                        <div class="icon"><span class="fas fa-comment-alt"></span></div>
-                        Send feedback</a></li>
-                      <li><a href="#">
-                        <div class="icon"><span class="fas fa-globe-asia"></span></div>
-                        language</a></li>
-                    </ul>
-                  </div>
-                </nav>
+              <div class="btn-group">
+                <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  Action
+                </button>
+                <div class="dropdown-menu">
+                  <a class="dropdown-item" href="logout.php"><span class="fas fa-home">Action</span></a>
+                  <a class="dropdown-item" href="#">Another action</a>
+                  <a class="dropdown-item" href="#">Something else here</a>
+                  <div class="dropdown-divider"></div>
+                  <a class="dropdown-item" href="#">Separated link</a>
+                </div>
               </div>
             <?php else: ?>
-            <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+            <div class="d-md-flex justify-content-md-end">
               <a href="Login/login.php" class="btn btn-primary" role="button" data-bs-toggle="button">Masuk</a>
               <a href="Login/daftar.php" class="btn btn-primary" role="button" data-bs-toggle="button">Daftar</a>
             </div>
