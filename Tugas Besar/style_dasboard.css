@@ -147,6 +147,10 @@ header .btn{
     color: #868686;
 }
 
+.login-navbar .dd_menu .dd_right a:hover{
+    color: black;
+}
+
 .login-navbar .dd_menu li{
 	margin-bottom: 10px;
 	color: #868686;
