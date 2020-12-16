@@ -115,6 +115,7 @@ header .btn{
 
 .login-navbar .dd_menu {
     position: absolute;
+    width: 230px;
     right: -25px;
     top: 47px;
     display: flex;
@@ -125,18 +126,25 @@ header .btn{
 }
 
 .login-navbar .dd_menu .dd_left{
-	background: #74ded8;
+	background: #b3b6b5;
 	padding: 15px 20px;
 	border-top-left-radius: 15px;
 	border-bottom-left-radius: 15px;
 }
 
 .login-navbar .dd_menu .dd_left li{
-	color: rgb(155, 41, 41);
+	color: rgb(102, 97, 97);
 }
 
 .login-navbar .dd_menu .dd_right{
+    display: inline;
+    width: 90%;
 	padding: 15px 20px;
+}
+
+.login-navbar .dd_menu .dd_right a{
+    text-decoration: none;
+    color: #868686;
 }
 
 .login-navbar .dd_menu li{

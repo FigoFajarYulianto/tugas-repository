@@ -48,22 +48,18 @@ $koneksi = new mysqli("localhost", "root", "", "project_chat");
                     <div class="dd_menu">
                       <div class="dd_left">
                         <ul>
-                          <li><i class="fas fa-map-marker-alt"></i></li>
-                          <li><i class="far fa-star"></i></li>
-                          <li><i class="far fa-plus-square"></i></li>
-                          <li><i class="fas fa-cog"></i></li>
-                          <li><i class="fas fa-download"></i></li>
+                          <li><i class="fas fa-user"></i></li>
+                          <li><i class="fas fa-store"></i></li>
+                          <li><i class="fas fa-comment-dots"></i></li>
                           <li><i class="fas fa-sign-out-alt"></i></li>
                         </ul>
                       </div>
                       <div class="dd_right">
                         <ul>
-                          <li>Location</li>
-                          <li>Favorites</li>
-                          <li>Addpeople</li>
-                          <li>Settings</li>
-                          <li>Downloads</li>
-                          <li><a href="logout.php">logout</a></li>
+                          <li><a href="">data diri</a></li>
+                          <li><a href="">buka toko</a></li>
+                          <li><a href="">umpan balik</a></li>
+                          <li><a href="logout.php">keluar</a></li>
                         </ul>
                       </div>
                     </div>
