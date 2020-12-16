@@ -40,18 +40,46 @@ $koneksi = new mysqli("localhost", "root", "", "project_chat");
           </div>
           <div class="login-navbar">
             <?php if (isset($_SESSION['user_status'])):?>
-              <div class="btn-group">
-                <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                  Action
-                </button>
-                <div class="dropdown-menu">
-                  <a class="dropdown-item" href="logout.php"><span class="fas fa-home">Action</span></a>
-                  <a class="dropdown-item" href="#">Another action</a>
-                  <a class="dropdown-item" href="#">Something else here</a>
-                  <div class="dropdown-divider"></div>
-                  <a class="dropdown-item" href="#">Separated link</a>
-                </div>
+              <div class="nav_right">
+                <ul>
+                  <li class="nr_li dd_main">
+                    <img src="gambar/user/profile_pic.png" alt="profile_img">
+                    
+                    <div class="dd_menu">
+                      <div class="dd_left">
+                        <ul>
+                          <li><i class="fas fa-map-marker-alt"></i></li>
+                          <li><i class="far fa-star"></i></li>
+                          <li><i class="far fa-plus-square"></i></li>
+                          <li><i class="fas fa-cog"></i></li>
+                          <li><i class="fas fa-download"></i></li>
+                          <li><i class="fas fa-sign-out-alt"></i></li>
+                        </ul>
+                      </div>
+                      <div class="dd_right">
+                        <ul>
+                          <li>Location</li>
+                          <li>Favorites</li>
+                          <li>Addpeople</li>
+                          <li>Settings</li>
+                          <li>Downloads</li>
+                          <li><a href="logout.php">logout</a></li>
+                        </ul>
+                      </div>
+                    </div>
+                  </li>
+                </ul>
               </div>
+            </div>
+
+            <script>
+              var dd_main = document.querySelector(".dd_main");
+
+              dd_main.addEventListener("click", function(){
+                this.classList.toggle("active");
+              })
+            </script>
+
             <?php else: ?>
             <div class="d-md-flex justify-content-md-end">
               <a href="Login/login.php" class="btn btn-primary" role="button" data-bs-toggle="button">Masuk</a>
