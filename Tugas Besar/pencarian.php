@@ -3,6 +3,23 @@
 session_start();
 $koneksi = new mysqli("localhost", "root", "", "project_chat");
 ?>
+<?PHP  
+$keyword = $_GET["keyword"];
+
+$semuadata=array();
+$ambil = $koneksi->query("SELECT * FROM tb_produk WHERE nama_produk LIKE '%$keyword%'
+OR deskripsi_produk LIKE '%$keyword%'");
+
+while($pecah = $ambil->fetch_assoc())
+{
+    $semuadata[]=$pecah;
+}
+
+// echo"<pre>";
+// print_r($semuadata);
+// echo"</pre>";
+
+?>
 <!doctype html>
 <html lang="en">
 
@@ -20,21 +37,21 @@ $koneksi = new mysqli("localhost", "root", "", "project_chat");
   <link rel="preconnect" href="https://fonts.gstatic.com">
   <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
   <!-- My Css -->
-  <link rel="stylesheet" href="style_dasboard.css">
+  <!-- <link rel="stylesheet" href="style_dasboard.css"> -->
   <link rel="stylesheet" href="style.css">
 
-  <!-- My Css Card -->
-  <link rel="stylesheet" href="style_Card.css">
-  <!-- <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>  -->
+    <!-- My Css Card -->
+    <link rel="stylesheet" href="style_Card.css">
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 
   <script src="https://kit.fontawesome.com/a076d05399.js"></script>
   <title>MAKETAN</title>
 </head>
 
 <body>
-  <!-- Navbar -->
-  <header>
+    <!-- Navbar -->
+    <header>
           <div class="container">
             <input type="checkbox" name="" id="check">
             
@@ -129,6 +146,7 @@ $koneksi = new mysqli("localhost", "root", "", "project_chat");
             </div>
         </div>
     </header>
+
     <style type="text/css">
     header .img-search {
     width: 18px;
@@ -185,73 +203,39 @@ $koneksi = new mysqli("localhost", "root", "", "project_chat");
 
     }
     </style>
-    <main>
-        <section>
-            <div class="overlay"></div>
-        </section>
-    </main>
-  <!-- Akhir navbar -->
+    <!-- Akhir navbar -->
 
-  <!-- Carousel -->
-  <div class="atas">
-    <div class="isis">
-      <div id="carouselExampleIndicators" class="carousel slide d-flex flex-column align-items-center" data-ride="carousel">
-        <ol class="carousel-indicators">
-          <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-          <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-          <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-        </ol>
-        <div class="carousel-inner">
-          <div class="carousel-item active">
-            <img src="img/img_iklan/Gambar iklan 1.jpg" class="d-block w-100" alt="...">
-          </div>
-          <div class="carousel-item">
-            <img src="img/img_iklan/Gambar iklan 1.jpg" class="d-block w-100" alt="...">
-          </div>
-        </div>
-        <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-          <span class="sr-only">Previous</span>
-        </a>
-        <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-          <span class="carousel-control-next-icon" aria-hidden="true"></span>
-          <span class="sr-only">Next</span>
-        </a>
-      </div>
-    </div>
-    <!-- akhir carousel -->
-
-    <!-- Kategori Pilihan -->
+    <!-- Hasil Pencarian -->
     <div class="isi">
         <div class="wrapper">
-          <?php $ambil = $koneksi->query("SELECT * FROM tb_produk"); ?>
-          <?php while($perproduk = $ambil->fetch_assoc()){ ?>
             <div class="card">
-                <img src="Produk/assets/img/produk/<?php echo $perproduk['gbr_produk'] ?>" alt="" class="img-responsive">
+                <img src="Produk/assets/img/produk/<?php echo $value["gbr_produk"] ?>" alt="" class="img-responsive">
                 <div class="content">
                     <div class="row">
                         <div class="details">
-                        <span><?php echo $perproduk['nama_produk'] ?></span>
-                        <p><?php echo $perproduk['map_link'] ?></p>
+                        <span>Headphone</span>
+                        <p>Premium headphone</p>
                         </div>
-                        <div class="price">Rp.<?php echo $perproduk['harga'] ?></div>
+                        <div class="price">$30</div>
                     </div>
-                    <hr style="height:1px;border:none;color:#333;background-color:#333;">
                     <div class="buttons">
-                        <button>Chat</button>
-                        <button class="cart-btn">Detail</button>
+                        <button>Buy Now</button>
+                        <button class="cart-btn">Add to Cart</button>
                     </div>
                 </div>
             </div>
-          <?php } ?>
         </div>
     </div>
 
-    <div class="row mx-0 mt-5 justify-content-center">
-      <button class="btn btn-green"> Tampilkan Lebih banyak</button>
-    </div>
-    </div>
-  </div>
+    <!-- Akhir Pencarian -->
+
+
+
+
+
+
+
+
 
   <!-- footer -->
   <div class="footer-ku">
@@ -314,6 +298,8 @@ $koneksi = new mysqli("localhost", "root", "", "project_chat");
 
 
 
+    <!-- My JS -->
+    <!-- <script src="script_Card.js"></script> -->
 
   <!-- Optional JavaScript; choose one of the two! -->
 

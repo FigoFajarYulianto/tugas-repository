@@ -1,0 +1,148 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+/* .mumu{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+} 
+::selection{
+  color: #fff;
+  background: #ff7979;
+} */
+.atas .isi{
+  display: flex;
+  align-items: center;
+  /* justify-content: center; */
+  min-height: 50vh;
+  background:transparent;
+  padding: 0 20px 20px ;
+
+} 
+.isi .wrapper{
+  position: relative;
+  max-width: 100%;  
+  padding-top: -300px;
+  /* display: flex; */
+  /* align-items: center; */
+  /* justify-content: space-between; */
+}
+  .wrapperr .cart-nav{
+  position: absolute;
+  right: 0;
+  top: -35%;
+  width: 130px;
+  background: #fff;
+  padding: 13px 15px;
+  border-radius: 3px;
+  display: flex;
+  cursor: pointer;
+  justify-content: space-evenly;
+  box-shadow: 3px 3px 8px 0px rgba(0,0,0,0.15);
+}
+.cart-nav .icon{
+  color: #ff7979;
+}
+.cart-nav .icon i{
+  font-size: 20px;
+}
+.cart-nav .icon span{
+  font-weight: 500;
+}
+.cart-nav .item-count{
+  font-size: 15px;
+  height: 23px;
+  width: 23px;
+  color: #ff7979;
+  background: #ffcccc;
+  text-align: center;
+  line-height: 22px;
+  border: 1px solid #ffb3b3;
+  border-radius: 50%;
+}
+.isi .wrapper .card{
+  margin: 0 20px 0 20px;
+  position: relative;
+  background: #fff;
+  border-radius: 3px;
+  width: calc(33% - 13px);
+  overflow: hidden;
+  box-shadow: 4px 4px 10px 0px rgba(0,0,0,0.15);
+}
+.isi .wrapper .card img{
+  width: 4000px;
+  height: 350px;
+  border-radius: 3px;
+  transition: all 0.3s ease;
+}
+.isi .card:hover img{
+  transform: scale(1.1);
+}
+.isi .card .content{
+  position: absolute;
+  width: 100%;
+  bottom: -60%;
+  background: #fff;
+  padding: 10px 20px 22px 20px;
+  box-shadow: 0px -3px 10px 0px rgba(0,0,0,0.15);
+  transition: all 0.3s ease;
+}
+.isi .card:hover .content{
+  bottom: 0;
+}
+.content .row,
+.content .buttons{
+  display: flex;
+  justify-content: space-between;
+}
+.content .row .details span{
+  font-size: 22px;
+  font-weight: 500;
+}
+.content .row .details p{
+  color: #333;
+  font-size: 17px;
+  font-weight: 400;
+}
+.content .row .price{
+  color: #ff7979;
+  font-size: 25px;
+  font-weight: 700;
+  margin-left:-80px;
+}
+.content .buttons{
+  margin-top: 65px;
+}
+.content hr{
+  margin-top:-10px;
+  margin-bottom:80px;
+}
+.isi .content .buttons button{
+  width: 100%;
+  padding: 9px 0;
+  outline: none;
+  cursor: pointer;
+  font-size: 17px;
+  font-weight: 500;
+  border-radius: 3px;
+  border: 2px solid #ff7979;
+  text-transform: uppercase;
+  transition: all 0.3s ease;
+}
+.isi .wrapper .card .buttons button:first-child{
+  color: #ff7979;
+  margin-right: 10px;
+  background: #fff;
+}
+.isi button:first-child:hover{
+  color: #fff;
+  background: #ff7979;
+}
+.isi .buttons button:last-child{
+  color: #fff;
+  margin-left: 10px;
+  background: #ff7979;
+}
+.isi button:last-child:hover{
+  background: #ff6666;
+  border-color: #ff6666;
+}

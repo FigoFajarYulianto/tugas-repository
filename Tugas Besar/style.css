@@ -6,10 +6,10 @@
     box-sizing: border-box;
 }
 
-body{
+/* body{
     font-family: 'Poppins', sans-serif;
     overflow: hidden;
-}
+} */
 
 ul{
     list-style: none;
@@ -179,7 +179,7 @@ header .container  .nav-btn .search-input .icon{
     margin: 0 .2rem;
     transition: .3s;
     text-transform: uppercase;
-    margin-top: -30px; 
+    margin-top: 27px;
 }
 
 .btn.solid, .btn.transparent:hover{
@@ -214,6 +214,7 @@ header .container  .nav-btn .search-input .icon{
     transition: .5s;
     /* margin-left: -10px; */
 }
+
 
 .nav-link > a > i{
     margin-left: .2rem;
@@ -303,14 +304,14 @@ header .container  .nav-btn .search-input .icon{
     pointer-events: auto;
 }*/
 
-.container .hamburger-menu-container{
+.hamburger-menu-container{
     flex: 1;
     display: none;
     align-items: center;
     justify-content: flex-end;
 } 
 /* y */
-.container  .hamburger-menu{
+.hamburger-menu{
     width: 2.5rem;
     height: 2.5rem;
     display: flex;
@@ -319,7 +320,7 @@ header .container  .nav-btn .search-input .icon{
     padding-right: 20px;
 }
 
-.container  .hamburger-menu div{
+.hamburger-menu div{
     width: 1.6rem;
     height: 3px;
     border-radius: 3px;
@@ -329,7 +330,7 @@ header .container  .nav-btn .search-input .icon{
     transition: .5s;
 }
 
-.container  .hamburger-menu div:before,
+.hamburger-menu div:before,
 .hamburger-menu div:after{
     content: '';
     position: absolute;
@@ -340,11 +341,11 @@ header .container  .nav-btn .search-input .icon{
     transition: .5s;
 }
 
-.container  .hamburger-menu div:before{
+.hamburger-menu div:before{
     transform: translateY(-7px);
 }
 
-.container  .hamburger-menu div:after{
+.hamburger-menu div:after{
     transform: translateY(7px);
 }
 
