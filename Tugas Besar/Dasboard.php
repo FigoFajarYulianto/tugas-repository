@@ -42,7 +42,7 @@ $koneksi = new mysqli("localhost", "root", "", "project_chat");
                     <div class="wrapper">
                       <div class="search-input">
                         <a href="" target="_blank" hidden></a>
-                        <input type="text" placeholder="Type to search..">
+                        <input type="text" placeholder="Cari Produk..">
                         <div class="autocom-box">
                           <!-- here list are inserted from javascript -->
                         </div>
@@ -66,15 +66,55 @@ $koneksi = new mysqli("localhost", "root", "", "project_chat");
                         <li class="nav-link" style="--i: 1.8s">
                             <a href="#">Obat</a>
                         </li>
-
                     </ul>
                 </div>
+                <div class="login-navbar">
+                  <?php if (isset($_SESSION['user_status'])):?>
+                    <div class="nav_right">
+                      <ul>
+                        <li class="nr_li dd_main">
+                          <img src="gambar/user/profile_pic.png" alt="profile_img">
+                          
+                          <div class="dd_menu">
+                            <div class="dd_left">
+                              <ul>
+                                <li><i class="fas fa-user"></i></li>
+                                <li><i class="fas fa-store"></i></li>
+                                <li><i class="fas fa-comment-dots"></i></li>
+                                <li><i class="fas fa-sign-out-alt"></i></li>
+                              </ul>
+                            </div>
+                            <div class="dd_right">
+                              <ul>
+                                <li><a href="">data diri</a></li>
+                                <li><a href="">buka toko</a></li>
+                                <li><a href="">umpan balik</a></li>
+                                <li><a href="logout.php">keluar</a></li>
+                              </ul>
+                            </div>
+                          </div>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
 
-                <div class="log-sign" style="--i: 1.8s">
-                    <a href="#" class="btn transparent">Log in</a>
-                    <a href="#" class="btn solid">Sign up</a>
+                  <script>
+                    var dd_main = document.querySelector(".dd_main");
+
+                    dd_main.addEventListener("click", function(){
+                      this.classList.toggle("active");
+                    })
+                  </script>
+
+                    <?php else: ?>
+
+                  <div class="log-sign" style="--i: 1.8s">
+                          <a href="Login/login.php" class="btn transparent">Log in</a>
+                          <a href="Login/daftar.php" class="btn solid">Sign up</a>
+                      </div>
+                  </div>
                 </div>
-            </div>
+            <?php endif ?>
 
             <div class="hamburger-menu-container">
                 <div class="hamburger-menu">

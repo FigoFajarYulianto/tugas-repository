@@ -303,14 +303,14 @@ header .container  .nav-btn .search-input .icon{
     pointer-events: auto;
 }*/
 
-.hamburger-menu-container{
+.container .hamburger-menu-container{
     flex: 1;
     display: none;
     align-items: center;
     justify-content: flex-end;
 } 
 /* y */
-.hamburger-menu{
+.container  .hamburger-menu{
     width: 2.5rem;
     height: 2.5rem;
     display: flex;
@@ -319,7 +319,7 @@ header .container  .nav-btn .search-input .icon{
     padding-right: 20px;
 }
 
-.hamburger-menu div{
+.container  .hamburger-menu div{
     width: 1.6rem;
     height: 3px;
     border-radius: 3px;
@@ -329,7 +329,7 @@ header .container  .nav-btn .search-input .icon{
     transition: .5s;
 }
 
-.hamburger-menu div:before,
+.container  .hamburger-menu div:before,
 .hamburger-menu div:after{
     content: '';
     position: absolute;
@@ -340,11 +340,11 @@ header .container  .nav-btn .search-input .icon{
     transition: .5s;
 }
 
-.hamburger-menu div:before{
+.container  .hamburger-menu div:before{
     transform: translateY(-7px);
 }
 
-.hamburger-menu div:after{
+.container  .hamburger-menu div:after{
     transform: translateY(7px);
 }
 
