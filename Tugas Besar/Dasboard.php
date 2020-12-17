@@ -21,6 +21,7 @@ $koneksi = new mysqli("localhost", "root", "", "project_chat");
   <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
   <!-- My Css -->
   <link rel="stylesheet" href="style_dasboard.css">
+  <link rel="stylesheet" href="style.css">
 
   <script src="https://kit.fontawesome.com/a076d05399.js"></script>
   <title>MAKETAN</title>
@@ -29,7 +30,121 @@ $koneksi = new mysqli("localhost", "root", "", "project_chat");
 <body>
   <!-- Navbar -->
   <header>
-      <class class="item-header-1 d-flex flex-column" style="padding-right: 3px; padding-left:3px;">
+          <div class="container">
+            <input type="checkbox" name="" id="check">
+            
+            <div class="logo-container">
+                <h3 class="logo">MAKE<span>TAN</span></h3>
+            </div>
+
+            <div class="nav-btn">
+                <div class="nav-links">
+                    <div class="wrapper">
+                      <div class="search-input">
+                        <a href="" target="_blank" hidden></a>
+                        <input type="text" placeholder="Type to search..">
+                        <div class="autocom-box">
+                          <!-- here list are inserted from javascript -->
+                        </div>
+                        <div class="icon"><i class="fas fa-search"></i></div>
+                      </div>
+                    </div>
+
+                    <ul style="padding-bottom: -20px;">
+                        <li class="nav-link" style="--i: .6s">
+                            <a href="#">Pertanian</a>
+                        </li>
+                        <li class="nav-link" style="--i: .85s">
+                            <a href="#">Alat</a>
+                        </li>
+                        <li class="nav-link" style="--i: 1.1s">
+                            <a href="#">Pupuk</a>
+                        </li>
+                        <li class="nav-link" style="--i: 1.35s">
+                            <a href="#">Bibit</a>
+                        </li>
+                        <li class="nav-link" style="--i: 1.8s">
+                            <a href="#">Obat</a>
+                        </li>
+
+                    </ul>
+                </div>
+
+                <div class="log-sign" style="--i: 1.8s">
+                    <a href="#" class="btn transparent">Log in</a>
+                    <a href="#" class="btn solid">Sign up</a>
+                </div>
+            </div>
+
+            <div class="hamburger-menu-container">
+                <div class="hamburger-menu">
+                    <div></div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <style type="text/css">
+    header .img-search {
+    width: 18px;
+    }
+
+    header .wrap-search {
+        position: relative;
+        background-color: #ffffff;
+        width: 100%;
+        height: 40px;
+        margin-top: 20px;
+        margin-bottom: auto;
+        border-radius: 20px;
+    }
+
+    header .container .nav-btn .nav-links .wrap-search .form-control {
+        background-color: transparent;
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        border: 1px solid #cdcdcd;
+        z-index: 1;
+        padding: 9px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding-left: 20px;
+    }
+
+    header .wrap-search .form-control ::placeholder {
+        color: #cdcdcd;
+        font-size: 14px;
+        padding-left: 10px;
+    }
+
+    header .wrap-search .form-control:focus {
+        box-shadow: none;
+        border: 1px solid #0673f0;
+    }
+
+    header .wrap-search .wrap-icon-search {
+        background-color: #f3f4f5;
+        position: absolute;
+        right: 0;
+        height: 100%;
+        width: 4%;
+    }
+
+    header .wrap-search img {
+        float: right;
+        margin-right:15px ;
+        margin-top: 10px;
+
+    }
+    </style>
+    <main>
+        <section>
+            <div class="overlay"></div>
+        </section>
+    </main>
+      <!-- <class class="item-header-1 d-flex flex-column" style="padding-right: 3px; padding-left:3px;">
         <div class="d-flex justify-content-between ">
           <a class="navbar-brand" href="Dasboard.php">MAKETAN</a>
           <div class="wrap-search">
@@ -83,9 +198,9 @@ $koneksi = new mysqli("localhost", "root", "", "project_chat");
             </div>
             <?php endif ?>
           </div>
-        </div>
+        </div> -->
 
-        <div class="d-flex justify-content-around mt-2" style="max-width: 100%;">
+        <!-- <div class="d-flex justify-content-around mt-2" style="max-width: 100%;">
           <span class"mr-3">
             <h6>Pertanian</h6>
           </span>
@@ -103,7 +218,7 @@ $koneksi = new mysqli("localhost", "root", "", "project_chat");
           </span>
         </div>
       </class>
-  </header>
+  </header> -->
   <!-- Akhir navbar -->
 
   <!-- Carousel -->
