@@ -1,7 +1,15 @@
 <?php
 //skrip koneksi
 session_start();
+ob_start();
+require_once('produk2/config/koneksi.php');
+require_once('produk2/models/database.php');
+
+$connection = new database($host, $user, $pass, $database);
 $koneksi = new mysqli("localhost", "root", "", "project_chat");
+
+include  ('produk2/config/koneksi.php');
+include  ('produk2/models/m_produk.php');
 ?>
 <!doctype html>
 <html lang="en">
@@ -93,7 +101,7 @@ $koneksi = new mysqli("localhost", "root", "", "project_chat");
                             <div class="dd_right">
                               <ul>
                                 <li><a href="">data diri</a></li>
-                                <li><a href="">buka toko</a></li>
+                                <li><a href="?page=produk">buka toko</a></li>
                                 <li><a href="">umpan balik</a></li>
                                 <li><a href="logout.php">keluar</a></li>
                               </ul>
@@ -191,7 +199,11 @@ $koneksi = new mysqli("localhost", "root", "", "project_chat");
         </section>
     </main>
   <!-- Akhir navbar -->
-
+  <?php
+        if (@$_GET['page'] == 'produk') {
+          include "produk2/views/produk.php";
+        }
+  ?>
   <!-- Carousel -->
   <div class="atas">
     <div class="isis">

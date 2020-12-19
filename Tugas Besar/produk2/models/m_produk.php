@@ -1,5 +1,5 @@
 <?php
-class Produk {
+class produk {
 
     private $mysqli;
 

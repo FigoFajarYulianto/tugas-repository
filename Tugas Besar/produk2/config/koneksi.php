@@ -2,5 +2,5 @@
 $host ="localhost";
 $user ="root";
 $pass = "";
-$database ="upload";
+$database ="project_chat";
 ?>

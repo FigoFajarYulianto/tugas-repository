@@ -4,11 +4,12 @@ $produk = new Produk($connection);
 
 if(@$_GET['act'] == '') {
 ?>
+
 <div class="row">
           <div class="col-lg-12">
             <h1>Produk <small>Data Produk</small></h1>
             <ol class="breadcrumb">
-              <li><a href="index.html"><i class="icon-dashboard"></i> Produk</a></li>
+              <li><a href="index.php"><i class="icon-dashboard"></i> Produk</a></li>
               </ol>
           </div>
         </div>
@@ -37,7 +38,7 @@ if(@$_GET['act'] == '') {
                            <td align="center"><?php echo $no++."."; ?></td>
                            <td><?php echo $data->nama_produk; ?></td>
                            <td><?php echo $data->kategori; ?></td>
-                           <td><?php echo $data->deskripsi_produk; ?></td>
+                           <td><?php echo $data->deskripsi_produk; ?></td>  
                            <td><?php echo $data->harga; ?></td>
                            <td><?php echo $data->map_link; ?></td>
                            <td align="center">
@@ -56,7 +57,7 @@ if(@$_GET['act'] == '') {
 
                         <button type="button" class="btn btn-success" data-toggle="modal" data-target="#tambah">Tambah Data</button>
                         
-                        <div id="tambah" class="modal fade" role="dialog">
+                        <div id="tambah" class="modal" role="dialog">
                             <div class="modal-dialog">
                                 <div class="modal-content">
                                     <div class="modal-header">
@@ -122,7 +123,7 @@ if(@$_GET['act'] == '') {
                     }
                     ?>
             </div>
-         </div>
+        </div>
     </div>
 
 
