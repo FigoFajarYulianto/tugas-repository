@@ -248,15 +248,14 @@
     margin-top: 4%;
     padding-left:30px;
     padding-right: 30px;
-	max-width: 100%;
+	max-width: 500px;
 	display: flex;
 	align-items: center; 
 	justify-content: space-between;
 }
 .wrapper .card {
     position: relative;
-    ;
-	width: calc(20% - 50px);
+	width: calc(20% - 50px) !important;
 	border-radius: 3px;
 	background: #fff;
 	overflow: hidden;

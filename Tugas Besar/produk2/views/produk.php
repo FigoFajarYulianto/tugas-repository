@@ -42,7 +42,7 @@ if(@$_GET['act'] == '') {
                            <td><?php echo $data->harga; ?></td>
                            <td><?php echo $data->map_link; ?></td>
                            <td align="center">
-                               <img src="assets/img/produk/<?php echo $data->gbr_produk; ?>" width="100px">
+                                <img src="produk2/assets/img/produk/<?php echo $data->gbr_produk; ?>" width="100px">
                             </td>
                            <td align="center">
                            <a href="?page=produk&act=del&id=<?php echo $data->id_produk ?>" onclick="return confirm('Yakin Akan Menghapus Data Ini?')">

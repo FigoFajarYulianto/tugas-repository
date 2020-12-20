@@ -1,6 +1,7 @@
 <?php
 //skrip koneksi
 session_start();
+
 ob_start();
 require_once('produk2/config/koneksi.php');
 require_once('produk2/models/database.php');
@@ -46,7 +47,7 @@ include  ('produk2/config/koneksi.php');
             <input type="checkbox" name="" id="check">
             
             <div class="logo-container">
-                <h3 class="logo">MAKE<span>TAN</span></h3>
+                <a href="Dasboard.php" type="button" style="text-decoration:none"><h3 class="logo">MAKE<span>TAN</span></h3></a>
             </div>
 
             <div class="nav-btn">
@@ -236,9 +237,9 @@ include  ('produk2/config/koneksi.php');
     <div class="isi">
         <div class="wrapper">
           <?php $ambil = $koneksi->query("SELECT * FROM tb_produk"); ?>
-          <?php while($perproduk = $ambil->fetch_assoc()){ ?>
+          <?php while($perproduk = $ambil->fetch_assoc()) { ?>
             <div class="card">
-                <img src="Produk/assets/img/produk/<?php echo $perproduk['gbr_produk'] ?>" alt="" class="img-responsive">
+                <img src="produk2/assets/img/produk/<?php echo $perproduk['gbr_produk'] ?>" alt="" class="img-responsive">
                 <div class="content">
                     <div class="row">
                         <div class="details">
