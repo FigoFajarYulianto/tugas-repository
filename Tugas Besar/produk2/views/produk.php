@@ -1,5 +1,5 @@
 <?php
-include "models/m_produk.php";
+include "produk2/models/m_produk.php";
 $produk = new Produk($connection);
 
 if(@$_GET['act'] == '') {
@@ -123,7 +123,7 @@ if(@$_GET['act'] == '') {
                     }
                     ?>
             </div>
-        </div>
+         </div>
     </div>
 
 

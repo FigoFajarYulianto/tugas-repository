@@ -9,7 +9,6 @@ $connection = new database($host, $user, $pass, $database);
 $koneksi = new mysqli("localhost", "root", "", "project_chat");
 
 include  ('produk2/config/koneksi.php');
-include  ('produk2/models/m_produk.php');
 ?>
 <!doctype html>
 <html lang="en">
