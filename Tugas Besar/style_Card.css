@@ -12,19 +12,20 @@
 .atas .isi{
   display: flex;
   align-items: center;
-  /* justify-content: center; */
+  justify-content: center;
   min-height: 50vh;
   background:transparent;
-  padding: 0 20px 20px ;
+  padding: 0 20px 0 20px ;
+  margin-top: -2%;
 
 } 
 .isi .wrapper{
   position: relative;
-  max-width: 100%;  
+  max-width: 80%;  
   padding-top: -300px;
-  /* display: flex; */
-  /* align-items: center; */
-  /* justify-content: space-between; */
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
   .wrapperr .cart-nav{
   position: absolute;
@@ -60,7 +61,7 @@
   border-radius: 50%;
 }
 .isi .wrapper .card{
-  margin: 0 20px 0 20px;
+  margin: 20px 20px 20px 20px;
   position: relative;
   background: #fff;
   border-radius: 3px;
@@ -69,7 +70,7 @@
   box-shadow: 4px 4px 10px 0px rgba(0,0,0,0.15);
 }
 .isi .wrapper .card img{
-  width: 4000px;
+  width: 100%;
   height: 350px;
   border-radius: 3px;
   transition: all 0.3s ease;

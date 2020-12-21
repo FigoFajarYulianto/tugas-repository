@@ -236,26 +236,28 @@ include  ('produk2/config/koneksi.php');
     <!-- Kategori Pilihan -->
     <div class="isi">
         <div class="wrapper">
-          <?php $ambil = $koneksi->query("SELECT * FROM tb_produk"); ?>
-          <?php while($perproduk = $ambil->fetch_assoc()) { ?>
-            <div class="card">
-                <img src="produk2/assets/img/produk/<?php echo $perproduk['gbr_produk'] ?>" alt="" class="img-responsive">
-                <div class="content">
-                    <div class="row">
-                        <div class="details">
-                        <span><?php echo $perproduk['nama_produk'] ?></span>
-                        <p><?php echo $perproduk['map_link'] ?></p>
-                        </div>
-                        <div class="price">Rp.<?php echo $perproduk['harga'] ?></div>
-                    </div>
-                    <hr style="height:1px;border:none;color:#333;background-color:#333;">
-                    <div class="buttons">
-                        <button>Chat</button>
-                        <button class="cart-btn">Detail</button>
-                    </div>
-                </div>
-            </div>
-          <?php } ?>
+          <div class="row" style="margin-top: 50px;">
+            <?php $ambil = $koneksi->query("SELECT * FROM tb_produk"); ?>
+            <?php while($perproduk = $ambil->fetch_assoc()) { ?>
+              <div class="card">
+                  <img src="produk2/assets/img/produk/<?php echo $perproduk['gbr_produk'] ?>" alt="" class="img-responsive">
+                  <div class="content">
+                      <div class="row">
+                          <div class="details">
+                          <span><?php echo $perproduk['nama_produk'] ?></span>
+                          <p><?php echo $perproduk['map_link'] ?></p>
+                          </div>
+                          <div class="price">Rp.<?php echo $perproduk['harga'] ?></div>
+                      </div>
+                      <hr style="height:1px;border:none;color:#333;background-color:#333;">
+                      <div class="buttons">
+                          <button>Chat</button>
+                          <button class="cart-btn">Detail</button>
+                      </div>
+                  </div>
+              </div>
+            <?php } ?>
+          </div>
         </div>
     </div>
 
