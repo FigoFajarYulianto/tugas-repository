@@ -247,9 +247,9 @@ include  ('produk2/config/koneksi.php');
                           <span><?php echo $perproduk['nama_produk'] ?></span>
                           <p><?php echo $perproduk['map_link'] ?></p>
                           </div>
-                          <div class="price">Rp.<?php echo $perproduk['harga'] ?></div>
                       </div>
-                      <hr style="height:1px;border:none;color:#333;background-color:#333;">
+                      <div class="price">Rp.<?php echo $perproduk['harga'] ?></div>
+                      <hr id="hrdown" style="height:1px;border:none;color:#333;background-color:#333;">
                       <div class="buttons">
                           <button>Chat</button>
                           <button class="cart-btn">Detail</button>

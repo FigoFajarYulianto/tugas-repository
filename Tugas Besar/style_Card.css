@@ -21,7 +21,7 @@
 } 
 .isi .wrapper{
   position: relative;
-  max-width: 80%;  
+  max-width: 75rem;  
   padding-top: -300px;
   display: flex;
   align-items: center;
@@ -62,6 +62,7 @@
 }
 .isi .wrapper .card{
   margin: 20px 20px 20px 20px;
+  padding: 0;
   position: relative;
   background: #fff;
   border-radius: 3px;
@@ -71,7 +72,7 @@
 }
 .isi .wrapper .card img{
   width: 100%;
-  height: 350px;
+  height: 250px;
   border-radius: 3px;
   transition: all 0.3s ease;
 }
@@ -83,7 +84,7 @@
   width: 100%;
   bottom: -60%;
   background: #fff;
-  padding: 10px 20px 22px 20px;
+  padding: 1px 0px 22px 0px;
   box-shadow: 0px -3px 10px 0px rgba(0,0,0,0.15);
   transition: all 0.3s ease;
 }
@@ -96,33 +97,36 @@
   justify-content: space-between;
 }
 .content .row .details span{
-  font-size: 22px;
+  padding-left: 20px;
+  font-size: 20px;
   font-weight: 500;
 }
 .content .row .details p{
+  padding-left: 20px;
   color: #333;
-  font-size: 17px;
+  font-size: 10px;
   font-weight: 400;
 }
-.content .row .price{
+.content .price{
   color: #ff7979;
-  font-size: 25px;
+  font-size: 18px;
   font-weight: 700;
-  margin-left:-80px;
+  padding-left: 5px;
+  margin-top: -2px;
 }
 .content .buttons{
   margin-top: 65px;
 }
-.content hr{
-  margin-top:-10px;
-  margin-bottom:80px;
+.content #hrdown{
+  margin-top: -1px;
 }
 .isi .content .buttons button{
   width: 100%;
-  padding: 9px 0;
+  margin-top: -50px;
+  padding: -20px 10px;
   outline: none;
   cursor: pointer;
-  font-size: 17px;
+  font-size: 15px;
   font-weight: 500;
   border-radius: 3px;
   border: 2px solid #ff7979;
