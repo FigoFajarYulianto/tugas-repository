@@ -8,13 +8,18 @@ $keyword = $_GET["keyword"];
 
 $semuadata=array();
 $ambil = $koneksi->query("SELECT * FROM tb_produk WHERE nama_produk LIKE '%$keyword%'
-OR deskripsi_produk LIKE '%$keyword%'");
+OR deskripsi_produk LIKE '%$keyword%'"); 
 
 while($pecah = $ambil->fetch_assoc())
 {
     $semuadata[]=$pecah;
 }
 
+if (!isset($_SESSION["user_status"]))
+{
+    echo "<script>alert('silahkan login')</script>";
+    echo "<script>location='Login/login.php';</script>";
+}
 // echo"<pre>";
 // print_r($semuadata);
 // echo"</pre>";
@@ -38,12 +43,13 @@ while($pecah = $ambil->fetch_assoc())
   <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
   <!-- My Css -->
   <!-- <link rel="stylesheet" href="style_dasboard.css"> -->
-  <link rel="stylesheet" href="style.css">
 
     <!-- My Css Card -->
-    <link rel="stylesheet" href="style_Card.css">
-    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <link rel="stylesheet" href="style_Card_pencarian.css">
+    <link rel="stylesheet" href="style_dasboard.css">
+    <link rel="stylesheet" href="style.css">
+    <!-- <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script> -->
 
   <script src="https://kit.fontawesome.com/a076d05399.js"></script>
   <title>MAKETAN</title>
@@ -132,8 +138,8 @@ while($pecah = $ambil->fetch_assoc())
                     <?php else: ?>
 
                   <div class="log-sign" style="--i: 1.8s">
-                          <a href="Login/login.php" class="btn transparent">Log in</a>
-                          <a href="Login/daftar.php" class="btn solid">Sign up</a>
+                          <a href="Login/login.php" class="btn transparent">Masuk</a>
+                          <a href="Login/daftar.php" class="btn solid">Daftar</a>
                       </div>
                   </div>
                 </div>
@@ -205,27 +211,39 @@ while($pecah = $ambil->fetch_assoc())
     </style>
     <!-- Akhir navbar -->
 
+
     <!-- Hasil Pencarian -->
     <div class="isi">
         <div class="wrapper">
-            <div class="card">
-                <img src="Produk/assets/img/produk/<?php echo $value["gbr_produk"] ?>" alt="" class="img-responsive">
-                <div class="content">
-                    <div class="row">
-                        <div class="details">
-                        <span>Headphone</span>
-                        <p>Premium headphone</p>
-                        </div>
-                        <div class="price">$30</div>
-                    </div>
-                    <div class="buttons">
-                        <button>Buy Now</button>
-                        <button class="cart-btn">Add to Cart</button>
-                    </div>
-                </div>
-            </div>
+          <div class="row" style="margin-top: -40px;">
+            <?php foreach ($semuadata as $key => $value): ?>
+              <div class="card">
+                  <img src="produk2/assets/img/produk/<?php echo $value['gbr_produk'] ?>" alt="" class="img-responsive">
+                  <div class="content">
+                      <div class="row">
+                          <div class="details">
+                          <span><?php echo $value['nama_produk'] ?></span>
+                          <p><?php echo $value['map_link'] ?></p>
+                          </div>
+                      </div>
+                      <div class="price">Rp.<?php echo $value['harga'] ?></div>
+                      <hr id="hrdown" style="height:1px;border:none;color:#333;background-color:#333;">
+                      <div class="buttons">
+                          <button>Chat</button>
+                          <button>Detail</button>
+                      </div>
+                  </div>
+              </div>
+              <?php endforeach ?>
+          </div>
         </div>
     </div>
+
+    <div class="row mx-0 mt-5 justify-content-center">
+      <button class="btn btn-green"> Tampilkan Lebih banyak</button>
+    </div>
+    </div>
+  </div>
 
     <!-- Akhir Pencarian -->
 

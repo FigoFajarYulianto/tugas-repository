@@ -15,7 +15,6 @@ if(@$_GET['act'] == '') {
 
         <div class="row">
             <div class="col-lg-12">
-            
                 <div class="table-responsive">
                     <table class="table table-bordered table-hover table-striped">
                         <tr>
