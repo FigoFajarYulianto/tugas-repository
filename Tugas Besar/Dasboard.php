@@ -86,9 +86,8 @@ include  ('produk2/config/koneksi.php');
                   <?php if (isset($_SESSION['user_status'])):?>
                     <div class="nav_right">
                       <ul>
-                        <li class="nr_li dd_main">
+                        <li class=" d-flex nr_li dd_main">
                           <img src="gambar/user/profile_pic.png" alt="profile_img">
-                          
                           <div class="dd_menu">
                             <div class="dd_left">
                               <ul>
@@ -101,7 +100,7 @@ include  ('produk2/config/koneksi.php');
                             <div class="dd_right">
                               <ul>
                                 <li><a href="">data diri</a></li>
-                                <li><a href="?page=produk">buka toko</a></li>
+                                <li><a href="produk2/index.php">buka toko</a></li>
                                 <li><a href="">umpan balik</a></li>
                                 <li><a href="logout.php">keluar</a></li>
                               </ul>
@@ -123,19 +122,19 @@ include  ('produk2/config/koneksi.php');
                     <?php else: ?>
 
                   <div class="log-sign" style="--i: 1.8s">
-                          <a href="Login/login.php" class="btn transparent">Log in</a>
-                          <a href="Login/daftar.php" class="btn solid">Sign up</a>
+                          <a href="Login/login.php" class="btn transparent">Masuk</a>
+                          <a href="Login/daftar.php" class="btn solid">Daftar</a>
                       </div>
                   </div>
                 </div>
             <?php endif ?>
-
             <div class="hamburger-menu-container">
                 <div class="hamburger-menu">
                     <div></div>
                 </div>
             </div>
         </div>
+        
     </header>
     <style type="text/css">
     header .img-search {
@@ -252,7 +251,7 @@ include  ('produk2/config/koneksi.php');
                       <hr id="hrdown" style="height:1px;border:none;color:#333;background-color:#333;">
                       <div class="buttons">
                           <button>Chat</button>
-                          <button class="cart-btn">Detail</button>
+                          <button>Detail</button>
                       </div>
                   </div>
               </div>

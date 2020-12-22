@@ -1,16 +1,15 @@
 <?php
-include "produk2/models/m_produk.php";
+include "models/m_produk.php";
 $produk = new Produk($connection);
 
 if(@$_GET['act'] == '') {
 ?>
-
 <div class="row">
           <div class="col-lg-12">
-            <h1>Produk <small>Data Produk</small></h1>
-            <ol class="breadcrumb">
-              <li><a href="index.php"><i class="icon-dashboard"></i> Produk</a></li>
-              </ol>
+            <h1 style="padding-top: 10px; font-size: 6rem;"><small>Data Produk</small></h1>
+            <!-- <ol class="breadcrumb">
+              <li><a href="index.html"><i class="icon-dashboard"></i> Produk</a></li>
+              </ol> -->
           </div>
         </div>
 
@@ -38,15 +37,15 @@ if(@$_GET['act'] == '') {
                            <td align="center"><?php echo $no++."."; ?></td>
                            <td><?php echo $data->nama_produk; ?></td>
                            <td><?php echo $data->kategori; ?></td>
-                           <td><?php echo $data->deskripsi_produk; ?></td>  
+                           <td><?php echo $data->deskripsi_produk; ?></td>
                            <td><?php echo $data->harga; ?></td>
                            <td><?php echo $data->map_link; ?></td>
                            <td align="center">
-                                <img src="produk2/assets/img/produk/<?php echo $data->gbr_produk; ?>" width="100px">
+                               <img src="assets/img/produk/<?php echo $data->gbr_produk; ?>" width="100px">
                             </td>
                            <td align="center">
                            <a href="?page=produk&act=del&id=<?php echo $data->id_produk ?>" onclick="return confirm('Yakin Akan Menghapus Data Ini?')">
-                               <button class="btn btn-danger btn-xs"><i class="fa fa-trash-o"></i> Hapus</button>
+                               <button class="btn btn-danger btn-xs" style="font-size: 1.2rem;"><i class="fa fa-trash-o"></i> Hapus</button>
                             </a>
                            </td>
                        </tr>
@@ -55,14 +54,14 @@ if(@$_GET['act'] == '') {
                     </table>
                 </div>
 
-                        <button type="button" class="btn btn-success" data-toggle="modal" data-target="#tambah">Tambah Data</button>
+                        <button type="button" class="btn btn-success" style="font-size: 1rem;" data-toggle="modal" data-target="#tambah">Tambah Data</button>
                         
                         <div id="tambah" class="modal" role="dialog">
-                            <div class="modal-dialog">
+                            <div class="modal-dialog" fade>
                                 <div class="modal-content">
                                     <div class="modal-header">
-                                        <button type="button" class="close" data-dismiss="modal">&times;</button>
-                                        <h4 class="modal-title">Tambah Data Produk</h4>
+                                        <button  type="button" class="close" style="margin-right: -170px; margin-top: -35px; " data-dismiss="modal">&times;</button>
+                                        <h4 class="modal-title" style="margin-top: 10px;" >Tambah Data Produk</h4>
                                     </div>
                                     <form  action="" method="post" enctype="multipart/form-data">
                                         <div class="modal-body">
