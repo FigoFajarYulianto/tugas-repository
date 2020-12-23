@@ -52,7 +52,7 @@ $connection = new database($host, $user, $pass, $database);
 
             <div class="nav-btn">
                 <div class="nav-links">
-                  <form action="pencarian.php" method="get">
+                  <form action="../pencarian.php" method="get">
                     <div class="wrapper">
                       <div class="search-input">
                         <a href="" target="_blank" hidden></a>

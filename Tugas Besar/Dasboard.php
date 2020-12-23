@@ -235,7 +235,7 @@ include  ('produk2/config/koneksi.php');
     <!-- Kategori Pilihan -->
     <div class="isi">
         <div class="wrapper">
-          <div class="row" style="margin-top: 50px;">
+          <div class="row" style="margin-top: -40px; margin-right: -60px;">
             <?php $ambil = $koneksi->query("SELECT * FROM tb_produk"); ?>
             <?php while($perproduk = $ambil->fetch_assoc()) { ?>
               <div class="card">
