@@ -7,7 +7,7 @@ if(!isset($_SESSION['login'])) {
 
 
 //koneksi ke database
-$koneksi = new mysqli("localhost", "root", "", "user_admin");
+$koneksi = new mysqli("localhost", "root", "", "project_chat");
 
 ?>
 
@@ -64,8 +64,7 @@ font-size: 16px;"> Last access : 30 May 2014 &nbsp; <a href="#" class="btn btn-d
 
                     <li><a href="admin.php"><i class="fa fa-dashboard fa-3x"></i>Home</a></li>
                     <li><a href="admin.php?halaman=produk"><i class="fa fa-dashboard fa-3x"></i>Produk</a></li>
-                    <li><a href="admin.php?halaman=pembelian"><i class="fa fa-dashboard fa-3x"></i>Pembelian</a></li>
-                    <li><a href="admin.php?halaman=pelanggan"><i class="fa fa-dashboard fa-3x"></i>Pelanggan</a></li>
+                    <li><a href="admin.php?halaman=pengguna"><i class="fa fa-dashboard fa-3x"></i>Pengguna</a></li>
                     <li><a href="admin.php?halaman=toko"><i class="fa fa-dashboard fa-3x"></i>Toko</a></li>
                     <li><a href="admin.php?halaman=logout"><i class="fa fa-dashboard fa-3x"></i>logout</a></li>
 
@@ -84,17 +83,13 @@ font-size: 16px;"> Last access : 30 May 2014 &nbsp; <a href="#" class="btn btn-d
                 {
                     include 'produk.php';
                 }
-                 elseif ($_GET['halaman']=="pembelian")
+                elseif ($_GET['halaman']=="pengguna")
                 {
-                    include 'pembelian.php';
+                    include 'pengguna.php';
                 }
-                elseif ($_GET['halaman']=="pelanggan")
+                elseif ($_GET['halaman']=="hapuspengguna")
                 {
-                    include 'pelanggan.php';
-                }
-                elseif ($_GET['halaman']=="detail") 
-                {
-                    include 'detail.php';
+                    include 'hapuspengguna.php';
                 }
                 elseif ($_GET['halaman']=="hapusproduk")
                 {
@@ -111,6 +106,10 @@ font-size: 16px;"> Last access : 30 May 2014 &nbsp; <a href="#" class="btn btn-d
                 elseif ($_GET['halaman']=="toko")
                 {
                     include 'toko.php';
+                }
+                elseif ($_GET['halaman']=="hapuspengguna")
+                {
+                    include 'hapuspengguna.php';
                 }
             }
             else

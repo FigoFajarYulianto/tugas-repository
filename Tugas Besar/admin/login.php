@@ -9,7 +9,7 @@ if(isset($_SESSION["login"])) {
     exit;
 }
 
-$koneksi = new mysqli("localhost", "root", "", "user_admin");
+$koneksi = new mysqli("localhost", "root", "", "project_chat");
 
 ?>
 

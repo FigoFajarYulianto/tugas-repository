@@ -29,7 +29,7 @@ if(!isset($_SESSION['login'])) {
             <td><?php echo $pecah['link_toko']; ?></td>
             <td><?php echo $pecah['kota']; ?></td>
             <td><?php echo $pecah['kode_pos']; ?></td>
-            <td><?php echo $pecah['link map']; ?></td>
+            <td><?php echo $pecah['link_map']; ?></td>
             <td>
                 <a href="" class="btn btn-danger">hapus</a>
             </td>
