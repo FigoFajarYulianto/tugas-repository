@@ -41,11 +41,7 @@ $koneksi = new mysqli("localhost", "root", "", "project_chat");
                 </button>
                 <a class="navbar-brand" href="admin.php">Binary admin</a>
             </div>
-            <span class="city"> ==$0
-                <b>Hari ini</b>
-                ": senin, 21 Des 2020, "
-                <span id="jam">11:50:20</span>
-            </span>>
+
             <span style="color: white;
 padding: 15px 50px 5px 50px;
 float: right;
