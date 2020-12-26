@@ -248,7 +248,7 @@
 .wrapper{
     margin-top: 4%;
     padding-left:30px;
-    padding-right: 30px;
+    padding-right: 10px;
 	max-width: 500px;
 	display: flex;
 	align-items: center; 
