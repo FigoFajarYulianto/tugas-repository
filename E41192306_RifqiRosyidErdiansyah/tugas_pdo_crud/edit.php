@@ -3,19 +3,19 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Membuat CRUD dengan PHP dan MYSQL - menampilkan data dari Database</title>
-    <link rel="stylesheet" type="text/css" href="style.css">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Edit Data</title>
+    <link rel="stylesheet" type="text/css" href="css/css_tambahan.css">
 </head>
 
 <body>
-    <div class="judul">
-        <h1>Membuat CRUD dengan PHP dan MYSQL</h1>
-        <h2>Menambahkan data dari Database </h2>
-    </div>
+<div class="judul">
+        <h1>Menampilkan Data Dari Mahasiswa</h1>
+        <a href="index.php" class="button"> Kembali Ke Menu Utama</a>
+	</div>
     <br>
 
-    <h3>Edit Data</h3>
+    <h3 class="table table-bordered table-hover table-striped" style=" position: relative; left: 590px; bottom: 20px;">Edit Data</h3>
     <?php
     include "koneksi.php";
     $id = $_GET['id'];
@@ -24,8 +24,13 @@
     while ($data = mysqli_fetch_array($query_mysql)) {
         ?>
     <form action="update.php" method="POST">
-        <table>
+        <table class="table table-bordered table-hover table-striped border" style="position: relative; left: 400px; bottom: 10px;">
             <tr>
+                <td>Nim</td>
+            <td><input type="text" name="nim" value="<?php echo $data['nim']?>">
+                </td>
+            </tr>
+                <tr>
                 <td>Nama</td>
                 <td><input type="hidden" name="id" value="<?php echo $data['id']?>">
                     <input type="text" name="nama" value="<?php echo $data['nama']?>">
@@ -39,15 +44,21 @@
             </tr>
 
             <tr>
-                <td>Pekerjaan</td>
-                <td><input type="text" name="pekerjaan" value="<?php echo $data['pekerjaan']?>">
+                <td>Jurusan</td>
+                <td><input type="text" name="jurusan" value="<?php echo $data['jurusan']?>">
+                </td>
+            </tr>
+
+            <tr>
+                <td>Prodi</td>
+                <td><input type="text" name="prodi" value="<?php echo $data['prodi']?>">
                 </td>
             </tr>
 
             <tr>
                 <td></td>
                 <td>
-                    <input type="submit" value="simpan">
+                    <input style="position: relative; left: 50px; bottom: -20px;" type="submit" value="simpan">
                 </td>
             </tr>
 
