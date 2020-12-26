@@ -24,7 +24,7 @@ $koneksi = new mysqli("localhost", "root", "", "project_chat");
     <meta name="description" content="">
     <meta name="author" content="Dashboard">
     <meta name="keyword" content="Dashboard, Bootstrap, Admin, Template, Theme, Responsive, Fluid, Retina">
-    <title>Dashio - Bootstrap Admin Template</title>
+    <title>Login Admin</title>
 
     <!-- Favicons -->
     <link href="img/favicon.png" rel="icon">
@@ -58,6 +58,7 @@ $koneksi = new mysqli("localhost", "root", "", "project_chat");
                     <input type="text" class="form-control" placeholder="User ID" name="user" autofocus>
                     <br>
                     <input type="password" class="form-control" placeholder="Password" name="pass">
+                    <br>
 
                     <button class="btn btn-theme btn-block" type="submit" name="login"><i class="fa fa-lock"></i>
                         MASUK</button>
@@ -107,12 +108,12 @@ $koneksi = new mysqli("localhost", "root", "", "project_chat");
                                 setcookie('key', hash('sha256', $yangcocok['username']), time() + 60);
                             }
 
-                            echo "<div class='alert alert-info'>Login Sukses</div>";
+                            echo "<div class='alert alert-info'>LOGIN SUKSES</div>";
                             echo "<meta http-equiv='refresh' content='1;url=admin.php'>";
                         }
                         else
                         {
-                            echo "<div class='alert alert-danger'>Login Gagal</div>";
+                            echo "<div class='alert alert-danger'>LOGIN GAGAL</div>";
                             echo "<meta http-equiv='refresh' content='1;url=login.php'>";
                         }
                     }
@@ -127,7 +128,7 @@ $koneksi = new mysqli("localhost", "root", "", "project_chat");
     <!-- You can use an image of whatever size. This script will stretch to fit in any screen size.-->
     <script type="text/javascript" src="lib/jquery.backstretch.min.js"></script>
     <script>
-    $.backstretch("img/login-bg.jpg", {
+    $.backstretch("img/4.jpg", {
         speed: 500
     });
     </script>

@@ -62,7 +62,7 @@ $awalData = ( $jumlahDataPerHalaman * $halamanAktif ) - $jumlahDataPerHalaman;*/
                 <img src="../gambar/user/<?php echo $pecah['user_foto'];?>" width="100">
             </td>
             <td>
-                <a href="admin.php?halaman=pengguna&id=<?php echo $pecah['user_id']; ?>" class="btn btn-danger"
+                <a href="admin.php?halaman=hapuspengguna&id=<?php echo $pecah['user_id'];?>" class="btn btn-danger"
                     style="left:20px">HAPUS</a>
             </td>
         </tr>
