@@ -1,65 +1,83 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Membuat CRUD dengan PHP dan Mysql - Menampilkan data dari Database</title>
-    <link rel="stylesheet" type="text/css" href="style.css">
+	<title>Menampilkan Data Mahasiswa</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+<!--===============================================================================================-->	
+	<link rel="icon" type="image/png" href="images/icons/favicon.ico"/>
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="vendor/bootstrap/css/bootstrap.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="vendor/animate/animate.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="vendor/select2/select2.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="vendor/perfect-scrollbar/perfect-scrollbar.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="css/util.css">
+	<link rel="stylesheet" type="text/css" href="css/main.css">
+	<link rel="stylesheet" type="text/css" href="css/css_tambahan.css">
+<!--===============================================================================================-->
+
 </head>
-
 <body>
-    <div class="judul">
-        <h1>Membuat CRUD dengan PHP dan Mysql</h1>
-        <h2>Menampilkan data dari Database</h2>
-    </div>
-    <br>
-    <?php
-    if (isset($_GET['pesan'])) {
-        $pesan = $_GET['pesan'];
-        if ($pesan == "input") {
-            echo "Data berhasil di input";
-        }elseif ($pesan == "update") {
-            echo "Data berhasil di update";
-        }elseif ($pesan == "hapus"){
-            echo "Data berhasil di hapus";
-        }
-        
-        
-    }
-
-    ?>
-    <br>
-
-    <a href="input.php" class="tombol"> + Tambah Data Baru</a>
-
-    <h3>Data User</h3>
-    <table border="1" class="table">
-        <tr>
-            <th>No</th>
-            <th>Nama</th>
-            <th>Alamat</th>
-            <th>Pekerjaan</th>
-            <th>Opsi</th>
-        </tr>
-        <?php
+	<div class="judul">
+		<h1>Menampilkan Data Dari Mahasiswa</h1>
+		<a href="input.php" class="button"> Tambah Data Baru</a>
+	</div>
+	<div class="row">
+            <div class="col-lg-12">
+                <div class="table-responsive">
+                    <table class="table table-bordered table-hover table-striped border" style=" position: relative; left: 360px; bottom: -50px;">
+                        <tr>
+							<th>No.</th>
+							<th>Nim</th>
+                            <th>Nama</th>
+                            <th>Alamat</th>
+							<th>Jurusan</th>
+							<th>Prodi</th>
+							<th>Opsi</th>
+						</tr>
+					</div>
+						<?php
         include "koneksi.php";
         $query_mysql = mysqli_query($koneksi, "select * from user");
         $nomor = 1;
         while ($data = mysqli_fetch_array($query_mysql)) { 
             ?>
         <tr>
-            <td><?php echo $nomor++; ?></td>
+			<td><?php echo $nomor++; ?></td>
+			<td><?php echo $data['nim']; ?></td>
             <td><?php echo $data['nama']; ?></td>
             <td><?php echo $data['alamat']; ?></td>
-            <td><?php echo $data['pekerjaan']; ?></td>
+			<td><?php echo $data['jurusan']; ?></td>
+			<td><?php echo $data['prodi']; ?></td>
             <td>
                 <a href="edit.php?id=<?php echo $data['id']; ?>" class="edit">Edit</a>
                 <a href="hapus.php?id=<?php echo $data['id']; ?>" class="hapus">Hapus</a>
             </td>
         </tr>
         <?php  } ?>
-    </table>
-</body>
+                    </table>
+				</div>
+				
+		
 
+
+	
+
+<!--===============================================================================================-->	
+	<script src="vendor/jquery/jquery-3.2.1.min.js"></script>
+<!--===============================================================================================-->
+	<script src="vendor/bootstrap/js/popper.js"></script>
+	<script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+<!--===============================================================================================-->
+	<script src="vendor/select2/select2.min.js"></script>
+<!--===============================================================================================-->
+	<script src="js/main.js"></script>
+
+</body>
 </html>
