@@ -279,8 +279,8 @@ $koneksi = new mysqli("localhost", "root", "", "project_chat");
             <div id="sidebar" class="nav-collapse ">
                 <!-- sidebar menu start-->
                 <ul class="sidebar-menu" id="nav-accordion">
-                    <p class="centered"><a href="profile.html"><img src="img/ui-sam.jpg" class="img-circle"
-                                width="80"></a></p>
+                    <p class="centered"><a href="profile.html"><img src="img/1.jpg" class="img-circle" width="80"></a>
+                    </p>
                     <h5 class="centered">ADMIN</h5>
                     <li class="mt">
                         <a class="active" href="admin.php">
@@ -344,9 +344,9 @@ $koneksi = new mysqli("localhost", "root", "", "project_chat");
                 {
                     include 'toko.php';
                 }
-                elseif ($_GET['halaman']=="hapuspengguna")
+                elseif ($_GET['halaman']=="hapustoko")
                 {
-                    include 'hapuspengguna.php';
+                    include 'hapustoko.php';
                 }
             }
             else

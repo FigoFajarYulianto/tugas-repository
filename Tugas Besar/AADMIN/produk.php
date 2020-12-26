@@ -25,20 +25,20 @@ if(!isset($_SESSION['login'])) {
     <tbody>
         <?php $nomor=1; ?>
         <?php 
-        $batas = 3;
-        $ambil= mysqli_query($koneksi, "SELECT * FROM tb_produk");
-        $jum = mysqli_num_rows($ambil);
+       // $batas = 3;
+        //$ambil= mysqli_query($koneksi, "SELECT * FROM tb_produk");
+        //$jum = mysqli_num_rows($ambil);
         
-        $halaman = ceil($jum / $batas);
+       // $halaman = ceil($jum / $batas);
         
-        $page = ( isset($_GET['page']) ) ? $_GET['page'] : 1;
+        ///$page = ( isset($_GET['page']) ) ? $_GET['page'] : 1;
         
         
-        $posisi = ( $batas * $page ) - $batas;
+       // $posisi = ( $batas * $page ) - $batas;
         
 
 
-        $ambil=$koneksi->query("SELECT * FROM tb_produk LIMIT $posisi, $batas"); ?>
+        $ambil=$koneksi->query("SELECT * FROM tb_produk"); ?>
         <?php while ($pecah = $ambil->fetch_assoc()) {?>
         <tr>
             <td><?php echo $nomor; ?></td>
@@ -65,13 +65,13 @@ if(!isset($_SESSION['login'])) {
 
 <div class="paging">
     <?php
-for($x=1; $x<=$halaman; $x++){
+
+//for($x=1; $x<=$halaman; $x++){
     ?>
-    <a href="produk.php"><?php echo $x; ?>">
-        <?php echo $x; ?>
-        <?php
-    }
-?>
+    <!--
+    <a href="produk.php"><?php //echo $x; ?></a>
+    <?php// echo $x; ?>
+    <?php// } ?>
 
 
 </div>

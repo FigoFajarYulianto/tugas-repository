@@ -2,9 +2,9 @@
 
 $ambil = $koneksi->query("SELECT * FROM user WHERE user_id='$_GET[id]'");
 $pecah = $ambil->fetch_assoc();
-$fotouser = $pecah['../gambar/user/'];
-if (file_exists("../gambar/user/$fotouser")) {
-    unlink("../gambar/user/$fotouser");
+$foto = $pecah['../gambar/user/'];
+if (file_exists("../gambar/user/$foto")) {
+    unlink("../gambar/user/$fotoproduk");
 
 }
 

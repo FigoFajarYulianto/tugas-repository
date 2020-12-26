@@ -19,16 +19,16 @@ $halamanAktif = ( isset($_GET["halaman"]) ) ? $_GET["halaman"] : 1;
 $awalData = ( $jumlahDataPerHalaman * $halamanAktif ) - $jumlahDataPerHalaman;*/
 
 
-$batas = 3;
-$ambil= mysqli_query($koneksi, "SELECT * FROM user");
-$jum = mysqli_num_rows($ambil);
+//$batas = 6;
+//$ambil= mysqli_query($koneksi, "SELECT * FROM user");
+//$jum = mysqli_num_rows($ambil);
 
-$halaman = ceil($jum / $batas);
+//$halaman = ceil($jum / $batas);
 
-$page =  (isset($_GET["page"]))  ? $_GET["page"] : 1;
+//$page =  (isset($_GET["page"]))  ? $_GET["page"] : 1;
 
 
-$posisi = ( $page - 1 ) * $batas;
+//$posisi = ( $page - 1 ) * $batas;
 
 
 
@@ -45,13 +45,13 @@ $posisi = ( $page - 1 ) * $batas;
         </tr>
     </thead>
     <tbody>
-        <?php $nomor=1 + $posisi; ?>
+        <?php $nomor=1; ?>
 
         <?php 
      
         
         
-           $ambil= mysqli_query($koneksi, "SELECT * FROM user LIMIT $posisi, $batas");
+           $ambil= mysqli_query($koneksi, "SELECT * FROM user");
         ?>
         <?php while($pecah=$ambil->fetch_assoc()) { ?>
         <tr>
@@ -62,8 +62,8 @@ $posisi = ( $page - 1 ) * $batas;
                 <img src="../gambar/user/<?php echo $pecah['user_foto'];?>" width="100">
             </td>
             <td>
-                <a href="admin.php?halamanhapuspengguna&id=<?php echo $pecah['user_id']; ?>" class="btn btn-danger"
-                    style="left:20px">hapus</a>
+                <a href="admin.php?halaman=pengguna&id=<?php echo $pecah['user_id']; ?>" class="btn btn-danger"
+                    style="left:20px">HAPUS</a>
             </td>
         </tr>
         <?php $nomor++; ?>
@@ -74,13 +74,13 @@ $posisi = ( $page - 1 ) * $batas;
 
 <div class="paging">
     <?php
-for($x=1; $x<=$halaman; $x++){
+//for($x=1; $x<=$halaman; $x++){
     ?>
-    <a <?php if($x==$page){echo"class='active'";} ?> href="?pengguna.php=<?php echo $x; ?>">
-        <?php echo $x; ?>
+    <!--    <a <?php // if($x==$page){echo"class='active'";} ?> href="?pengguna.php= <?php// echo $x; ?>">
+        <?php //echo $x; ?>
     </a>
     <?php
-    }
+  //  }
 ?>
 
 

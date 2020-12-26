@@ -131,6 +131,8 @@ $koneksi = new mysqli("localhost", "root", "", "project_chat");
         speed: 500
     });
     </script>
+    <script src="package/dist/sweetalert2.all.min.js"></script>
+
 </body>
 
 </html>

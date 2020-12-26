@@ -10,7 +10,7 @@ $ambil = $koneksi->query("SELECT * FROM tb_produk WHERE id_produk= '$_GET[id]'")
 $pecah= $ambil->fetch_assoc();
 ?>
 
-<form method="post" enctype="multipart/form-data">
+<form method="POST" enctype="multipart/form-data">
     <div class="form-group">
         <label>Nama Produk</label>
         <input type="text" name="nama" class="form-control" value="<?php echo $pecah['nama_produk']; ?>">
@@ -59,7 +59,7 @@ if (isset($_POST['ubah']))
     else
     {
         $koneksi->query("UPDATE tb_produk SET nama_produk='$_POST[nama]',
-        kategori='$_POST[kategori_produk]',harga='$_POST[harga_produk]',map_link='$_POST[map]',harga_produk='$_POST[harga]',
+        kategori='$_POST[kategori_produk]',harga='$_POST[harga_produk]',map_link='$_POST[map]',
         deskripsi_produk='$_POST[deskripsi]' WHERE id_produk='$_GET[id]'");
     }
     echo "<script>alert('data produk telah diubah' );</script>";

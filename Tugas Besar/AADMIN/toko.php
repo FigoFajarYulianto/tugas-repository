@@ -35,7 +35,7 @@ if(!isset($_SESSION['login'])) {
             <td><?php echo $pecah['kode_pos']; ?></td>
             <td><?php echo $pecah['link_map']; ?></td>
             <td>
-                <a href="" class="btn btn-danger">hapus</a>
+                <a href="admin.php?halaman=hapustoko&id=<?php echo $pecah['id'];?>" class=" btn btn-danger">hapus</a>
             </td>
         </tr>
         <?php $nomor++; ?>
