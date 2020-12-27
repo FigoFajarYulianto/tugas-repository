@@ -1,0 +1,175 @@
+body {
+    font-family: 'roboto';
+    color: #000;
+    background: whitesmoke;
+
+}
+
+.judul {
+    background: #2280be;
+    padding: 12px;
+    text-align: center;
+}
+
+.judul h1,
+h2 {
+    height: 15px;
+    background-position: center;
+
+}
+
+a {
+    padding: 5px;
+    text-decoration: none;
+}
+
+.table {
+    border-collapse: collapse;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 70px;
+}
+
+table.table th th,
+table.table tr td {
+    padding: 10px 20px;
+
+}
+
+.teks-table {
+    text-align: center;
+}
+
+.tombol {
+    background-color: silver;
+    border: black solid;
+}
+
+table tr th {
+    background: #2280be;
+    color: rgb(22, 20, 20);
+    font-weight: normal;
+    font-size: 16px;
+    font-family: sans-serif;
+    padding: 20px 30px 10px 50px;
+    text-align: center;
+
+}
+
+table {
+    border-spacing: 10px;
+    border-collapse: collapse;
+    font-family: sans-serif;
+    color: rgb(15, 14, 14);
+    width: 10%;
+    height: 10%;
+    border: 2px solid #505555;
+    text-align: center;
+    margin-top: 30px;
+    margin-left: 18px;
+}
+
+
+
+table td {
+    color: rgb(rgb(165, 158, 158));
+}
+
+table tr,
+td:hover {
+    background-color: #f5f5f5;
+}
+
+table tr,
+td:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+table td {
+    color: rgb(rgb(165, 158, 158));
+}
+
+
+
+.b {
+    font-family: sans-serif;
+    font-size: 15px;
+    background: #22a4cf;
+    color: white;
+    border: white 1px solid;
+    border-radius: 2px;
+    padding: 5px 5px;
+    margin-top: 10px;
+    margin-left: 350px;
+}
+
+a {
+    text-decoration: none;
+}
+
+a:hover,
+button:hover {
+    opacity: 0.9;
+}
+
+.edit {
+    font-family: sans-serif;
+    font-size: 15px;
+    background: #cdff18;
+    color: rgb(255, 255, 255);
+    border: white 3px solid;
+    border-radius: 2px;
+    padding: 5px 5px;
+    margin-top: 10px;
+
+}
+
+.hapus {
+    font-family: sans-serif;
+    font-size: 15px;
+    background: #cf2222;
+    color: rgb(255, 255, 255);
+    border: white 3px solid;
+    border-radius: 2px;
+    padding: 5px 5px;
+    margin-top: 10px;
+
+}
+
+.btn {
+    font-family: sans-serif;
+    font-size: 15px;
+    background: #22a4cf;
+    color: white;
+    border: white 3px solid;
+    border-radius: 2px;
+    padding: 5px 5px;
+    margin-top: 10px;
+    margin-left: 49rem;
+}
+
+.l {
+    font-family: sans-serif;
+    font-size: 15px;
+    background: #22a4cf;
+    color: white;
+    border: white 3px solid;
+    border-radius: 2px;
+    padding: 5px 5px;
+    margin-top: 10px;
+    margin-left: 10px;
+
+}
+
+.s {
+    font-family: sans-serif;
+    font-size: 15px;
+    background: #22a4cf;
+    color: white;
+    border: white 3px solid;
+    border-radius: 2px;
+    padding: 5px 5px;
+    margin-top: 10px;
+    margin-left: 10px;
+    margin-left: 49rem;
+}
