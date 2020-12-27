@@ -39,7 +39,7 @@ $awalData = ( $jumlahDataPerHalaman * $halamanAktif ) - $jumlahDataPerHalaman;*/
             <th>No</th>
             <th>Email</th>
             <th>Nama Pengguna</th>
-            <th>Foto Prngguna</th>
+            <th>Foto Pengguna</th>
             <th>Aksi</th>
 
         </tr>
