@@ -1,29 +1,16 @@
 <?php
-//skrip koneksi
+include 'koneksi.php'; 
 session_start();
-$koneksi = new mysqli("localhost", "root", "", "project_chat");
-?>
-<?PHP  
-$keyword = $_GET["keyword"];
-
 $semuadata=array();
-$ambil = $koneksi->query("SELECT * FROM tb_produk WHERE nama_produk LIKE '%$keyword%'
-OR deskripsi_produk LIKE '%$keyword%'"); 
-
-while($pecah = $ambil->fetch_assoc())
+// $ambil = $koneksi->query("SELECT * FROM tb_produk  JOIN kategori ON tb_produk.id_kategori=kategori.id_kategori"); 
+$ambil1 = $koneksi->query("SELECT * FROM tb_produk WHERE id_kategori LIKE '4'");
+while($pecah = $ambil1->fetch_assoc())
 {
     $semuadata[]=$pecah;
 }
-
-// if (!isset($_SESSION["user_status"]))
-// {
-//     echo "<script>alert('silahkan login')</script>";
-//     echo "<script>location='Login/login.php';</script>";
-// }
-// echo"<pre>";
-// print_r($semuadata);
-// echo"</pre>";
-
+// echo "<pre>";
+// print_r ($semuadata);
+// echo "</pre>";
 ?>
 <!doctype html>
 <html lang="en">
@@ -81,19 +68,19 @@ while($pecah = $ambil->fetch_assoc())
                   </form>
                     <ul style="padding-bottom: -20px;">
                         <li class="nav-link" style="--i: .6s">
-                            <a href="#">Pertanian</a>
+                            <a href="kategori_pertanian.php">Pertanian</a>
                         </li>
                         <li class="nav-link" style="--i: .85s">
-                            <a href="#">Alat</a>
+                            <a href="kategori_alat.php">Alat</a>
                         </li>
                         <li class="nav-link" style="--i: 1.1s">
-                            <a href="#">Pupuk</a>
+                            <a href="kategori_pupuk.php">Pupuk</a>
                         </li>
                         <li class="nav-link" style="--i: 1.35s">
-                            <a href="#">Bibit</a>
+                            <a href="kategori_bibit.php">Bibit</a>
                         </li>
                         <li class="nav-link" style="--i: 1.8s">
-                            <a href="#">Obat</a>
+                            <a href="kategori_obat.php">Obat</a>
                         </li>
                     </ul>
                 </div>
@@ -212,7 +199,7 @@ while($pecah = $ambil->fetch_assoc())
     <!-- Hasil Pencarian -->
     <div class="isi">
         <div class="wrapper">
-          <div class="row" style="margin-top: -40px;">
+          <div class="row" style="margin-right:-325px; margin-left:190px; margin-top: -40px;">
             <?php foreach ($semuadata as $key => $value): ?>
               <div class="card">
                   <img src="produk2/assets/img/produk/<?php echo $value['gbr_produk'] ?>" alt="" class="img-responsive">
@@ -244,7 +231,25 @@ while($pecah = $ambil->fetch_assoc())
 
     <!-- Akhir Pencarian -->
 
-
+    <!-- Logout Modal-->
+    <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+          aria-hidden="true">
+          <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                  <div class="modal-header">
+                      <h5 class="modal-title" id="exampleModalLabel">Apakah anda yakin ingin keluar?</h5>
+                      <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                          <span aria-hidden="true">×</span>
+                      </button>
+                  </div>
+                  <div class="modal-body">Jika anda yakin silahkan tekan keluar.</div>
+                  <div class="modal-footer">
+                      <button class="btn btn-secondary" type="button" data-dismiss="modal">batal</button>
+                      <a class="btn btn-primary" href="logout.php">Keluar</a>
+                  </div>
+              </div>
+          </div>
+      </div>
 
 
 

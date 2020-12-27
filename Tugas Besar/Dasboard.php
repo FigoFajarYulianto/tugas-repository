@@ -7,9 +7,9 @@ require_once('produk2/config/koneksi.php');
 require_once('produk2/models/database.php');
 
 $connection = new database($host, $user, $pass, $database);
-$koneksi = new mysqli("localhost", "root", "", "project_chat");
+include 'koneksi.php';
 
-include  ('produk2/config/koneksi.php');
+
 ?>
 <!doctype html>
 <html lang="en">
@@ -49,7 +49,6 @@ include  ('produk2/config/koneksi.php');
             <div class="logo-container">
                 <a href="Dasboard.php" type="button" style="text-decoration:none"><h3 class="logo">MAKE<span>TAN</span></h3></a>
             </div>
-
             <div class="nav-btn">
                 <div class="nav-links">
                   <form action="pencarian.php" method="get">
@@ -66,19 +65,19 @@ include  ('produk2/config/koneksi.php');
                   </form>
                     <ul style="padding-bottom: -20px;">
                         <li class="nav-link" style="--i: .6s">
-                            <a href="#">Pertanian</a>
+                            <a href="kategori_pertanian.php" method="get">Pertanian</a>
                         </li>
                         <li class="nav-link" style="--i: .85s">
-                            <a href="#">Alat</a>
+                            <a href="kategori_alat.php" method="get" name="alat">Alat</a>
                         </li>
                         <li class="nav-link" style="--i: 1.1s">
-                            <a href="#">Pupuk</a>
+                            <a href="kategori_pupuk.php" method="get" name="pupuk">Pupuk</a>
                         </li>
                         <li class="nav-link" style="--i: 1.35s">
-                            <a href="#">Bibit</a>
+                            <a href="kategori_bibit.php" method="get" name="bibit">Bibit</a>
                         </li>
                         <li class="nav-link" style="--i: 1.8s">
-                            <a href="#">Obat</a>
+                            <a href="kategori_obat.php" method="get" name="obat">Obat</a>
                         </li>
                     </ul>
                 </div>
@@ -99,7 +98,7 @@ include  ('produk2/config/koneksi.php');
                                     <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
                                     Profile
                                 </a>
-                                <a class="dropdown-item" href="#">
+                                <a class="dropdown-item" href="produk2/index.php">
                                     <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
                                     Settings
                                 </a>
@@ -160,7 +159,7 @@ include  ('produk2/config/koneksi.php');
         padding: 9px;
         display: flex;
         justify-content: center;
-        align-items: center;
+        align-items: center;  
         padding-left: 20px;
     }
 
@@ -233,8 +232,8 @@ include  ('produk2/config/koneksi.php');
     <!-- Kategori Pilihan -->
     <div class="isi">
         <div class="wrapper">
-          <div class="row" style="margin-top: -40px; margin-right: -60px;">
-            <?php $ambil = $koneksi->query("SELECT * FROM tb_produk"); ?>
+          <div class="row" style="margin-top: -10px; margin-right: -40px;">
+            <?php $ambil = $koneksi->query("SELECT * FROM tb_produk JOIN kategori ON tb_produk.id_kategori=kategori.id_kategori"); ?>
             <?php while($perproduk = $ambil->fetch_assoc()) { ?>
               <div class="card">
                   <img src="produk2/assets/img/produk/<?php echo $perproduk['gbr_produk'] ?>" alt="" class="img-responsive">
@@ -299,7 +298,7 @@ include  ('produk2/config/koneksi.php');
                   </div>
               </div>
           </div>
-      </div>`
+      </div>
 
 
   <!-- Modal Pencarian -->
