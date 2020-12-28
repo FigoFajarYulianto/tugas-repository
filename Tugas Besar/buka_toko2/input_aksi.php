@@ -1,0 +1,12 @@
+<?php 
+	include 'koneksi.php';
+	$nama = $_POST['nama'];
+	$link = $_POST['link'];
+	$kota = $_POST['kota'];
+	$kode = $_POST['kode'];
+	$map = $_POST['map'];
+
+	mysqli_query($koneksi,"insert into buka_toko values ('','$nama','$link','$kota','$kode','$map')");
+
+	header("location:buka_toko.php?alert=registered");
+?>
