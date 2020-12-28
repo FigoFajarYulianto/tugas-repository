@@ -8,5 +8,5 @@
 
 	mysqli_query($koneksi,"insert into buka_toko values ('','$nama','$link','$kota','$kode','$map')");
 
-	header("location:../Dasboard.php?alert=registered");
+	header("location:buka_toko.php?alert=registered");
 ?>

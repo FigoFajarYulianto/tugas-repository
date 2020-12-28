@@ -49,7 +49,7 @@
                         <div class="form-group">
                             <input type="text" class="form-input" name="map" id="map" placeholder="Map" required=""/>
                         </div>
-                        <div class="form-group" >
+                        <div class="form-group">
                             <input type="submit" name="simpan" id="simpan" class="form-submit" value="Simpan" required=""/>
                         </div>
                     </form>
