@@ -9,6 +9,7 @@ require_once('produk2/models/database.php');
 $connection = new database($host, $user, $pass, $database);
 include 'koneksi.php';
 
+$sql = mysqli_query($koneksi, "SELECT * FROM buka_toko WHERE user_id ='$_SESSION[user_id]'"); 
 
 ?>
 <!doctype html>
@@ -98,14 +99,18 @@ include 'koneksi.php';
                                     <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
                                     Profile
                                 </a>
-                                <a class="dropdown-item" href="produk2/index.php">
+                                <?php $cek = mysqli_num_rows($sql); ?>
+                                <?php if($cek > 0) { ?> 
+                                  <a class="dropdown-item" href="produk2/index.php">
                                     <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
-                                    Settings
-                                </a>
-                                <a class="dropdown-item" href="logout.php">
+                                    profil toko
+                                  </a>
+                                <?php }else{ ?>
+                                <a class="dropdown-item" href="buka_toko/buka_toko.php">
                                     <i class="fas fa-list fa-sm fa-fw mr-2 text-gray-400"></i>
-                                    Activity Log
+                                    buat toko
                                 </a>
+                                <?php } ?>
                                 <div class="dropdown-divider"></div>
                                 <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
                                     <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
