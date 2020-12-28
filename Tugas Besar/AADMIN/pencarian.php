@@ -1,8 +1,7 @@
 <?php 
 $koneksi = new mysqli("localhost", "root", "", "project_chat");
 
-?>
-<?php
+
 $keyword = $_GET['keyword'];
 
 
@@ -26,7 +25,7 @@ while($pecah = $ambil->fetch_assoc());
 </head>
 
 <body>
-    <?php include 'produk.php' ?>
+    <?php include 'produk.php'; ?>
     <div class="container">
         < <h3>Hasil Pencarian : <?php echo $keyword ?></h3>
 
@@ -36,7 +35,7 @@ while($pecah = $ambil->fetch_assoc());
 
             <div class="row">
 
-                <?php foreach ($semuadata as $key => $value) : ?>
+                <?php foreach ($semuadata as $keyword => $value) : ?>
 
                 <div class="col-md-3">
                     <div class="thumbnail">

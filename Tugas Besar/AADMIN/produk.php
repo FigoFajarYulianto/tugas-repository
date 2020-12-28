@@ -7,12 +7,12 @@ if(!isset($_SESSION['login'])) {
 }
 ?>
 
-
-<form action="pencarian.php" method="get" class="navbar-form navbar-right">
+<!--
+<form action="pencarian.php" method="GET" class="navbar-form navbar-right">
     <input type="text" class="form-control" name="keyword">
     <button class="btn btn-primary">CARI</button>
 </form>
-
+-->
 
 <table class="table table-bordered">
     <thead>
