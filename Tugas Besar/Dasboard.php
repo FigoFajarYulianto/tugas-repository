@@ -92,7 +92,7 @@ include 'koneksi.php';
                       <li class="nav-item dropdown no-arrow">
                             <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"s
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <span class="small" style="margin-right: -60px;"><?php echo $saya['user_nama']; ?></span>
+                                <span class="small" style="margin-right: -80px; font-size:1rem; font-weight: bold;"><?php echo $saya['user_nama']; ?></span>
                                 <img class="rounded-circle"  src="gambar/user/<?php echo $saya['user_foto']; ?>">
                             </a>
                             
@@ -112,7 +112,7 @@ include 'koneksi.php';
                                     profil toko
                                   </a>
                                 <?php }else{ ?>
-                                <a class="dropdown-item" href="buka_toko/buka_toko.php">
+                                <a class="dropdown-item" href="buka_toko2/buka_toko.php">
                                     <i class="fas fa-list fa-sm fa-fw mr-2 text-gray-400"></i>
                                     buat toko
                                 </a>
