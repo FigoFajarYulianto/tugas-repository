@@ -58,7 +58,9 @@
 								<a class="dropdown-item pilih-status" id="offline"><span class="status status-offline mr-2"></span> Offline</a>
 							</div>
 						</div>
-
+						<div class="mx-4" style="width: 200px;">
+							<p class="h5"><?php echo $saya['user_nama'] ?></p>
+						</div>
 						<div class="dropdown ml-auto">
 							<div class="dropdown-toggle" id="dropdownMenuButton2" data-toggle="dropdown" aria-haspopup="tre" aria-expanded="flse">
 								<i class="fa fa-cog"></i>

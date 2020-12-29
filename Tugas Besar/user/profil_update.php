@@ -34,6 +34,6 @@ if($filename_foto!=""){
 }
 
 
-header("Location:index.php");
+header("Location:../Dasboard.php");
 
 ?>
