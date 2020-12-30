@@ -1,18 +1,29 @@
 <?php
-include 'koneksi.php'; 
+//skrip koneksi
 session_start();
-ob_start();
-require_once('produk2/config/koneksi.php');
-require_once('produk2/models/database.php');
+$koneksi = new mysqli("localhost", "root", "", "project_chat");
+?>
+<?PHP  
+$keyword = $_GET["keyword"];
 
-$connection = new database($host, $user, $pass, $database);
-include "produk2/models/m_produk.php";
-// include "produk2/views/produk.php.php";
-// $ambil = $koneksi->query("SELECT * FROM tb_produk  JOIN kategori ON tb_produk.id_kategori=kategori.id_kategori"); 
+$semuadata=array();
+$ambil = $koneksi->query("SELECT * FROM tb_produk WHERE nama_produk LIKE '%$keyword%'
+OR deskripsi_produk LIKE '%$keyword%'"); 
 
-// echo "<pre>";
-// print_r ($semuadata);
-// echo "</pre>";
+while($pecah = $ambil->fetch_assoc())
+{
+    $semuadata[]=$pecah;
+}
+
+// if (!isset($_SESSION["user_status"]))
+// {
+//     echo "<script>alert('silahkan login')</script>";
+//     echo "<script>location='Login/login.php';</script>";
+// }
+// echo"<pre>";
+// print_r($semuadata);
+// echo"</pre>";
+
 ?>
 <!doctype html>
 <html lang="en">
@@ -47,15 +58,16 @@ include "produk2/models/m_produk.php";
 <body>
     <!-- Navbar -->
     <header>
-        <div class="container">
+          <div class="container">
             <input type="checkbox" name="" id="check">
             
             <div class="logo-container">
                 <a href="Dasboard.php" type="button" style="text-decoration:none"><h3 class="logo">MAKE<span>TAN</span></h3></a>
             </div>
+
             <div class="nav-btn">
                 <div class="nav-links">
-                  <form action="pencarian_detail.php" method="get">
+                  <form action="pencarian.php" method="get">
                     <div class="wrapper">
                       <div class="search-input">
                         <a href="" target="_blank" hidden></a>
@@ -69,58 +81,47 @@ include "produk2/models/m_produk.php";
                   </form>
                     <ul style="padding-bottom: -20px;">
                         <li class="nav-link" style="--i: .6s">
-                            <a href="kategori_pertanian.php" method="get">Pertanian</a>
+                            <a href="#">Pertanian</a>
                         </li>
                         <li class="nav-link" style="--i: .85s">
-                            <a href="kategori_alat.php" method="get" name="alat">Alat</a>
+                            <a href="#">Alat</a>
                         </li>
                         <li class="nav-link" style="--i: 1.1s">
-                            <a href="kategori_pupuk.php" method="get" name="pupuk">Pupuk</a>
+                            <a href="#">Pupuk</a>
                         </li>
                         <li class="nav-link" style="--i: 1.35s">
-                            <a href="kategori_bibit.php" method="get" name="bibit">Bibit</a>
+                            <a href="#">Bibit</a>
                         </li>
                         <li class="nav-link" style="--i: 1.8s">
-                            <a href="kategori_obat.php" method="get" name="obat">Obat</a>
+                            <a href="#">Obat</a>
                         </li>
                     </ul>
                 </div>
                 <div class="login-navbar">
                   <?php if (isset($_SESSION['user_status'])):?>
-                    <?php $id_user = $_SESSION['user_id'];
-                    $s = mysqli_query($koneksi,"select * from user where user_id='$id_user'");
-                    $saya = mysqli_fetch_assoc($s); ?>
                     <div class="nav_right">
                       <ul>
                       <li class="nav-item dropdown no-arrow">
-                            <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"s
+                            <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <span class="small" style="margin-right: -80px; font-size:1rem; font-weight: bold;"><?php echo $saya['user_nama']; ?></span>
-                                <img class="rounded-circle"  src="gambar/user/<?php echo $saya['user_foto']; ?>">
+                                <span class="small" style="margin-right: -60px;">Douglas McGee</span>
+                                <img class="rounded-circle"  src="Login/gambar/user/avatar1.png">
                             </a>
-                            
                             <!-- Dropdown - User Information -->
                             <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
                                 aria-labelledby="userDropdown">
-                                <a class="dropdown-item" href="profil.php" data-toggle="modal" data-target="#profilModal">
+                                <a class="dropdown-item" href="#">
                                     <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
                                     Profile
-                                </a> 
-                                <?php $sql = mysqli_query($koneksi, "SELECT * FROM buka_toko WHERE user_id ='$_SESSION[user_id]'");?>                      
-                                <?php $cek = mysqli_num_rows($sql); ?>
-                                <?php if(isset($_SESSION['user_id'])) { ?>           
-                                  <?php if ($cek > 0) { ?>
-                                  <a class="dropdown-item" href="profil_toko.php">
-                                    <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
-                                    profil toko
-                                  </a>
-                                <?php }else{ ?>
-                                <a class="dropdown-item" href="buka_toko2/buka_toko.php">
-                                    <i class="fas fa-list fa-sm fa-fw mr-2 text-gray-400"></i>
-                                    buat toko
                                 </a>
-                                <?php } ?>
-                                <?php } ?>
+                                <a class="dropdown-item" href="#">
+                                    <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
+                                    Settings
+                                </a>
+                                <a class="dropdown-item" href="logout.php">
+                                    <i class="fas fa-list fa-sm fa-fw mr-2 text-gray-400"></i>
+                                    Activity Log
+                                </a>
                                 <div class="dropdown-divider"></div>
                                 <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
                                     <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
@@ -140,14 +141,15 @@ include "produk2/models/m_produk.php";
                   </div>
                 </div>
             <?php endif ?>
+
             <div class="hamburger-menu-container">
                 <div class="hamburger-menu">
                     <div></div>
                 </div>
             </div>
         </div>
-        
     </header>
+
     <style type="text/css">
     header .img-search {
     width: 18px;
@@ -174,7 +176,7 @@ include "produk2/models/m_produk.php";
         padding: 9px;
         display: flex;
         justify-content: center;
-        align-items: center;  
+        align-items: center;
         padding-left: 20px;
     }
 
@@ -204,90 +206,27 @@ include "produk2/models/m_produk.php";
 
     }
     </style>
-    <main>
-        <section>
-            <div class="overlay"></div>
-        </section>
-    </main>
     <!-- Akhir navbar -->
 
-<!-- profil toko -->
-<div class="utama" style="width: 80%; margin-top:20px; margin-left:auto; margin-right:auto;">
-  <div class="tampilan">
-    <img src="gambar/user/<?php echo $saya['user_foto']; ?>" class="rounded float-start " style="position:absolute; width:200px; height:200px;"  alt="...">
-    <img src="img/img_iklan/Gambar iklan 1.jpg" class="img-fluid  rounded mx-auto d-block" alt="...">
-  </div>
-  <?php if(isset($_SESSION['user_id'])) { ?>
-    <nav style="position: relative; margin: 10px auto 0; width: 590px; height: 50px; background: #34495e; border-radius: 8px; font-size: 0; box-shadow: 0 2px 3px rgba(0, 0, 0, .1);">
-          <a href="profil_toko.php?halaman=produk"  style="text-decoration: none; font-size: 15px; text-transform: uppercase; color: white; text-decoration: none; line-height: 50px; position: relative; z-index: 1; display: inline-block; text-align: center;">Detail</a>
-          <div class="animation start-home"></div>
-          <style type="text/css">
-          nav .animation{
-          position: absolute;
-          height: 5px;
-          bottom: 0;
-          z-index: 0;
-          background: #1abc9c;
-          border-radius: 8px;
-          transition: all .5 ease 0s ;
-          }
-          nav a:nth-child(1){
-              width: 100px;
-          }
-          nav .start-home,a:nth-child(1):hover~.animation{
-              width: 100px;
-              left:0;
-          }
-      </style>
-  <?php }?>
-</div>
-<?php
-          if("produk")
-          {
-            include 'produk2/views/produk.php';
-          }
-      ?>
 
-
-<!-- Profil -->
-<div class="modal fade" id="profilModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                    <div class="row justify-content-center align-items-center profil">
-                        <div class="form">
-                            <img class="rounded mx-auto d-block" src="gambar/user/<?php echo $saya['user_foto']; ?>"  style="width: 200px; height:200px;" alt="...">
-                            <div class="alert alert-secondary" style="margin-top: 20px;" role="alert">
-                                rajih
-                            </div>
-                            <div class="alert alert-secondary" role="alert">
-                                rajih
-                            </div>
-                        </div>
-                        <div class="profil-detail">
-                            <form action="user/profil_update.php" method="post" enctype="multipart/form-data">
-                                <div class="form-grub" style="width: 400px;">
-                                    <label> Nama </label>
-                                    <input type="text" name="nama" class="form-control" value="<?php echo $saya['user_nama']; ?>">
-                                </div>
-                                <div class="form-grub" style="width: 400px;">
-                                    <label> Email </label>
-                                    <input type="email" name="email" class="form-control" value="<?php echo $saya['user_email']; ?>">
-                                </div>
-                                <div class="form-group row">
-                                  <label class="col-lg-2" ">Foto</label>
-                                  <input type="file" name="foto" style="position:absolute; top:220px; right:147px;">
-                                  <div class="col-lg-10" ><br>
-                                    <small class="text-muted font-italic">Kosongkan jika tidak ingin mengganti foto profil.</small>
-                                  </div>
-                                </div>
-                                <button type="submit" class="btn btn-secondary" style="margin-left: 20%; margin-right: 35%; width:30%; margin-top:220px;">Update profil</button>
-                            </form>
-                        </div>
-                    </div>
-                </div>
-            </div>
+    <!-- Hasil Pencarian -->
+    <div class="isi">
+        <div class="wrapper">
+          <div class="row" style="margin-top: -40px;">
+            <?php foreach ($semuadata as $key => $value): ?>
+              <?php include 'produk2/views/produk.php' ?>
+              <?php endforeach ?>
+          </div>
         </div>
-    <!-- Akhir Profil -->
+    </div>
+
+    <div class="row mx-0 mt-5 justify-content-center">
+      <button class="btn btn-green"> Tampilkan Lebih banyak</button>
+    </div>
+    </div>
+  </div>
+
+    <!-- Akhir Pencarian -->
 
 
 
@@ -297,6 +236,22 @@ include "produk2/models/m_produk.php";
 
 
 
+  <!-- footer -->
+  <div class="footer-ku">
+    <div class="card-footer text-center">
+      <div class="card-header" style="font-size: 42px;font-family: Roboto; font-weight: bold; padding: 4px 4px;">
+        Follow us
+      </div>
+      <div class="card-body">
+        <a href=" #" class="btn d-flex justify-content-center">
+          <img src=" logo/twitter.png" alt="">
+          <img src="logo/instagram.png" alt="">
+          <img src="logo/facebook.png" alt="">
+        </a>
+      </div>
+    </div>
+  </div>
+  <!-- penutup footer -->
 
   <!-- Modal Pencarian -->
   <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" style="top:30px;">
@@ -312,27 +267,6 @@ include "produk2/models/m_produk.php";
     </div>
   </div>
   <!-- Penutup Modal Pencarian -->
-
-    <!-- Logout Modal-->
-    <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-          aria-hidden="true">
-          <div class="modal-dialog" role="document">
-              <div class="modal-content">
-                  <div class="modal-header">
-                      <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
-                      <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-                          <span aria-hidden="true">×</span>
-                      </button>
-                  </div>
-                  <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
-                  <div class="modal-footer">
-                      <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                      <a class="btn btn-primary" href="logout.php">Logout</a>
-                  </div>
-              </div>
-          </div>
-      </div>
-
 
   <!-- Css Chat -->
   <style>

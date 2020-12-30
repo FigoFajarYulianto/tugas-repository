@@ -10,6 +10,7 @@ $connection = new database($host, $user, $pass, $database);
 include 'koneksi.php';
 
 
+
 ?>
 <!doctype html>
 <html lang="en">
@@ -107,7 +108,7 @@ include 'koneksi.php';
                                 <?php $cek = mysqli_num_rows($sql); ?>
                                 <?php if(isset($_SESSION['user_id'])) { ?>           
                                   <?php if ($cek > 0) { ?>
-                                  <a class="dropdown-item" href="produk2/index.php">
+                                  <a class="dropdown-item" href="profil_toko.php">
                                     <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
                                     profil toko
                                   </a>
@@ -207,11 +208,7 @@ include 'koneksi.php';
         </section>
     </main>
   <!-- Akhir navbar -->
-  <?php
-        if (@$_GET['page'] == 'produk') {
-          include "produk2/views/produk.php";
-        }
-  ?>
+
   <!-- Carousel -->
   <div class="atas">
     <div class="isis">
@@ -291,6 +288,7 @@ include 'koneksi.php';
     </div>
   </div>
   <!-- penutup footer -->
+  
 
     <!-- Profil -->
     <div class="modal fade" id="profilModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
