@@ -1,19 +1,11 @@
 <?php
-include "models/m_produk.php";
+// include "models/m_produk.php";
 $produk = new Produk($connection);
 
 if(@$_GET['act'] == '') {
 ?>
-<div class="row">
-          <div class="col-lg-12">
-            <h1 style="padding-top: 10px; font-size: 6rem;"><small>Data Produk</small></h1>
-            <!-- <ol class="breadcrumb">
-              <li><a href="index.html"><i class="icon-dashboard"></i> Produk</a></li>
-              </ol> -->
-          </div>
-        </div>
-
-        <div class="row">
+<di class="row">
+        <div class="row" style="padding-top: 10px; margin-left:auto; margin-right:auto;" >
             <div class="col-lg-12">
                 <div class="table-responsive">
                     <table class="table table-bordered table-hover table-striped">
@@ -40,7 +32,7 @@ if(@$_GET['act'] == '') {
                            <td><?php echo $data->harga; ?></td>
                            <td><?php echo $data->map_link; ?></td>
                            <td align="center">
-                               <img src="assets/img/produk/<?php echo $data->gbr_produk; ?>" width="100px">
+                               <img src="produk2/assets/img/produk/<?php echo $data->gbr_produk; ?>" width="100px">
                             </td>
                            <td align="center">
                            <a href="?page=produk&act=del&id=<?php echo $data->id_produk ?>" onclick="return confirm('Yakin Akan Menghapus Data Ini?')">

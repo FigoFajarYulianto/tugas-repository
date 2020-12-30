@@ -10,6 +10,7 @@ $connection = new database($host, $user, $pass, $database);
 include 'koneksi.php';
 
 
+
 ?>
 <!doctype html>
 <html lang="en">
@@ -33,6 +34,7 @@ include 'koneksi.php';
 
   <!-- My Css Card -->
   <link rel="stylesheet" href="style_Card.css">
+  <link rel="stylesheet" href="profil.css">
   <!-- <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
   <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>  -->
 
@@ -83,31 +85,35 @@ include 'koneksi.php';
                 </div>
                 <div class="login-navbar">
                   <?php if (isset($_SESSION['user_status'])):?>
+                    <?php $id_user = $_SESSION['user_id'];
+                    $s = mysqli_query($koneksi,"select * from user where user_id='$id_user'");
+                    $saya = mysqli_fetch_assoc($s); ?>
                     <div class="nav_right">
                       <ul>
                       <li class="nav-item dropdown no-arrow">
-                            <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
+                            <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"s
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <span class="small" style="margin-right: -60px;">Douglas McGee</span>
-                                <img class="rounded-circle"  src="Login/gambar/user/avatar1.png">
+                                <span class="small" style="margin-right: -80px; font-size:1rem; font-weight: bold;"><?php echo $saya['user_nama']; ?></span>
+                                <img class="rounded-circle"  src="gambar/user/<?php echo $saya['user_foto']; ?>">
                             </a>
+                            
                             <!-- Dropdown - User Information -->
                             <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
                                 aria-labelledby="userDropdown">
-                                <a class="dropdown-item" href="#">
+                                <a class="dropdown-item" href="profil.php" data-toggle="modal" data-target="#profilModal">
                                     <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
                                     Profile
                                 </a> 
                                 <?php $sql = mysqli_query($koneksi, "SELECT * FROM buka_toko WHERE user_id ='$_SESSION[user_id]'");?>                      
                                 <?php $cek = mysqli_num_rows($sql); ?>
                                 <?php if(isset($_SESSION['user_id'])) { ?>           
-                                  <?php if ($cek > 0) { ?>;
-                                  <a class="dropdown-item" href="produk2/index.php">
+                                  <?php if ($cek > 0) { ?>
+                                  <a class="dropdown-item" href="profil_toko.php">
                                     <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
                                     profil toko
                                   </a>
                                 <?php }else{ ?>
-                                <a class="dropdown-item" href="buka_toko/buka_toko.php">
+                                <a class="dropdown-item" href="buka_toko2/buka_toko.php">
                                     <i class="fas fa-list fa-sm fa-fw mr-2 text-gray-400"></i>
                                     buat toko
                                 </a>
@@ -202,11 +208,7 @@ include 'koneksi.php';
         </section>
     </main>
   <!-- Akhir navbar -->
-  <?php
-        if (@$_GET['page'] == 'produk') {
-          include "produk2/views/produk.php";
-        }
-  ?>
+
   <!-- Carousel -->
   <div class="atas">
     <div class="isis">
@@ -286,6 +288,47 @@ include 'koneksi.php';
     </div>
   </div>
   <!-- penutup footer -->
+  
+
+    <!-- Profil -->
+    <div class="modal fade" id="profilModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="row justify-content-center align-items-center profil">
+                        <div class="form">
+                            <img class="rounded mx-auto d-block" src="gambar/user/<?php echo $saya['user_foto']; ?>"  style="width: 200px; height:200px;" alt="...">
+                            <div class="alert alert-secondary" style="margin-top: 20px;" role="alert">
+                                rajih
+                            </div>
+                            <div class="alert alert-secondary" role="alert">
+                                rajih
+                            </div>
+                        </div>
+                        <div class="profil-detail">
+                            <form action="user/profil_update.php" method="post" enctype="multipart/form-data">
+                                <div class="form-grub" style="width: 400px;">
+                                    <label> Nama </label>
+                                    <input type="text" name="nama" class="form-control" value="<?php echo $saya['user_nama']; ?>">
+                                </div>
+                                <div class="form-grub" style="width: 400px;">
+                                    <label> Email </label>
+                                    <input type="email" name="email" class="form-control" value="<?php echo $saya['user_email']; ?>">
+                                </div>
+                                <div class="form-group row">
+                                  <label class="col-lg-2" ">Foto</label>
+                                  <input type="file" name="foto" style="position:absolute; top:220px; right:147px;">
+                                  <div class="col-lg-10" ><br>
+                                    <small class="text-muted font-italic">Kosongkan jika tidak ingin mengganti foto profil.</small>
+                                  </div>
+                                </div>
+                                <button type="submit" class="btn btn-secondary" style="margin-left: 20%; margin-right: 35%; width:30%; margin-top:220px;">Update profil</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    <!-- Akhir Profil -->
 
   <!-- Logout Modal-->
   <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
@@ -306,6 +349,7 @@ include 'koneksi.php';
               </div>
           </div>
       </div>
+  
 
 
   <!-- Modal Pencarian -->
