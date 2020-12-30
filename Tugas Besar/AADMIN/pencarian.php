@@ -1,14 +1,14 @@
 <?php 
-$koneksi = new mysqli("localhost", "root", "", "project_chat");
+$koneksi = new mysqli("localhost", "root", "", "project_chat"); ?>
 
-
-$keyword = $_GET['keyword'];
+<?php
+$keyword = $_GET["keyword"];
 
 
 $semuadata = array();
 $ambil = $koneksi->query("SELECT * FROM tb_produk WHERE nama_produk LIKE '%$keyword%'
 OR deskripsi_produk LIKE '%$keyword%'"); 
-while($pecah = $ambil->fetch_assoc());
+while($pecah = $ambil->fetch_assoc())
 {
     $semuadata[] = $pecah;
 } 
@@ -25,6 +25,7 @@ while($pecah = $ambil->fetch_assoc());
 </head>
 
 <body>
+
     <?php include 'produk.php'; ?>
     <div class="container">
         < <h3>Hasil Pencarian : <?php echo $keyword ?></h3>
@@ -35,7 +36,7 @@ while($pecah = $ambil->fetch_assoc());
 
             <div class="row">
 
-                <?php foreach ($semuadata as $keyword => $value) : ?>
+                <?php foreach ($semuadata as $key => $value) : ?>
 
                 <div class="col-md-3">
                     <div class="thumbnail">
