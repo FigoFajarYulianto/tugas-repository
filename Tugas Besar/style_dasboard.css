@@ -112,6 +112,7 @@
 
 .login-navbar .nav_right ul li img{
     width: 35px;
+    height: 35px;
     margin-left: 50%;
 }
 
@@ -244,11 +245,11 @@
     border-bottom: 0;
     border-top: 0;
 }
-/* card */
+
 .wrapper{
     margin-top: 4%;
     padding-left:30px;
-    padding-right: 30px;
+    padding-right: 10px;
 	max-width: 500px;
 	display: flex;
 	align-items: center; 

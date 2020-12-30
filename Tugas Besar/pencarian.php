@@ -15,11 +15,11 @@ while($pecah = $ambil->fetch_assoc())
     $semuadata[]=$pecah;
 }
 
-if (!isset($_SESSION["user_status"]))
-{
-    echo "<script>alert('silahkan login')</script>";
-    echo "<script>location='Login/login.php';</script>";
-}
+// if (!isset($_SESSION["user_status"]))
+// {
+//     echo "<script>alert('silahkan login')</script>";
+//     echo "<script>location='Login/login.php';</script>";
+// }
 // echo"<pre>";
 // print_r($semuadata);
 // echo"</pre>";
@@ -62,7 +62,7 @@ if (!isset($_SESSION["user_status"]))
             <input type="checkbox" name="" id="check">
             
             <div class="logo-container">
-                <h3 class="logo">MAKE<span>TAN</span></h3>
+                <a href="Dasboard.php" type="button" style="text-decoration:none"><h3 class="logo">MAKE<span>TAN</span></h3></a>
             </div>
 
             <div class="nav-btn">
@@ -101,40 +101,37 @@ if (!isset($_SESSION["user_status"]))
                   <?php if (isset($_SESSION['user_status'])):?>
                     <div class="nav_right">
                       <ul>
-                        <li class="nr_li dd_main">
-                          <img src="gambar/user/profile_pic.png" alt="profile_img">
-                          
-                          <div class="dd_menu">
-                            <div class="dd_left">
-                              <ul>
-                                <li><i class="fas fa-user"></i></li>
-                                <li><i class="fas fa-store"></i></li>
-                                <li><i class="fas fa-comment-dots"></i></li>
-                                <li><i class="fas fa-sign-out-alt"></i></li>
-                              </ul>
+                      <li class="nav-item dropdown no-arrow">
+                            <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <span class="small" style="margin-right: -60px;">Douglas McGee</span>
+                                <img class="rounded-circle"  src="Login/gambar/user/avatar1.png">
+                            </a>
+                            <!-- Dropdown - User Information -->
+                            <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
+                                aria-labelledby="userDropdown">
+                                <a class="dropdown-item" href="#">
+                                    <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
+                                    Profile
+                                </a>
+                                <a class="dropdown-item" href="#">
+                                    <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
+                                    Settings
+                                </a>
+                                <a class="dropdown-item" href="logout.php">
+                                    <i class="fas fa-list fa-sm fa-fw mr-2 text-gray-400"></i>
+                                    Activity Log
+                                </a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
+                                    <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
+                                    Logout
+                                </a>
                             </div>
-                            <div class="dd_right">
-                              <ul>
-                                <li><a href="">data diri</a></li>
-                                <li><a href="">buka toko</a></li>
-                                <li><a href="">umpan balik</a></li>
-                                <li><a href="logout.php">keluar</a></li>
-                              </ul>
-                            </div>
-                          </div>
                         </li>
                       </ul>
                     </div>
                   </div>
-
-                  <script>
-                    var dd_main = document.querySelector(".dd_main");
-
-                    dd_main.addEventListener("click", function(){
-                      this.classList.toggle("active");
-                    })
-                  </script>
-
                     <?php else: ?>
 
                   <div class="log-sign" style="--i: 1.8s">
