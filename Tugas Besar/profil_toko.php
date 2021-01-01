@@ -211,10 +211,14 @@ include "produk2/models/m_produk.php";
     </main>
     <!-- Akhir navbar -->
 
+    <?php $toko = mysqli_query($koneksi,"select * from buka_toko where user_id='$id_user'");
+    $toko_detail = mysqli_fetch_assoc($toko); ?>
+
 <!-- profil toko -->
 <div class="utama" style="width: 80%; margin-top:20px; margin-left:auto; margin-right:auto;">
   <div class="tampilan">
     <img src="gambar/user/<?php echo $saya['user_foto']; ?>" class="rounded float-start " style="position:absolute; width:200px; height:200px;"  alt="...">
+    <p style="position:absolute; margin-left:220px; font-size:30px; color:white; "><?php echo $toko_detail['nama_toko'] ?></p>
     <img src="img/img_iklan/Gambar iklan 1.jpg" class="img-fluid  rounded mx-auto d-block" alt="...">
   </div>
   <?php if(isset($_SESSION['user_id'])) { ?>
