@@ -3,11 +3,12 @@ include 'koneksi.php';
 session_start();
 $semuadata=array();
 // $ambil = $koneksi->query("SELECT * FROM tb_produk  JOIN kategori ON tb_produk.id_kategori=kategori.id_kategori"); 
-$ambil1 = $koneksi->query("SELECT * FROM tb_produk WHERE id_kategori LIKE '1'");
-while($pecah = $ambil1->fetch_assoc())
-{
-    $semuadata[]=$pecah;
-}
+// $ambil1 = "SELECT * FROM tb_produk WHERE id_kategori LIKE '1'";
+// $query = mysqli_query($koneksi, $ambil1);
+// while($pecah = $query->fetch_assoc())
+// {
+//     $semuadata[] = $pecah;
+// }
 // echo "<pre>";
 // print_r ($semuadata);
 // echo "</pre>";
@@ -85,30 +86,41 @@ while($pecah = $ambil1->fetch_assoc())
                     </ul>
                 </div>
                 <div class="login-navbar">
-                  <?php if (isset($_SESSION['user_status'])):?>
+                <?php if (isset($_SESSION['user_status'])):?>
+                    <?php $id_user = $_SESSION['user_id'];
+                    $s = mysqli_query($koneksi,"select * from user where user_id='$id_user'");
+                    $saya = mysqli_fetch_assoc($s); ?>
                     <div class="nav_right">
                       <ul>
                       <li class="nav-item dropdown no-arrow">
-                            <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
+                            <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"s
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <span class="small" style="margin-right: -60px;">Douglas McGee</span>
-                                <img class="rounded-circle"  src="Login/gambar/user/avatar1.png">
+                                <span class="small" style="margin-right: -80px; font-size:1rem; font-weight: bold;"><?php echo $saya['user_nama']; ?></span>
+                                <img class="rounded-circle"  src="gambar/user/<?php echo $saya['user_foto']; ?>">
                             </a>
+                            
                             <!-- Dropdown - User Information -->
                             <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
                                 aria-labelledby="userDropdown">
-                                <a class="dropdown-item" href="#">
+                                <a class="dropdown-item" href="profil.php" data-toggle="modal" data-target="#profilModal">
                                     <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
                                     Profile
-                                </a>
-                                <a class="dropdown-item" href="#">
+                                </a> 
+                                <?php $sql = mysqli_query($koneksi, "SELECT * FROM buka_toko WHERE user_id ='$_SESSION[user_id]'");?>                      
+                                <?php $cek = mysqli_num_rows($sql); ?>
+                                <?php if(isset($_SESSION['user_id'])) { ?>           
+                                  <?php if ($cek > 0) { ?>
+                                  <a class="dropdown-item" href="profil_toko.php">
                                     <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
-                                    Settings
-                                </a>
-                                <a class="dropdown-item" href="logout.php">
+                                    profil toko
+                                  </a>
+                                <?php }else{ ?>
+                                <a class="dropdown-item" href="buka_toko2/buka_toko.php">
                                     <i class="fas fa-list fa-sm fa-fw mr-2 text-gray-400"></i>
-                                    Activity Log
+                                    buat toko
                                 </a>
+                                <?php } ?>
+                                <?php } ?>
                                 <div class="dropdown-divider"></div>
                                 <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
                                     <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
@@ -128,7 +140,6 @@ while($pecah = $ambil1->fetch_assoc())
                   </div>
                 </div>
             <?php endif ?>
-
             <div class="hamburger-menu-container">
                 <div class="hamburger-menu">
                     <div></div>
@@ -199,18 +210,42 @@ while($pecah = $ambil1->fetch_assoc())
     <!-- Hasil Pencarian -->
     <div class="isi">
         <div class="wrapper">
-          <div class="row " style="margin-right:-325px; margin-left:190px; margin-top: -40px;">
-            <?php foreach ($semuadata as $key => $value): ?>
+          <div class="row" style="margin-right:-325px; margin-left:190px; margin-top: -40px;">
+          <?php 
+          $ambil1 = "SELECT * FROM tb_produk WHERE id_kategori LIKE '1'"; 
+          $query = mysqli_query($koneksi, $ambil1);?>
+          <?php 
+            // pagination
+            $batas = 5;
+            $halaman = isset($_GET["halaman"]) ? $_GET["halaman"]: 1;
+            $halaman_awal = $halaman>1 ? ($halaman*$batas) - $batas : 0;
+            
+            $next = $halaman  + 1;
+            $previous = $halaman - 1;
+
+            $total_data = mysqli_num_rows($query);
+            $total_halaman = ceil($total_data / $batas);
+
+            $sql = "SELECT * FROM tb_produk LIMIT $halaman_awal, $batas";
+            $query = mysqli_query($koneksi, $sql);
+            $nomor = $halaman_awal + 1;
+
+            ?>
+            <?php
+            // ($semuadata as $key => $value):
+            while($kategori = $query->fetch_assoc()) {
+            ?>
+
               <div class="card">
-                  <img src="produk2/assets/img/produk/<?php echo $value['gbr_produk'] ?>" alt="" class="img-responsive">
+                  <img src="produk2/assets/img/produk/<?php echo $kategori['gbr_produk'] ?>" alt="" class="img-responsive">
                   <div class="content">
                       <div class="row">
                           <div class="details">
-                          <span><?php echo $value['nama_produk'] ?></span>
-                          <p><?php echo $value['map_link'] ?></p>
+                          <span><?php echo $kategori['nama_produk'] ?></span>
+                          <p><?php echo $kategori['map_link'] ?></p>
                           </div>
                       </div>
-                      <div class="price">Rp.<?php echo $value['harga'] ?></div>
+                      <div class="price">Rp.<?php echo $kategori['harga'] ?></div>
                       <hr id="hrdown" style="height:1px;border:none;color:#333;background-color:#333;">
                       <div class="buttons">
                           <button>Chat</button>
@@ -218,14 +253,40 @@ while($pecah = $ambil1->fetch_assoc())
                       </div>
                   </div>
               </div>
-              <?php endforeach ?>
+              <?php 
+              }
+              // endforeach ?>
           </div>
         </div>
     </div>
 
-    <div class="row mx-0 mt-5 justify-content-center">
-      <button class="btn btn-green"> Tampilkan Lebih banyak</button>
-    </div>
+    <nav aria-label="Page navigation example">
+      <ul class="pagination justify-content-md-center">
+        <?php 
+          if($halaman == 1){
+
+            echo "<li class='page-item disabled '><a class='page-link' href='#'>Previous</a></li>";
+
+          }else{
+            echo "<li class='page-item'><a class='page-link' href='kategori_pertanian.php?halaman=$previous'>Previous</a></li>";
+          }
+        ?>
+        <?php 
+          for($i=1; $i<=$total_halaman; $i++){
+            echo "<li class='page-item'><a class='page-link' href='kategori_pertanian.php?halaman=$i'>$i</a></li>";
+          }
+        ?>
+        <?php 
+        if($halaman == $total_halaman){
+
+          echo "<li class='page-item disabled '><a class='page-link' href='#'>next</a></li>";
+
+        }else{
+          echo "<li class='page-item'><a class='page-link' href='kategori_pertanian.php?halaman=$next'>next</a></li>";
+        }
+        ?>
+      </ul>
+    </nav>
     </div>
   </div>
 
