@@ -4,7 +4,6 @@ $koneksi = new mysqli("localhost", "root", "", "project_chat"); ?>
 <?php
 $keyword = $_GET["keyword"];
 
-
 $semuadata = array();
 $ambil = $koneksi->query("SELECT * FROM tb_produk WHERE nama_produk LIKE '%$keyword%'
 OR deskripsi_produk LIKE '%$keyword%'"); 
@@ -26,7 +25,7 @@ while($pecah = $ambil->fetch_assoc())
 
 <body>
 
-    <?php include 'produk.php'; ?>
+
     <div class="container">
         <h3>Hasil Pencarian : <?php echo $keyword ?></h3>
 
@@ -38,18 +37,33 @@ while($pecah = $ambil->fetch_assoc())
 
             <?php foreach ($semuadata as $key => $value) : ?>
 
-            <div class="col-md-3">
-                <div class="thumbnail">
-                    <img src="foto_produk/<?php echo $value["foto_produk"] ?>" alt="" class=" img-responsive">
-                    <div class="caption">
-                        <h3><?php echo $value["nama_produk"] ?></h3>
-                        <h3><?php echo $value["kategori"] ?></h3>
-                        <h3>rp.<?php echo number_format( $value["harga_produk"]) ?></h3>
+            <tbody>
+                <?php $nomor=1; ?>
+                <?php 
+        $ambil=$koneksi->query("SELECT * FROM tb_produk"); ?>
+                <?php while ($pecah = $ambil->fetch_assoc()) {?>
+                <tr>
+                    <td><?php echo $nomor; ?></td>
+                    <td><?php echo $value['nama_produk'];?></td>
+                    <td><?php echo $value['kategori'];?></td>
+                    <td><?php echo $value['deskripsi_produk'];?></td>
+                    <td><?php echo $value['harga'];?></td>
+                    <td><?php echo $value['map_link'];?></td>
+                    <td>
+                        <img src="../produk2/assets/img/produk/<?php echo $value['gbr_produk'];?>" width="100">
+                    </td>
+                    <td>
 
-                    </div>
-                </div>
-
-            </div>
+                        <a href="admin.php?halaman=hapusproduk&id=<?php echo $value['id_produk'];?>"
+                            class="btn-danger btn" style="font-size: 1.5rem;">Hapus</a>
+                        <a href="admin.php?halaman=ubahproduk&id=<?php echo $value['id_produk'];?>"
+                            class=" btn btn-warning"
+                            style="font-size: 1.5rem; margin-top:15px; padding-right:20px;">Ubah</a>
+                    </td>
+                </tr>
+                <?php $nomor++; ?>
+                <?php } ?>
+            </tbody>
             <?php endforeach ?>
         </div>
     </div>
