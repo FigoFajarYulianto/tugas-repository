@@ -278,10 +278,15 @@ $koneksi = new mysqli("localhost", "root", "", "project_chat");
         <aside>
             <div id="sidebar" class="nav-collapse ">
                 <!-- sidebar menu start-->
+                <?php 
+                    $admin = mysqli_query($koneksi,"SELECT * FROM admin");
+                    $saya = mysqli_fetch_assoc($admin);
+                ?>
                 <ul class="sidebar-menu" id="nav-accordion">
-                    <p class="centered"><a href="profile.html"><img src="img/1.jpg" class="img-circle" width="80"></a>
+                    <p class="centered"><a href="profile.html"><img src="img/<?php echo $saya['foto_admin'] ?>"
+                                class="img-circle" width="80"></a>
                     </p>
-                    <h5 class="centered">ADMIN</h5>
+                    <h5 class="centered"><?php echo $saya ['nama_lengkap'] ?></h5>
                     <li class="mt">
                         <a class="active" href="admin.php">
                             <i class="fa fa-dashboard"></i>

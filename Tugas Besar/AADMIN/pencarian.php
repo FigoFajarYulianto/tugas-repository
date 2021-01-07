@@ -28,30 +28,30 @@ while($pecah = $ambil->fetch_assoc())
 
     <?php include 'produk.php'; ?>
     <div class="container">
-        < <h3>Hasil Pencarian : <?php echo $keyword ?></h3>
+        <h3>Hasil Pencarian : <?php echo $keyword ?></h3>
 
-            <?php if(empty($semuadata)): ?>
-            <div class="alert alert-danger"><?php echo $keyword ?> Pencarian Tidak Ditemukan</div>
-            <?php endif ?>
+        <?php if(empty($semuadata)): ?>
+        <div class="alert alert-danger"><?php echo $keyword ?> Pencarian Tidak Ditemukan</div>
+        <?php endif ?>
 
-            <div class="row">
+        <div class="row">
 
-                <?php foreach ($semuadata as $key => $value) : ?>
+            <?php foreach ($semuadata as $key => $value) : ?>
 
-                <div class="col-md-3">
-                    <div class="thumbnail">
-                        <img src="foto_produk/<?php echo $value["foto_produk"] ?>" alt="" class=" img-responsive">
-                        <div class="caption">
-                            <h3><?php echo $value["nama_produk"] ?></h3>
-                            <h3><?php echo $value["kategori"] ?></h3>
-                            <h3>rp.<?php echo number_format( $value["harga_produk"]) ?></h3>
+            <div class="col-md-3">
+                <div class="thumbnail">
+                    <img src="foto_produk/<?php echo $value["foto_produk"] ?>" alt="" class=" img-responsive">
+                    <div class="caption">
+                        <h3><?php echo $value["nama_produk"] ?></h3>
+                        <h3><?php echo $value["kategori"] ?></h3>
+                        <h3>rp.<?php echo number_format( $value["harga_produk"]) ?></h3>
 
-                        </div>
                     </div>
-
                 </div>
-                <?php endforeach ?>
+
             </div>
+            <?php endforeach ?>
+        </div>
     </div>
 
 </body>
