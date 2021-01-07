@@ -1,5 +1,6 @@
 <h2 style="margin-top:-18px; border-bottom: 3px solid;">DATA PRODUK</h2>
 <?php
+$koneksi = new mysqli("localhost", "root", "", "project_chat");
 
 if(!isset($_SESSION['login'])) {
     header("location: login.php");
@@ -7,11 +8,12 @@ if(!isset($_SESSION['login'])) {
 }
 ?>
 
-
-<form action="pencarian.php" method="GET" class="navbar-form navbar-right">
-    <input type="text" class="form-control" name="keyword">
-    <button class="btn btn-primary">CARI</button>
-</form>
+<div style="margin-bottom: 15px;" align="right">
+    <form action="" method="POST" class="navbar-form navbar-right">
+        <input type="text" class="form-control" name="inputan_pencarian" placeholder="Nama produk..."
+            style="width: 200px; padding:5px;" />
+        <input type="submit" name="cari_produk" value="cari" style="padding: 3px;" </form>
+</div>
 
 
 <table class="table table-bordered">
@@ -31,21 +33,19 @@ if(!isset($_SESSION['login'])) {
     <tbody>
         <?php $nomor=1; ?>
         <?php 
-       // $batas = 3;
-        //$ambil= mysqli_query($koneksi, "SELECT * FROM tb_produk");
-        //$jum = mysqli_num_rows($ambil);
-        
-       // $halaman = ceil($jum / $batas);
-        
-        ///$page = ( isset($_GET['page']) ) ? $_GET['page'] : 1;
-        
-        
-       // $posisi = ( $batas * $page ) - $batas;
-        
-
-
-        $ambil=$koneksi->query("SELECT * FROM tb_produk"); ?>
-        <?php while ($pecah = $ambil->fetch_assoc()) {?>
+        $inputan_pencarian = @$_POST['inputan pencarian'];
+        $cari_produk = @$_POST['cari_produk'];
+        if($cari_produk){
+            if($inputan_pencarian != ""){   
+            $ambil= mysqli_query($koneksi," SELECT * FROM tb_produk where nama_produk like '%$inputan_pencarian%' or type like '%$inputan_pencarian%' ") or die (mysql_error());
+            } else {
+                $ambil= mysqli_query((" SELECT * FROM tb_produk") or die (mysqli_error()));
+            }
+        } else {
+          $ambil= mysqli_query((" SELECT * FROM tb_produk") or die (mysqli_error())); 
+        }
+        while ($data = mysqli_fetch_array($ambil)) { 
+        ?>
         <tr>
             <td><?php echo $nomor; ?></td>
             <td><?php echo $pecah['nama_produk'];?></td>
@@ -67,17 +67,7 @@ if(!isset($_SESSION['login'])) {
         <?php $nomor++; ?>
         <?php } ?>
     </tbody>
+
 </table>
 
 <div class="paging">
-    <?php
-
-//for($x=1; $x<=$halaman; $x++){
-    ?>
-    <!--
-    <a href="produk.php"><?php //echo $x; ?></a>
-    <?php// echo $x; ?>
-    <?php// } ?>
-
-
-</div>
