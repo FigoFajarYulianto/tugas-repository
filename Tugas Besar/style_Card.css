@@ -16,7 +16,7 @@
   min-height: 50vh;
   background:transparent;
   padding: 0 20px 0 20px ;
-  margin-top: -2%;
+  margin-top: -4%;
 
 } 
 .isi .wrapper{
@@ -70,7 +70,7 @@
   box-shadow: 4px 4px 10px 0px rgba(0,0,0,0.15);
 }
 .isi .wrapper .card img{
-  width: 100%;
+  width: 40cm;
   height: 250px;
   border-radius: 3px;
   transition: all 0.3s ease;

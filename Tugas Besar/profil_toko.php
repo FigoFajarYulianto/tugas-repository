@@ -211,7 +211,7 @@ include "produk2/models/m_produk.php";
     </main>
     <!-- Akhir navbar -->
 
-    <?php $toko = mysqli_query($koneksi,"select * from buka_toko where user_id='$id_user'");
+    <?php $toko = mysqli_query($koneksi,"select * from buka_toko where user_id='user_id'");
     $toko_detail = mysqli_fetch_assoc($toko); ?>
 
 <!-- profil toko -->
