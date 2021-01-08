@@ -2,6 +2,8 @@
 <?php
 $koneksi = new mysqli("localhost", "root", "", "project_chat");
 
+error_reporting(0);
+
 if(!isset($_SESSION['login'])) {
     header("location: login.php");
     exit;
@@ -10,9 +12,10 @@ if(!isset($_SESSION['login'])) {
 
 <div style="margin-bottom: 15px;" align="right">
     <form action="" method="POST" class="navbar-form navbar-right">
-        <input type="text" class="form-control" name="inputan_pencarian" placeholder="Nama produk..."
+        <input type="text" class="form-control" name="query" placeholder="Cari produk..."
             style="width: 200px; padding:5px;" />
-        <input type="submit" name="cari_produk" value="cari" style="padding: 3px;" </form>
+        <input type="submit" name="cari" value="search" style="padding: 3px;" />
+    </form>
 </div>
 
 
@@ -31,21 +34,22 @@ if(!isset($_SESSION['login'])) {
         </tr>
     </thead>
     <tbody>
+
+
         <?php $nomor=1; ?>
-        <?php 
-        $inputan_pencarian = @$_POST['inputan pencarian'];
-        $cari_produk = @$_POST['cari_produk'];
-        if($cari_produk){
-            if($inputan_pencarian != ""){   
-            $ambil= mysqli_query($koneksi," SELECT * FROM tb_produk where nama_produk like '%$inputan_pencarian%' or type like '%$inputan_pencarian%' ") or die (mysql_error());
-            } else {
-                $ambil= mysqli_query((" SELECT * FROM tb_produk") or die (mysqli_error()));
-            }
-        } else {
-          $ambil= mysqli_query((" SELECT * FROM tb_produk") or die (mysqli_error())); 
+        <?php
+        $query = $_POST['query'];
+            if($query != ''){
+                $ambil = $koneksi->query("SELECT * FROM tb_produk WHERE nama_produk LIKE '%" .$query. "%' OR kategori LIKE '%" .$query. "%' ");
+            }else{
+               $ambil=$koneksi->query("SELECT * FROM tb_produk");
         }
-        while ($data = mysqli_fetch_array($ambil)) { 
+        if(mysqli_num_rows($ambil)){
+        while($pecah=$ambil->fetch_assoc()) {
         ?>
+
+
+
         <tr>
             <td><?php echo $nomor; ?></td>
             <td><?php echo $pecah['nama_produk'];?></td>
@@ -65,7 +69,13 @@ if(!isset($_SESSION['login'])) {
             </td>
         </tr>
         <?php $nomor++; ?>
-        <?php } ?>
+        <?php }}else{
+            echo '<tr>
+                <td colspan="8"><Tidak ada produk yang dimaksudkan></td>
+        </tr>';
+        }
+
+        ?>
     </tbody>
 
 </table>
