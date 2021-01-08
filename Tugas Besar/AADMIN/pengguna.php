@@ -1,5 +1,9 @@
 <h2 style="margin-top:-18px; border-bottom: 3px solid;">DATA PENGGUNA</h2>
 <?php
+$koneksi = new mysqli("localhost", "root", "", "project_chat");
+
+error_reporting(0);
+
 
 if(!isset($_SESSION['login'])) {
     header("location: login.php");
@@ -33,6 +37,15 @@ $awalData = ( $jumlahDataPerHalaman * $halamanAktif ) - $jumlahDataPerHalaman;*/
 
 
 ?>
+
+<div style="margin-bottom: 15px;" align="right">
+    <form action="" method="POST" class="navbar-form navbar-right">
+        <input type="text" class="form-control" name="query" placeholder="Cari produk..."
+            style="width: 200px; padding:5px;" />
+        <input type="submit" name="cari" value="search" style="padding: 3px;" />
+    </form>
+</div>
+
 <table class="table table-bordered">
     <thead>
         <tr>
@@ -46,14 +59,17 @@ $awalData = ( $jumlahDataPerHalaman * $halamanAktif ) - $jumlahDataPerHalaman;*/
     </thead>
     <tbody>
         <?php $nomor=1; ?>
-
-        <?php 
-     
-        
-        
-           $ambil= mysqli_query($koneksi, "SELECT * FROM user");
+        <?php
+        $query = $_POST['query'];
+            if($query != ''){
+                $ambil = $koneksi->query("SELECT * FROM user WHERE user_nama LIKE '%" .$query. "%' OR user_email LIKE '%" .$query. "%' ");
+            }else{
+               $ambil=$koneksi->query("SELECT * FROM user");
+        }
+        if(mysqli_num_rows($ambil)){
+        while($pecah=$ambil->fetch_assoc()) {
         ?>
-        <?php while($pecah=$ambil->fetch_assoc()) { ?>
+
         <tr>
             <td><?php echo $nomor; ?></td>
             <td><?php echo $pecah['user_email']; ?></td>
@@ -67,7 +83,13 @@ $awalData = ( $jumlahDataPerHalaman * $halamanAktif ) - $jumlahDataPerHalaman;*/
             </td>
         </tr>
         <?php $nomor++; ?>
-        <?php } ?>
+        <?php }}else{
+            echo '<tr>
+                <td colspan="4"><Tidak ada produk yang dimaksudkan></td>
+        </tr>';
+        }
+
+        ?>
     </tbody>
 </table>
 <!-- navigasi -->
