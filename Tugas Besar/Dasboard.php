@@ -35,6 +35,7 @@ include 'koneksi.php';
   <!-- My Css Card -->
   <link rel="stylesheet" href="style_Card.css">
   <link rel="stylesheet" href="profil.css">
+  <link rel="stylesheet" href="style_footer.css">
   <!-- <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
   <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>  -->
 
@@ -246,7 +247,7 @@ include 'koneksi.php';
             $query = mysqli_query($koneksi, $ambil);?>
             <?php 
             // pagination
-            $batas = 5;
+            $batas = 15;
             $halaman = isset($_GET["halaman"]) ? $_GET["halaman"]: 1;
             $halaman_awal = $halaman>1 ? ($halaman*$batas) - $batas : 0;
             
@@ -267,8 +268,8 @@ include 'koneksi.php';
                   <div class="content">
                       <div class="row">
                           <div class="details">
-                          <span><?php echo $perproduk['nama_produk'] ?></span>
-                          <p><?php echo $perproduk['map_link'] ?></p>
+                          <span><?php echo substr($perproduk['nama_produk'], 0, 13)?></span>
+                          <p><?php echo substr($perproduk['map_link'], 0, 13)?></p>
                           </div>
                       </div>
                       <div class="price">Rp.<?php echo $perproduk['harga'] ?></div>
@@ -315,21 +316,69 @@ include 'koneksi.php';
   </div>
 
   <!-- footer -->
-  <div class="footer-ku">
-    <div class="card-footer text-center">
-      <div class="card-header" style="font-size: 42px;font-family: Roboto; font-weight: bold; padding: 4px 4px;">
-        Follow us
+  <div class="footer">
+    <div class="footer-content">
+
+      <div class="footer-section about">
+        <h1 class="logo-text"><span>Awa</span>Inspires</h1>
+        <p>
+          AwaInspires is a fictional blog conceived for the purpose of a tutorial on YouTube.
+          However, Awa has a blog called pieceofadvice.org where he writes truly inspiring stuff.
+        </p>
+        <div class="contact">
+          <span><i class="fas fa-phone"></i> &nbsp; 123-456-789</span>
+          <span><i class="fas fa-envelope"></i> &nbsp; info@awainspires.com</span>
+        </div>
+        <div class="socials">
+          <a href="#"><i class="fab fa-facebook"></i></a>
+          <a href="#"><i class="fab fa-instagram"></i></a>
+          <a href="#"><i class="fab fa-twitter"></i></a>
+          <a href="#"><i class="fab fa-youtube"></i></a>
+        </div>
       </div>
-      <div class="card-body">
-        <a href=" #" class="btn d-flex justify-content-center">
-          <img src=" logo/twitter.png" alt="">
-          <img src="logo/instagram.png" alt="">
-          <img src="logo/facebook.png" alt="">
-        </a>
+
+      <div class="footer-section links">
+        <h2>Quick Links</h2>
+        <br>
+        <ul>
+          <a href="#">
+            <li>Events</li>
+          </a>
+          <a href="#">
+            <li>Team</li>
+          </a>
+          <a href="#">
+            <li>Mentores</li>
+          </a>
+          <a href="#">
+            <li>Gallery</li>
+          </a>
+          <a href="#">
+            <li>Terms and Conditions</li>
+          </a>
+        </ul>
       </div>
+
+      <div class="footer-section contact-form">
+        <h2>Contact us</h2>
+        <br>
+        <form id="myForm" method="post">
+          <input id="email"  type="text" class="text-input contact-input" placeholder="Your email address...">
+          <textarea id="body" rows="4" name="message" class="text-input contact-input" placeholder="Your message..."></textarea>
+          <button type="submit" class="btn btn-big contact-btn" style="margin-top: -5px;">
+            <i class="fas fa-envelope"></i>
+            Send
+          </button>
+        </form>
+      </div>
+
+    </div>
+
+    <div class="footer-bottom">
+      &copy; codingpoets.com | Designed by Awa Melvine
     </div>
   </div>
-  <!-- penutup footer -->
+  <!-- // footer -->
   
 
     <!-- Profil -->
@@ -339,12 +388,6 @@ include 'koneksi.php';
                     <div class="row justify-content-center align-items-center profil">
                         <div class="form">
                             <img class="rounded mx-auto d-block" src="gambar/user/<?php echo $saya['user_foto']; ?>"  style="width: 200px; height:200px;" alt="...">
-                            <div class="alert alert-secondary" style="margin-top: 20px;" role="alert">
-                                rajih
-                            </div>
-                            <div class="alert alert-secondary" role="alert">
-                                rajih
-                            </div>
                         </div>
                         <div class="profil-detail">
                             <form action="user/profil_update.php" method="post" enctype="multipart/form-data">
@@ -357,10 +400,10 @@ include 'koneksi.php';
                                     <input type="email" name="email" class="form-control" value="<?php echo $saya['user_email']; ?>">
                                 </div>
                                 <div class="form-group row">
-                                  <label class="col-lg-2" ">Foto</label>
+                                  <label class="col-lg-2" style="margin-left:20px;">Foto</label>
                                   <input type="file" name="foto" style="position:absolute; top:220px; right:147px;">
                                   <div class="col-lg-10" ><br>
-                                    <small class="text-muted font-italic">Kosongkan jika tidak ingin mengganti foto profil.</small>
+                                    <small class="text-muted font-italic" style="margin-left:20px;">Kosongkan jika tidak ingin mengganti foto profil.</small>
                                   </div>
                                 </div>
                                 <button type="submit" class="btn btn-secondary" style="margin-left: 20%; margin-right: 35%; width:30%; margin-top:220px;">Update profil</button>
