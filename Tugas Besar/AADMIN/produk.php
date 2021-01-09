@@ -34,10 +34,20 @@ if(!isset($_SESSION['login'])) {
         </tr>
     </thead>
     <tbody>
+        <!-- pagenation -->
 
 
+
+
+
+        <!-- pencarian -->
         <?php $nomor=1; ?>
         <?php
+        $perpage = 2;
+
+        $ambil=$koneksi->query("SELECT * FROM tb_produk");
+        while($baris = mysqli_fetch_array($ambil)){
+
         $query = $_POST['query'];
             if($query != ''){
                 $ambil = $koneksi->query("SELECT * FROM tb_produk WHERE nama_produk LIKE '%" .$query. "%' OR kategori LIKE '%" .$query. "%' ");
@@ -47,6 +57,7 @@ if(!isset($_SESSION['login'])) {
         if(mysqli_num_rows($ambil)){
         while($pecah=$ambil->fetch_assoc()) {
         ?>
+
 
 
 
@@ -69,15 +80,29 @@ if(!isset($_SESSION['login'])) {
             </td>
         </tr>
         <?php $nomor++; ?>
-        <?php }}else{
+
+        <?php }} else{
             echo '<tr>
                 <td colspan="8"><Tidak ada produk yang dimaksudkan></td>
         </tr>';
-        }
+     
 
+
+        }
+    
         ?>
+        <?php } ?>
+
+
     </tbody>
 
 </table>
+<?php 
+   $ambil=$koneksi->query("SELECT * FROM tb_produk");
+   $jmlBaris = mysqli_num_rows($ambil);
+   $halaman = ceil($jmlBaris/$perpage);
+for($i= 1; $i<=$halaman; $i++){
+    echo "<a href='?page=$i'>$i</a>";
+}
 
-<div class="paging">
+?>
