@@ -3,11 +3,11 @@ include 'koneksi.php';
 session_start();
 $semuadata=array();
 // $ambil = $koneksi->query("SELECT * FROM tb_produk  JOIN kategori ON tb_produk.id_kategori=kategori.id_kategori"); 
-$ambil1 = $koneksi->query("SELECT * FROM tb_produk WHERE id_kategori LIKE '4'");
-while($pecah = $ambil1->fetch_assoc())
-{
-    $semuadata[]=$pecah;
-}
+// $ambil1 = $koneksi->query("SELECT * FROM tb_produk WHERE id_kategori LIKE '4'");
+// while($pecah = $ambil1->fetch_assoc())
+// {
+//     $semuadata[]=$pecah;
+// }
 // echo "<pre>";
 // print_r ($semuadata);
 // echo "</pre>";
@@ -196,21 +196,45 @@ while($pecah = $ambil1->fetch_assoc())
     <!-- Akhir navbar -->
 
 
-    <!-- Hasil Pencarian -->
+    <!-- Hasil kategori -->
     <div class="isi">
         <div class="wrapper">
           <div class="row" style="margin-right:-325px; margin-left:190px; margin-top: -40px;">
-            <?php foreach ($semuadata as $key => $value): ?>
+          <?php 
+          $ambil1 = "SELECT * FROM tb_produk WHERE id_kategori LIKE '4'"; 
+          $query = mysqli_query($koneksi, $ambil1);?>
+          <?php 
+            // pagination
+            $batas = 5;
+            $halaman = isset($_GET["halaman"]) ? $_GET["halaman"]: 1;
+            $halaman_awal = $halaman>1 ? ($halaman*$batas) - $batas : 0;
+            
+            $next = $halaman  + 1;
+            $previous = $halaman - 1;
+
+            $total_data = mysqli_num_rows($query);
+            $total_halaman = ceil($total_data / $batas);
+
+            $sql = "SELECT * FROM tb_produk  WHERE id_kategori LIKE '4' LIMIT $halaman_awal, $batas";
+            $query = mysqli_query($koneksi, $sql);
+            $nomor = $halaman_awal + 1;
+
+            ?>
+            <?php
+            // ($semuadata as $key => $value):
+            while($kategori = $query->fetch_assoc()) {
+            ?>
+
               <div class="card">
-                  <img src="produk2/assets/img/produk/<?php echo $value['gbr_produk'] ?>" alt="" class="img-responsive">
+                  <img src="produk2/assets/img/produk/<?php echo $kategori['gbr_produk'] ?>" alt="" class="img-responsive">
                   <div class="content">
                       <div class="row">
                           <div class="details">
-                          <span><?php echo $value['nama_produk'] ?></span>
-                          <p><?php echo $value['map_link'] ?></p>
+                          <span><?php echo substr($kategori['nama_produk'], 0, 13)?></span>
+                          <p><?php echo substr($kategori['map_link'], 0, 13)?></p>
                           </div>
                       </div>
-                      <div class="price">Rp.<?php echo $value['harga'] ?></div>
+                      <div class="price">Rp.<?php echo $kategori['harga'] ?></div>
                       <hr id="hrdown" style="height:1px;border:none;color:#333;background-color:#333;">
                       <div class="buttons">
                           <button>Chat</button>
@@ -218,18 +242,44 @@ while($pecah = $ambil1->fetch_assoc())
                       </div>
                   </div>
               </div>
-              <?php endforeach ?>
+              <?php 
+              }
+              // endforeach ?>
           </div>
         </div>
     </div>
 
-    <div class="row mx-0 mt-5 justify-content-center">
-      <button class="btn btn-green"> Tampilkan Lebih banyak</button>
-    </div>
+    <nav aria-label="Page navigation example">
+      <ul class="pagination justify-content-md-center">
+        <?php 
+          if($halaman == 1){
+
+            echo "<li class='page-item disabled '><a class='page-link' href='#'>Previous</a></li>";
+
+          }else{
+            echo "<li class='page-item'><a class='page-link' href='kategori_pupuk.php?halaman=$previous'>Previous</a></li>";
+          }
+        ?>
+        <?php 
+          for($i=1; $i<=$total_halaman; $i++){
+            echo "<li class='page-item'><a class='page-link' href='kategori_pupuk.php?halaman=$i'>$i</a></li>";
+          }
+        ?>
+        <?php 
+        if($halaman == $total_halaman){
+
+          echo "<li class='page-item disabled '><a class='page-link' href='#'>next</a></li>";
+
+        }else{
+          echo "<li class='page-item'><a class='page-link' href='kategori_pupuk.php?halaman=$next'>next</a></li>";
+        }
+        ?>
+      </ul>
+    </nav>
     </div>
   </div>
 
-    <!-- Akhir Pencarian -->
+    <!-- Akhir kategori -->
 
     <!-- Logout Modal-->
     <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"

@@ -3,12 +3,12 @@ include 'koneksi.php';
 session_start(); 
 $semuadata=array();
 // $ambil = $koneksi->query("SELECT * FROM tb_produk  JOIN kategori ON tb_produk.id_kategori=kategori.id_kategori"); 
-$ambil1 = "SELECT * FROM tb_produk WHERE id_kategori LIKE '5'";
-$query = mysqli_query($koneksi, $ambil1);
-while($pecah = $query->fetch_assoc())
-{
-    $semuadata[]=$pecah;
-}
+// $ambil1 = "SELECT * FROM tb_produk WHERE id_kategori LIKE '5'";
+// $query = mysqli_query($koneksi, $ambil1);
+// while($pecah = $query->fetch_assoc())
+// {
+//     $semuadata[]=$pecah;
+// }
 // echo "<pre>";
 // print_r ($semuadata);
 // echo "</pre>";
@@ -208,10 +208,13 @@ while($pecah = $query->fetch_assoc())
     <!-- Akhir navbar -->
 
 
-    <!-- Hasil Pencarian -->
+    <!-- Hasil kategori -->
     <div class="isi">
         <div class="wrapper">
           <div class="row" style="margin-right:-325px; margin-left:190px; margin-top: -40px;">
+          <?php 
+          $ambil1 = "SELECT * FROM tb_produk WHERE id_kategori LIKE '5'"; 
+          $query = mysqli_query($koneksi, $ambil1);?>
           <?php 
             // pagination
             $batas = 5;
@@ -224,22 +227,26 @@ while($pecah = $query->fetch_assoc())
             $total_data = mysqli_num_rows($query);
             $total_halaman = ceil($total_data / $batas);
 
-            $sql = "SELECT * FROM tb_produk LIMIT $halaman_awal, $batas";
+            $sql = "SELECT * FROM tb_produk  WHERE id_kategori LIKE '5' LIMIT $halaman_awal, $batas";
             $query = mysqli_query($koneksi, $sql);
             $nomor = $halaman_awal + 1;
 
             ?>
-            <?php foreach ($semuadata as $query => $value): ?>
+            <?php
+            // ($semuadata as $key => $value):
+            while($kategori = $query->fetch_assoc()) {
+            ?>
+
               <div class="card">
-                  <img src="produk2/assets/img/produk/<?php echo $value['gbr_produk'] ?>" alt="" class="img-responsive">
+                  <img src="produk2/assets/img/produk/<?php echo $kategori['gbr_produk'] ?>" alt="" class="img-responsive">
                   <div class="content">
                       <div class="row">
                           <div class="details">
-                          <span><?php echo $value['nama_produk'] ?></span>
-                          <p><?php echo $value['map_link'] ?></p>
+                          <span><?php echo substr($kategori['nama_produk'], 0, 13)?></span>
+                          <p><?php echo substr($kategori['map_link'], 0, 13)?></p>
                           </div>
                       </div>
-                      <div class="price">Rp.<?php echo $value['harga'] ?></div>
+                      <div class="price">Rp.<?php echo $kategori['harga'] ?></div>
                       <hr id="hrdown" style="height:1px;border:none;color:#333;background-color:#333;">
                       <div class="buttons">
                           <button>Chat</button>
@@ -247,7 +254,9 @@ while($pecah = $query->fetch_assoc())
                       </div>
                   </div>
               </div>
-              <?php endforeach ?>
+              <?php 
+              }
+              // endforeach ?>
           </div>
         </div>
     </div>
@@ -260,12 +269,12 @@ while($pecah = $query->fetch_assoc())
             echo "<li class='page-item disabled '><a class='page-link' href='#'>Previous</a></li>";
 
           }else{
-            echo "<li class='page-item'><a class='page-link' href='ketagori_bibit.php?halaman=$previous'>Previous</a></li>";
+            echo "<li class='page-item'><a class='page-link' href='kategori_bibit.php?halaman=$previous'>Previous</a></li>";
           }
         ?>
         <?php 
           for($i=1; $i<=$total_halaman; $i++){
-            echo "<li class='page-item'><a class='page-link' href='ketagori_bibit.php?halaman=$i'>$i</a></li>";
+            echo "<li class='page-item'><a class='page-link' href='kategori_bibit.php?halaman=$i'>$i</a></li>";
           }
         ?>
         <?php 
@@ -274,7 +283,7 @@ while($pecah = $query->fetch_assoc())
           echo "<li class='page-item disabled '><a class='page-link' href='#'>next</a></li>";
 
         }else{
-          echo "<li class='page-item'><a class='page-link' href='ketagori_bibit.php?halaman=$next'>next</a></li>";
+          echo "<li class='page-item'><a class='page-link' href='kategori_bibit.php?halaman=$next'>next</a></li>";
         }
         ?>
       </ul>
@@ -282,7 +291,7 @@ while($pecah = $query->fetch_assoc())
     </div>
   </div>
 
-    <!-- Akhir Pencarian -->
+    <!-- Akhir kategori -->
 
 
 

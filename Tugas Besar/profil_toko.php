@@ -31,12 +31,12 @@ include "produk2/models/m_produk.php";
   <link rel="preconnect" href="https://fonts.gstatic.com">
   <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
   <!-- My Css -->
-  <!-- <link rel="stylesheet" href="style_dasboard.css"> -->
+  <link rel="stylesheet" href="style_dasboard.css">
+  <link rel="stylesheet" href="style.css">
 
-    <!-- My Css Card -->
-    <link rel="stylesheet" href="style_Card_pencarian.css">
-    <link rel="stylesheet" href="style_dasboard.css">
-    <link rel="stylesheet" href="style.css">
+  <!-- My Css Card -->
+  <link rel="stylesheet" href="style_Card.css">
+  <link rel="stylesheet" href="profil.css">
     <!-- <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script> -->
 
@@ -222,35 +222,29 @@ include "produk2/models/m_produk.php";
     <img src="img/img_iklan/Gambar iklan 1.jpg" class="img-fluid  rounded mx-auto d-block" alt="...">
   </div>
   <?php if(isset($_SESSION['user_id'])) { ?>
-    <nav style="position: relative; margin: 10px auto 0; width: 590px; height: 50px; background: #34495e; border-radius: 8px; font-size: 0; box-shadow: 0 2px 3px rgba(0, 0, 0, .1);">
-          <a href="profil_toko.php?halaman=produk"  style="text-decoration: none; font-size: 15px; text-transform: uppercase; color: white; text-decoration: none; line-height: 50px; position: relative; z-index: 1; display: inline-block; text-align: center;">Detail</a>
-          <div class="animation start-home"></div>
-          <style type="text/css">
-          nav .animation{
-          position: absolute;
-          height: 5px;
-          bottom: 0;
-          z-index: 0;
-          background: #1abc9c;
-          border-radius: 8px;
-          transition: all .5 ease 0s ;
-          }
-          nav a:nth-child(1){
-              width: 100px;
-          }
-          nav .start-home,a:nth-child(1):hover~.animation{
-              width: 100px;
-              left:0;
-          }
-      </style>
+  <table class="table table-bordered" style="margin-top: 20px;">
+    <thead> 
+      <th>no</th>
+      <th>nama produk</th>
+      <th>kategori</th>
+      <th>deskripsi produk</th>
+      <th>harga</th>
+      <th>lokasi</th>
+    </thead>
+    <tbody>
+      <tr>
+        <td>x</td>
+        <td>x</td>
+        <td>x</td>
+        <td>x</td>
+        <td>x</td>
+        <td>x</td>
+      </tr>
+    </tbody>
+  </table>
   <?php }?>
 </div>
-<?php
-          if("produk")
-          {
-            include 'produk2/views/produk.php';
-          }
-      ?>
+
 
 
 <!-- Profil -->
@@ -260,12 +254,6 @@ include "produk2/models/m_produk.php";
                     <div class="row justify-content-center align-items-center profil">
                         <div class="form">
                             <img class="rounded mx-auto d-block" src="gambar/user/<?php echo $saya['user_foto']; ?>"  style="width: 200px; height:200px;" alt="...">
-                            <div class="alert alert-secondary" style="margin-top: 20px;" role="alert">
-                                rajih
-                            </div>
-                            <div class="alert alert-secondary" role="alert">
-                                rajih
-                            </div>
                         </div>
                         <div class="profil-detail">
                             <form action="user/profil_update.php" method="post" enctype="multipart/form-data">
@@ -278,10 +266,10 @@ include "produk2/models/m_produk.php";
                                     <input type="email" name="email" class="form-control" value="<?php echo $saya['user_email']; ?>">
                                 </div>
                                 <div class="form-group row">
-                                  <label class="col-lg-2" ">Foto</label>
+                                  <label class="col-lg-2" style="margin-left:20px;">Foto</label>
                                   <input type="file" name="foto" style="position:absolute; top:220px; right:147px;">
                                   <div class="col-lg-10" ><br>
-                                    <small class="text-muted font-italic">Kosongkan jika tidak ingin mengganti foto profil.</small>
+                                    <small class="text-muted font-italic" style="margin-left:20px;">Kosongkan jika tidak ingin mengganti foto profil.</small>
                                   </div>
                                 </div>
                                 <button type="submit" class="btn btn-secondary" style="margin-left: 20%; margin-right: 35%; width:30%; margin-top:220px;">Update profil</button>

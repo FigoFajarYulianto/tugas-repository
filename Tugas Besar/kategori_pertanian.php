@@ -207,7 +207,7 @@ $semuadata=array();
     <!-- Akhir navbar -->
 
 
-    <!-- Hasil Pencarian -->
+    <!-- Hasil kategori -->
     <div class="isi">
         <div class="wrapper">
           <div class="row" style="margin-right:-325px; margin-left:190px; margin-top: -40px;">
@@ -226,7 +226,7 @@ $semuadata=array();
             $total_data = mysqli_num_rows($query);
             $total_halaman = ceil($total_data / $batas);
 
-            $sql = "SELECT * FROM tb_produk LIMIT $halaman_awal, $batas";
+            $sql = "SELECT * FROM tb_produk  WHERE id_kategori LIKE '1' LIMIT $halaman_awal, $batas";
             $query = mysqli_query($koneksi, $sql);
             $nomor = $halaman_awal + 1;
 
@@ -241,8 +241,8 @@ $semuadata=array();
                   <div class="content">
                       <div class="row">
                           <div class="details">
-                          <span><?php echo $kategori['nama_produk'] ?></span>
-                          <p><?php echo $kategori['map_link'] ?></p>
+                          <span><?php echo substr($kategori['nama_produk'], 0, 13)?></span>
+                          <p><?php echo substr($kategori['map_link'], 0, 13)?></p>
                           </div>
                       </div>
                       <div class="price">Rp.<?php echo $kategori['harga'] ?></div>
@@ -290,7 +290,7 @@ $semuadata=array();
     </div>
   </div>
 
-    <!-- Akhir Pencarian -->
+    <!-- Akhir kategori -->
 
     <!-- Logout Modal-->
     <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
