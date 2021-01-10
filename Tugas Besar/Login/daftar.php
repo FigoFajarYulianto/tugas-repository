@@ -50,6 +50,12 @@
                                 autocomplete="off" placeholder="Masukkan password ..">
                         </div>
 
+                        <div class="form-group">
+                            <label>Nomer Telepon</label>
+                            <input type="tel" name="telepon" class="form-control" required='required'
+                                autocomplete="off" placeholder="Masukkan nomer telepon ..">
+                        </div>
+
                         <input type="submit" class="btn btn-primary btn-block mt-4" value="DAFTAR">
                         <p class="text-center mt-3">
                             Sudah punya akun?
