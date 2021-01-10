@@ -124,7 +124,7 @@ header .container  .nav-btn .search-input .icon{
     display: flex;
     position: relative;
     padding-bottom: -20px;
-    margin-top: -20px;
+    margin-top: 0px;
     background-color: #343a40;
 }
 

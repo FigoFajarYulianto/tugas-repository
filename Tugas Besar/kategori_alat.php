@@ -46,7 +46,7 @@ $semuadata=array();
 <body>
     <!-- Navbar -->
     <header>
-          <div class="container">
+          <div class="container" style="margin-top: -20px;">
             <input type="checkbox" name="" id="check">
             
             <div class="logo-container">
@@ -322,20 +322,7 @@ $semuadata=array();
 
 
   <!-- footer -->
-  <div class="footer-ku">
-    <div class="card-footer text-center">
-      <div class="card-header" style="font-size: 42px;font-family: Roboto; font-weight: bold; padding: 4px 4px;">
-        Follow us
-      </div>
-      <div class="card-body">
-        <a href=" #" class="btn d-flex justify-content-center">
-          <img src=" logo/twitter.png" alt="">
-          <img src="logo/instagram.png" alt="">
-          <img src="logo/facebook.png" alt="">
-        </a>
-      </div>
-    </div>
-  </div>
+  <?php include 'footer.php'?>
   <!-- penutup footer -->
 
   <!-- Modal Pencarian -->
