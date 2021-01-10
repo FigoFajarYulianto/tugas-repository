@@ -27,9 +27,9 @@
             <td><?php echo $pecah['kode_pos']; ?></td>
             <td><?php echo $pecah['link_map']; ?></td>
             <td>
-                <a href="admin.php?halaman=hapuskategori&id=<?php echo $pecah['id_kategori'];?>"
+                <a href="admin.php?halaman=hapustoko&id=<?php echo $pecah['id'];?>"
                     class="btn btn-warning btn-sm">Hapus</a>
-                <a href="admin.php?halaman=ubahkategori&id=<?php echo $pecah['id_kategori'];?>"
+                <a href="admin.php?halaman=ubahkategori&id=<?php echo $pecah['id'];?>"
                     class="btn btn-danger btn-sm">Ubah</a>
             </td>
 

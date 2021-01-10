@@ -1,4 +1,4 @@
-<h2>Daftar Produk</h2>
+<h2 style="margin-top:-18px; border-bottom: 3px solid;">Daftar Produk</h2>
 
 <table class="table table-bordered" id="table">
     <thead>
@@ -41,4 +41,3 @@
         <?php }?>
     </tbody>
 </table>
-<a href="admin.php?halaman=tambahproduk" class="btn btn-primary">Tambah Produk</a>
