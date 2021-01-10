@@ -29,11 +29,11 @@
             </td>
 
             <td>
-                <a href="index.php?halaman=hapusproduk&id=<?php echo $pecah['id_produk'];?>" class="btn btn-danger"
+                <a href="admin.php?halaman=hapusproduk&id=<?php echo $pecah['id_produk'];?>" class="btn btn-danger"
                     onclick="return confirm('Yakin Mau di Hapus?')"><i class="lyphicon glyphicon-trash"></i>Hapus</a>
-                <a href="index.php?halaman=ubahproduk&id=<?php echo $pecah['id_produk'];?>" class="btn btn-warning"><i
+                <a href="admin.php?halaman=ubahproduk&id=<?php echo $pecah['id_produk'];?>" class="btn btn-warning"><i
                         class="lyphicon glyphicon-edit"></i>Ubah</a>
-                <a href="index.php?halaman=detailproduk&id=<?php echo $pecah['id_produk'];?>" class="btn btn-info"><i
+                <a href="admin.php?halaman=detailproduk&id=<?php echo $pecah['id_produk'];?>" class="btn btn-info"><i
                         class="glyphicon glyphicon-eye">Detail</a>
             </td>
         </tr>
@@ -41,4 +41,4 @@
         <?php }?>
     </tbody>
 </table>
-<a href="index.php?halaman=tambahproduk" class="btn btn-primary">Tambah Produk</a>
+<a href="admin.php?halaman=tambahproduk" class="btn btn-primary">Tambah Produk</a>
