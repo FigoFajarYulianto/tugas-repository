@@ -19,7 +19,8 @@
 
 .border_daftar {
     width: 450px;
-    height: 600px;
+    /* height: 600px; */
+    height: 700px;
     border-radius: 10px;
     overflow: hidden;
     padding: 5px 55px 37px 55px;

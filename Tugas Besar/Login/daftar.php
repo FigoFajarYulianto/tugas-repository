@@ -1,5 +1,21 @@
 <?php include 'header.php'; ?>
 
+<!-- Style Phone Number -->
+<style>
+input:invalid + span:after {
+    content: 'Salah';
+    color: #f00;
+    padding-left: 5px;
+}
+
+input:valid + span:after {
+    content: 'Benar';
+    color: #26b72b;
+    padding-left: 5px;
+}
+</style>
+<!-- Penutup Style Phone Number -->
+
 <div class="container">
 
     <div class="row">
@@ -52,8 +68,9 @@
 
                         <div class="form-group">
                             <label>Nomer Telepon</label>
-                            <input type="tel" name="telepon" class="form-control" required='required'
-                                autocomplete="off" placeholder="Masukkan nomer telepon ..">
+                            <input type="tel" name="telepon" pattern="[0-9]{11,14}" class="form-control" required='required'
+                            autocomplete="off" placeholder="Masukkan nomer telepon ..">
+                            <span class="note">Contoh : 081234567891</span>
                         </div>
 
                         <input type="submit" class="btn btn-primary btn-block mt-4" value="DAFTAR">
