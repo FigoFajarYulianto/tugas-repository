@@ -49,12 +49,12 @@ if (!isset($_SESSION['admin'])) {
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="index.php">Admin Toko</a>
+                <a class="navbar-brand" href="index.php">ADMIN MAKETAN</a>
             </div>
             <div style="color: white;
 padding: 15px 50px 5px 50px;
 float: right;
-font-size: 16px;">&nbsp; <a href="index.php?halaman=komentar"><i class="fa fa-envelope fa-lg"></i></a> | <img
+font-size: 12px;">&nbsp; <a href="index.php?halaman=komentar"><i class="fa fa-envelope fa-lg"></i></a> | <img
                     src="../fotoprofil/<?php echo $detpem["fotoprofil"] ?>" width="20px"
                     style="border-radius: 15px; -moz-border-radius:15px;"></a></div>
         </nav>
@@ -62,20 +62,27 @@ font-size: 16px;">&nbsp; <a href="index.php?halaman=komentar"><i class="fa fa-en
         <nav class="navbar-default navbar-side" role="navigation">
             <div class="sidebar-collapse">
                 <ul class="nav" id="main-menu">
+                    <?php 
+                    $admin = mysqli_query($koneksi,"SELECT * FROM admin");
+                    $saya = mysqli_fetch_assoc($admin);
+                ?>
                     <li class="text-center">
-                        <img src="../fotoprofil/<?php echo $detpem['fotoprofil'] ?>"
-                            class="user-image img-responsive" />
+                        <img src="../AADMIN/img/<?php echo $saya['foto_admin'] ?>" class="user-image img-responsive" />
                     </li>
+                    <h5 style="font-family: roboto; color:white; margin-left:100px; margin-right:auto;">
+                        <?php echo $saya ['nama_lengkap'] ?></h5>
 
 
-                    <li><a class="active-menu" href="index.php"><i class="fa fa-dashboard "></i> Beranda</a></li>
-                    <li><a class="active-menu" href="index.php?halaman=produk"><i class="fa fa-tags"></i> Produk</a>
+                    <li><a class="active-menu" href="admin.php"><i class="fa fa-dashboard "></i> Beranda</a></li>
+                    <li><a class="active-menu" href="admin.php?halaman=produk"><i class="fa fa-tags"></i> Produk</a>
                     </li>
-                    <li><a class="active-menu" href="index.php?halaman=pelanggan"><i class="fa fa-user"></i>
-                            Pelanggan</a></li>
-                    <li><a class="active-menu" href="index.php?halaman=profil"><i class="fa fa-cogs"></i> Pengaturan</a>
+                    <li><a class="active-menu" href="admin.php?halaman=pelanggan"><i
+                                class="fa fa-user"></i>Pelanggan</a></li>
+                    <li><a class="active-menu" href="admin.php?halaman=kategori"><i class="fa fa-cube"></i> Toko</a>
                     </li>
-                    <li><a class="active-menu" href="index.php?halaman=logout"><i class="fa fa-sign-out"></i> Logout</a>
+                    <li><a class="active-menu" href="admin.php?halaman=profil"><i class="fa fa-cogs"></i> Pengaturan</a>
+                    </li>
+                    <li><a class="active-menu" href="admin.php?halaman=logout"><i class="fa fa-sign-out"></i> Logout</a>
                     </li>
                 </ul>
 
@@ -112,6 +119,10 @@ font-size: 16px;">&nbsp; <a href="index.php?halaman=komentar"><i class="fa fa-en
                     {
                         include 'logout.php';
                     }
+                    elseif ($_GET['halaman']=="kategori") 
+                    {
+                        include 'kategori.php';
+                    }
                     elseif ($_GET['halaman']=="detailproduk") 
                     {
                         include 'detailproduk.php';
@@ -128,9 +139,9 @@ font-size: 16px;">&nbsp; <a href="index.php?halaman=komentar"><i class="fa fa-en
                     {
                         include 'tambahkategori.php';
                     }
-                    elseif ($_GET['halaman']=="hapuskategori") 
+                    elseif ($_GET['halaman']=="hapustoko") 
                     {
-                        include 'hapuskategori.php';
+                        include 'hapustoko.php';
                     }
                      elseif ($_GET['halaman']=="hapuspelanggan") 
                     {
@@ -144,10 +155,7 @@ font-size: 16px;">&nbsp; <a href="index.php?halaman=komentar"><i class="fa fa-en
                     {
                         include 'ubahprofil.php';
                     }
-                    elseif ($_GET['halaman']=="hapustema") 
-                    {
-                        include 'hapustema.php';
-                    }
+                    
                      elseif ($_GET['halaman']=="komentar") 
                     {
                         include 'komentar.php';

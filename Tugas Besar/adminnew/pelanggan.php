@@ -22,7 +22,7 @@
                 <img src="../gambar/user/<?php echo $pecah['user_foto'];?>" width="100">
             </td>
             <td>
-                <a href="index.php?halaman=hapuspelanggan&id=<?php echo $pecah['id_pelanggan'] ?>"
+                <a href="admin.php?halaman=hapuspelanggan&id=<?php echo $pecah['user_id'] ?>"
                     class="btn btn-danger">Hapus</a>
 
             </td>
@@ -31,4 +31,3 @@
         <?php }?>
     </tbody>
 </table>
-<a href="index.php?halaman=tambahpelanggan" class="btn btn-primary">Tambah Produk</a>
