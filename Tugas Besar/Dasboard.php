@@ -42,7 +42,7 @@ include 'koneksi.php';
   <title>MAKETAN</title>
 </head>
 
-<body>
+<body style="background-color: #F3F3F3;">
   <!-- Navbar -->
   <header>
           <div class="container" style="margin-top: -20px;">
@@ -104,21 +104,21 @@ include 'koneksi.php';
                                     <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
                                     Profile
                                 </a> 
-                                <?php $sql = mysqli_query($koneksi, "SELECT * FROM buka_toko WHERE user_id ='$_SESSION[user_id]'");?>                      
-                                <?php $cek = mysqli_num_rows($sql); ?>
-                                <?php if(isset($_SESSION['user_id'])) { ?>           
-                                  <?php if ($cek > 0) { ?>
-                                  <a class="dropdown-item" href="profil_toko.php">
+                                <?php //$sql = mysqli_query($koneksi, "SELECT * FROM buka_toko WHERE user_id ='$_SESSION[user_id]'");?>                      
+                                <?php //$cek = mysqli_num_rows($sql); ?>
+                                <?php //if(isset($_SESSION['user_id'])) { ?>           
+                                  <?php //if ($cek > 0) { ?>
+                                  <!-- <a class="dropdown-item" href="profil_toko.php">
                                     <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
                                     profil toko
-                                  </a>
-                                <?php }else{ ?>
-                                <a class="dropdown-item" href="buka_toko2/buka_toko.php">
+                                  </a> -->
+                                <?php //}else{ ?>
+                                <!-- <a class="dropdown-item" href="buka_toko2/buka_toko.php">
                                     <i class="fas fa-list fa-sm fa-fw mr-2 text-gray-400"></i>
                                     buat toko
-                                </a>
-                                <?php } ?>
-                                <?php } ?>
+                                </a> -->
+                                <?php //} ?>
+                                <?php //} ?>
                                 <div class="dropdown-divider"></div>
                                 <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
                                     <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
@@ -274,7 +274,7 @@ include 'koneksi.php';
                       <div class="price">Rp.<?php echo number_format($perproduk['harga']) ?></div>
                       <hr id="hrdown" style="height:1px;border:none;color:#333;background-color:#333;">
                       <div class="buttons">
-                          <button>Chat</button>
+                          <button><a href="user/index.php" style="text-decoration:none; color:black;">Chat</a></button>
                           <button><a href="detail.php?id=<?php echo $perproduk['id_produk']?>" style="text-decoration:none; color:white;">Detail</a></button>
                       </div>
                   </div>
@@ -390,29 +390,6 @@ include 'koneksi.php';
   </div>
   <!-- Penutup Modal Pencarian -->
 
-  <!-- Css Chat -->
-  <style>
-  .button_message .btn-secondary {
-  background-color: rgb(85, 85, 85);
-  color: white;
-  padding: 5px 0px;
-  border: none;
-  cursor: pointer;
-  opacity: 0.8;
-  position: fixed;
-  bottom: 23px;
-  right: 28px;
-  width: 280px;
-  border-radius: 12px;
-  font-size: 30px;
-  font-variant: small-caps;
-  }
-  </style>
-
-  <!-- Chat -->
-  <div class="button_message">
-    <a class="btn btn-secondary" href="user/index.php" role="button">Chat</a>
-  </div>
 
 
 

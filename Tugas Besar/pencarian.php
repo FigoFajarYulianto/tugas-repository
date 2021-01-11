@@ -211,8 +211,8 @@ while($pecah = $ambil->fetch_assoc())
 
     <!-- Hasil Pencarian -->
     <div class="isi">
-        <div class="wrapper">
-          <div class="row" style="margin-top: -40px;">
+        <div class="wrapper" >
+          <div class="row" style="margin-top: -40px; margin-left:11%; width:80%;">
             <?php foreach ($semuadata as $key => $value): ?>
               <div class="card">
                   <img src="produk2/assets/img/produk/<?php echo $value['gbr_produk'] ?>" alt="" class="img-responsive">
@@ -223,7 +223,7 @@ while($pecah = $ambil->fetch_assoc())
                           <p><?php echo $value['map_link'] ?></p>
                           </div>
                       </div>
-                      <div class="price">Rp.<?php echo $value['harga'] ?></div>
+                      <div class="price">Rp.<?php echo number_format($value['harga'])?></div>
                       <hr id="hrdown" style="height:1px;border:none;color:#333;background-color:#333;">
                       <div class="buttons">
                           <button>Chat</button>
@@ -253,21 +253,8 @@ while($pecah = $ambil->fetch_assoc())
 
 
   <!-- footer -->
-  <div class="footer-ku">
-    <div class="card-footer text-center">
-      <div class="card-header" style="font-size: 42px;font-family: Roboto; font-weight: bold; padding: 4px 4px;">
-        Follow us
-      </div>
-      <div class="card-body">
-        <a href=" #" class="btn d-flex justify-content-center">
-          <img src=" logo/twitter.png" alt="">
-          <img src="logo/instagram.png" alt="">
-          <img src="logo/facebook.png" alt="">
-        </a>
-      </div>
-    </div>
-  </div>
-  <!-- penutup footer -->
+  <?php include 'footer.php'?>
+  <!-- // footer -->
 
   <!-- Modal Pencarian -->
   <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" style="top:30px;">
@@ -284,29 +271,6 @@ while($pecah = $ambil->fetch_assoc())
   </div>
   <!-- Penutup Modal Pencarian -->
 
-  <!-- Css Chat -->
-  <style>
-  .button_message .btn-secondary {
-  background-color: rgb(85, 85, 85);
-  color: white;
-  padding: 5px 0px;
-  border: none;
-  cursor: pointer;
-  opacity: 0.8;
-  position: fixed;
-  bottom: 23px;
-  right: 28px;
-  width: 280px;
-  border-radius: 12px;
-  font-size: 30px;
-  font-variant: small-caps;
-  }
-  </style>
-
-  <!-- Chat -->
-  <div class="button_message">
-    <a class="btn btn-secondary" href="user/index.php" role="button">Chat</a>
-  </div>
 
 
 

@@ -3,11 +3,11 @@ include 'koneksi.php';
 session_start();
 $semuadata=array();
 // $ambil = $koneksi->query("SELECT * FROM tb_produk  JOIN kategori ON tb_produk.id_kategori=kategori.id_kategori"); 
-// $ambil1 = "SELECT * FROM tb_produk WHERE id_kategori LIKE '3'";
+// $ambil1 = "SELECT * FROM tb_produk WHERE id_kategori LIKE '1'";
 // $query = mysqli_query($koneksi, $ambil1);
 // while($pecah = $query->fetch_assoc())
 // {
-//     $semuadata[]=$pecah;
+//     $semuadata[] = $pecah;
 // }
 // echo "<pre>";
 // print_r ($semuadata);
@@ -43,7 +43,7 @@ $semuadata=array();
   <title>MAKETAN</title>
 </head>
 
-<body>
+<body style="background-color: #F3F3F3;">
     <!-- Navbar -->
     <header>
           <div class="container" style="margin-top: -20px;">
@@ -140,7 +140,6 @@ $semuadata=array();
                   </div>
                 </div>
             <?php endif ?>
-
             <div class="hamburger-menu-container">
                 <div class="hamburger-menu">
                     <div></div>
@@ -208,8 +207,8 @@ $semuadata=array();
     <!-- Akhir navbar -->
 
 
-   <!-- Hasil kategori -->
-   <div class="isi">
+    <!-- Hasil kategori -->
+    <div class="isi">
         <div class="wrapper">
           <div class="row" style="margin-right:-325px; margin-left:190px; margin-top: -40px;">
           <?php 
@@ -217,7 +216,7 @@ $semuadata=array();
           $query = mysqli_query($koneksi, $ambil1);?>
           <?php 
             // pagination
-            $batas = 5;
+            $batas = 20;
             $halaman = isset($_GET["halaman"]) ? $_GET["halaman"]: 1;
             $halaman_awal = $halaman>1 ? ($halaman*$batas) - $batas : 0;
             
@@ -246,7 +245,7 @@ $semuadata=array();
                           <p><?php echo substr($kategori['map_link'], 0, 13)?></p>
                           </div>
                       </div>
-                      <div class="price">Rp.<?php echo $kategori['harga'] ?></div>
+                      <div class="price">Rp.<?php echo number_format($kategori['harga']) ?></div>
                       <hr id="hrdown" style="height:1px;border:none;color:#333;background-color:#333;">
                       <div class="buttons">
                           <button>Chat</button>
@@ -269,12 +268,12 @@ $semuadata=array();
             echo "<li class='page-item disabled '><a class='page-link' href='#'>Previous</a></li>";
 
           }else{
-            echo "<li class='page-item'><a class='page-link' href='kategori_alat.php?halaman=$previous'>Previous</a></li>";
+            echo "<li class='page-item'><a class='page-link' href='kategori_pertanian.php?halaman=$previous'>Previous</a></li>";
           }
         ?>
         <?php 
           for($i=1; $i<=$total_halaman; $i++){
-            echo "<li class='page-item'><a class='page-link' href='kategori_alat.php?halaman=$i'>$i</a></li>";
+            echo "<li class='page-item'><a class='page-link' href='kategori_pertanian.php?halaman=$i'>$i</a></li>";
           }
         ?>
         <?php 
@@ -283,7 +282,7 @@ $semuadata=array();
           echo "<li class='page-item disabled '><a class='page-link' href='#'>next</a></li>";
 
         }else{
-          echo "<li class='page-item'><a class='page-link' href='kategori_alat.php?halaman=$next'>next</a></li>";
+          echo "<li class='page-item'><a class='page-link' href='kategori_pertanian.php?halaman=$next'>next</a></li>";
         }
         ?>
       </ul>
@@ -320,10 +319,9 @@ $semuadata=array();
 
 
 
-
   <!-- footer -->
   <?php include 'footer.php'?>
-  <!-- penutup footer -->
+  <!-- // footer -->
 
   <!-- Modal Pencarian -->
   <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" style="top:30px;">
@@ -340,29 +338,7 @@ $semuadata=array();
   </div>
   <!-- Penutup Modal Pencarian -->
 
-  <!-- Css Chat -->
-  <style>
-  .button_message .btn-secondary {
-  background-color: rgb(85, 85, 85);
-  color: white;
-  padding: 5px 0px;
-  border: none;
-  cursor: pointer;
-  opacity: 0.8;
-  position: fixed;
-  bottom: 23px;
-  right: 28px;
-  width: 280px;
-  border-radius: 12px;
-  font-size: 30px;
-  font-variant: small-caps;
-  }
-  </style>
 
-  <!-- Chat -->
-  <div class="button_message">
-    <a class="btn btn-secondary" href="user/index.php" role="button">Chat</a>
-  </div>
 
 
 
