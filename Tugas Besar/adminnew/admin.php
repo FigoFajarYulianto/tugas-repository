@@ -3,7 +3,7 @@ session_start();
 //koneksi ke database
 $koneksi = new mysqli("localhost", "root", "", "project_chat");
 
-if(isset($_SESSION['login'])) {
+if(!isset($_SESSION['login'])) {
     header("location: login.php");
     exit;
 }
@@ -110,11 +110,11 @@ if(isset($_SESSION['login'])) {
                                     <span>MENU</span>
                                 </a>
                                 <ul class="sub">
-                                    <li><a href="admin.php?halaman=produk"> Produk</a></li>
+                                    <li><a href="admin.php?halaman=produk"> PRODUK</a></li>
 
-                                    <li><a href="admin.php?halaman=pelanggan">Pelanggan</a></li>
+                                    <li><a href="admin.php?halaman=pelanggan">PELANGGAN</a></li>
 
-                                    <li><a href="admin.php?halaman=kategori">Toko</a></li>
+                                    <li><a href="admin.php?halaman=kategori">TOKO</a></li>
 
                                 </ul>
 
@@ -194,14 +194,6 @@ if(isset($_SESSION['login'])) {
                         include 'ubahprofil.php';
                     }
                     
-                     elseif ($_GET['halaman']=="komentar") 
-                    {
-                        include 'komentar.php';
-                    }
-                    elseif ($_GET['halaman']=="jawabkomentar") 
-                    {
-                        include 'jawabkomentar.php';
-                    }
                     
                }
                else

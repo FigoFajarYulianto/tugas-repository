@@ -1,13 +1,13 @@
 ﻿<?php 
 session_start();
-$koneksi = new mysqli("localhost", "root", "", "project_chat");
+
 
 if(isset($_SESSION["login"])) {
     header("location: admin.php");
     exit;
 }
 
-
+$koneksi = new mysqli("localhost", "root", "", "project_chat");
 
 
 ?>
@@ -75,29 +75,32 @@ if(isset($_SESSION["login"])) {
 
                         </form>
                         <?php
+                        if (isset($_POST['login']))
+                        {
+                            $ambil = $koneksi->query("SELECT * FROM admin WHERE username='$_POST[user]'
+                            AND password_admin = '$_POST[pass]'");
+                            $yangcocok = $ambil->num_rows;
+                            if ($yangcocok==1)
+                        { $_SESSION['admin']=$ambil->fetch_assoc();
+                            // set session
+                            $_SESSION['login'] = true;
 
-          if(isset($_POST['login'])){
-          $ambil = $koneksi->query("SELECT*FROM admin WHERE username='$_POST[user]' AND password_admin='$_POST[pass]'");  
+                            //cek remember me
+                            if( isset($_POST['remember']) ) {
+                                //buat cookie
+                                setcookie('key', hash('sha256', $yangcocok['username']), time() + 60);
+                            }
 
-          $yangcocok = $ambil->num_rows;
-
-          if ($yangcocok==1) {
-            $_SESSION['admin'] = $ambil->fetch_assoc();
-           echo "<div class='alert alert-info'>Login Sukses</div>";
-           echo "<meta http-equiv='refresh' content='1;url=admin.php'>"; 
-          }
-
-          else{
-            echo "<div class='alert alert-danger'>Login Gagal</div>";
-           echo "<meta http-equiv='refresh' content='1;url=login.php'>"; 
-          
-
-          }
-         }
-
-
-
-          ?>
+                            echo "<div class='alert alert-info'>LOGIN SUKSES</div>";
+                            echo "<meta http-equiv='refresh' content='1;url=admin.php'>";
+                        }
+                        else
+                        {
+                            echo "<div class='alert alert-danger'>LOGIN GAGAL</div>";
+                            echo "<meta http-equiv='refresh' content='1;url=login.php'>";
+                        }
+                    }
+                        ?>
                     </div>
 
                 </div>
