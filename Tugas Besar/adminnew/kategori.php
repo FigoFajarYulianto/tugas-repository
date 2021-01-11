@@ -1,5 +1,5 @@
-<h3>TOKO</h3>
-<hr>
+<h2 style="margin-top:1px; border-bottom: 3px solid;">TOKO</h2>
+
 
 <table class="table table-bordered" id="table">
     <thead>
@@ -29,8 +29,6 @@
             <td>
                 <a href="admin.php?halaman=hapustoko&id=<?php echo $pecah['id'];?>"
                     class="btn btn-warning btn-sm">Hapus</a>
-                <a href="admin.php?halaman=ubahkategori&id=<?php echo $pecah['id'];?>"
-                    class="btn btn-danger btn-sm">Ubah</a>
             </td>
 
         </tr>

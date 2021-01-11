@@ -1,10 +1,6 @@
 <h2>Ubah Produk</h2>
 <?php
 
-if(isset($_SESSION['login'])) {
-    header("location: login.php");
-    exit;
-}
 
 $ambil = $koneksi->query("SELECT * FROM tb_produk WHERE id_produk= '$_GET[id]'");
 $pecah= $ambil->fetch_assoc();

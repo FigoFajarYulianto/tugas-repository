@@ -2474,6 +2474,10 @@ ul.my-friends li .friends-pic {
 }
 
 
+
+
+
+
 /* MAIL CONFIGURATION - INBOX, MAIL COMPOSE & MAIL VIEW  */
 .mail-nav {
     margin: 15px -15px 0 -15px;
@@ -3829,8 +3833,10 @@ table td {
 }
 
 .l {
-    margin-left: 230px;
+    margin-left: 23px;
     margin-right: auto;
+    margin-top: 100px;
+
 
 }
 

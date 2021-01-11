@@ -3,14 +3,11 @@ session_start();
 //koneksi ke database
 $koneksi = new mysqli("localhost", "root", "", "project_chat");
 
-
-if (!isset($_SESSION['admin'])) {
-    echo "<script>alert('Anda Harus Login');</script>";
-    echo "<script>location='login.php';</script>";
-    header('location:login.php');
-
-    exit();
+if(isset($_SESSION['login'])) {
+    header("location: login.php");
+    exit;
 }
+
 ?>
 
 <!DOCTYPE html>
@@ -18,15 +15,6 @@ if (!isset($_SESSION['admin'])) {
 
 <head>
 
-    <style>
-    .l {
-
-
-        margin-top: 100px;
-
-
-    }
-    </style>
 
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />

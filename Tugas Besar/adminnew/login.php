@@ -2,6 +2,12 @@
 session_start();
 $koneksi = new mysqli("localhost", "root", "", "project_chat");
 
+if(isset($_SESSION["login"])) {
+    header("location: admin.php");
+    exit;
+}
+
+
 
 
 ?>
@@ -12,7 +18,7 @@ $koneksi = new mysqli("localhost", "root", "", "project_chat");
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>e commerce : Login</title>
+    <title>MAKETAN : Login</title>
     <!-- BOOTSTRAP STYLES-->
     <link href="assets/css/bootstrap.css" rel="stylesheet" />
     <!-- FONTAWESOME STYLES-->
@@ -29,9 +35,9 @@ $koneksi = new mysqli("localhost", "root", "", "project_chat");
         <div class="row text-center ">
             <div class="col-md-12">
                 <br /><br />
-                <h2> ecommerce: Login</h2>
+                <h2> SILAHKAN LOGIN</h2>
 
-                <h5>( Login yourself to get access )</h5>
+                <h5>( WELCOME )</h5>
                 <br />
             </div>
         </div>
@@ -40,7 +46,9 @@ $koneksi = new mysqli("localhost", "root", "", "project_chat");
             <div class="col-md-4 col-md-offset-4 col-sm-6 col-sm-offset-3 col-xs-10 col-xs-offset-1">
                 <div class="panel panel-default">
                     <div class="panel-heading">
-                        <strong> Enter Details To Login </strong>
+                        <center>
+                            <strong> MASUK </strong>
+                        </center>
                     </div>
                     <div class="panel-body">
                         <form role="form" method="post">
@@ -55,16 +63,16 @@ $koneksi = new mysqli("localhost", "root", "", "project_chat");
                             </div>
                             <div class="form-group">
                                 <label class="checkbox-inline">
-                                    <input type="checkbox" /> Remember me
+
                                 </label>
                                 <span class="pull-right">
-                                    <a href="#">Forget password ? </a>
+
                                 </span>
                             </div>
 
                             <button class="btn btn-primary" name="login">Login</button>
                             <hr />
-                            Not register ? <a href="registeration.html">click here </a>
+
                         </form>
                         <?php
 

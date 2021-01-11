@@ -1,4 +1,6 @@
-<h2 style="margin-top:-18px; border-bottom: 3px solid;">Daftar Produk</h2>
+<h2 style="margin-top:1px; border-bottom: 3px solid;">PRODUK</h2>
+<?php
+?>
 
 <table class="table table-bordered" id="table">
     <thead>
