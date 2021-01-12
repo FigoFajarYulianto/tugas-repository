@@ -114,7 +114,7 @@ if(!isset($_SESSION['login'])) {
 
                                     <li><a href="admin.php?halaman=pelanggan">PELANGGAN</a></li>
 
-                                    <li><a href="admin.php?halaman=toko">TOKO</a></li>
+
 
                                 </ul>
 
@@ -161,10 +161,6 @@ if(!isset($_SESSION['login'])) {
                     {
                         include 'logout.php';
                     }
-                    elseif ($_GET['halaman']=="toko") 
-                    {
-                        include 'toko.php';
-                    }
                     elseif ($_GET['halaman']=="detailproduk") 
                     {
                         include 'detailproduk.php';
@@ -180,10 +176,6 @@ if(!isset($_SESSION['login'])) {
                     elseif ($_GET['halaman']=="tambahkategori") 
                     {
                         include 'tambahkategori.php';
-                    }
-                    elseif ($_GET['halaman']=="hapustoko") 
-                    {
-                        include 'hapustoko.php';
                     }
                      elseif ($_GET['halaman']=="hapuspelanggan") 
                     {

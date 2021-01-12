@@ -13,8 +13,11 @@ $koneksi = new mysqli("localhost", "root", "", "project_chat");
         <input type="text" class="form-control" name="kategori">
     </div>
     <div class="form-group">
-        <label>deskripsi</label>
-        <textarea class="form-control" name="deskripsi" rows="10"></textarea>
+        <label>Deskripsi</label>
+        <textarea class="form-control" name="deskripsi" id="deskripsi" rows="10"></textarea>
+        <script>
+        CKEDITOR.replace('deskripsi');
+        </script>
     </div>
     <div class="form-group">
         <label>Harga (Rp)</label>
