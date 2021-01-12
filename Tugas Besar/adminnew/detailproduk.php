@@ -37,7 +37,7 @@ WHILE($tiap=$ambilfoto->fetch_assoc())
         </tr>
         <th>Gambar</th>
         <th>:
-            <img src="../produk2/assets/img/produk/<?php echo $detailproduk['gbr_produk'];?>" width="350">
+            <img src="../produk2/produk2/assets/img/produk/<?php echo $detailproduk['gbr_produk'];?>" width="350">
         </th>
 
     </tbody>

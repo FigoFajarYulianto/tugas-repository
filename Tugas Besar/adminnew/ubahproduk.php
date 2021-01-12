@@ -32,7 +32,11 @@ $pecah= $ambil->fetch_assoc();
     </div>
     <div class="form-group">
         <label>Deskripsi</label>
-        <textarea name="deskripsi" class="form-control" rows="10"> <?php echo $pecah['deskripsi_produk']; ?> </textarea>
+        <textarea class="form-control" name="deskripsi" id="deskripsi"
+            rows="10"> <?php echo $pecah['deskripsi_produk'];?></textarea>
+        <script>
+        CKEDITOR.replace('deskripsi');
+        </script>
     </div>
     <button class="btn btn-primary" name="ubah">Ubah</button>
 </form>
