@@ -1,6 +1,6 @@
 <h2>Ubah Produk</h2>
 <?php
-
+$koneksi = new mysqli("localhost", "root", "", "project_chat");
 
 $ambil = $koneksi->query("SELECT * FROM tb_produk WHERE id_produk= '$_GET[id]'");
 $pecah= $ambil->fetch_assoc();
@@ -20,15 +20,13 @@ while($tiap=$ambil->fetch_assoc())
     </div>
     <div class="form-group">
         <label>Kategori Produk</label>
-<<<<<<< HEAD
-        <input type="text" name="kategori_produk" class="form-control" value="<?php echo $value['nama_kategori']; ?>"
-            <?php if($pecah["id_kategori"]==$value["id_kategori"]) {echo "selected";}?>><?php echo $value["nama_kategori"] ?>
-=======
         <select class="form-control" name="kategori_produk" id="">
-        <option value="">Pilih kategori</option>
-        <?php foreach ($datakategori as $key => $value): ?>
-        <option type="text" name="kategori_produk" class="form-control" value="<?php echo $value['nama_kategori']; ?>" <?php if($pecah["id_kategori"]==$value["id_kategori"]) {echo "selected";}?>><?php echo $value["nama_kategori"] ?></option>
->>>>>>> 450e58b9968120db2a602ed1e27d93b7f8319b5f
+            <option value="">Pilih kategori</option>
+            <?php foreach ($datakategori as $key => $value): ?>
+            <option type="text" name="kategori_produk" class="form-control"
+                value="<?php echo $value['nama_kategori']; ?>"
+                <?php if($pecah["id_kategori"]==$value["id_kategori"]) {echo "selected";}?>>
+                <?php echo $value["nama_kategori"] ?></option>
     </div>
     <?php endforeach ?>
     </select>
@@ -66,17 +64,17 @@ if (isset($_POST['ubah']))
     //jika foto dirubah
     if (!empty($lokasifoto))
     {
-        move_uploaded_file($lokasifoto, "../produk2/produk2/assets/img/produk/.$namafoto");
+        move_uploaded_file($lokasifoto, "../produk2/produk2/assets/img/produk/$namafoto");
 
         $koneksi->query("UPDATE tb_produk SET nama_produk='$_POST[nama]',
-        nama_kategori='$_POST[kategori_produk]',harga='$_POST[harga_produk]',map_link='$_POST[map]',
+        id_kategori='$_POST[kategori_produk]',harga='$_POST[harga_produk]',map_link='$_POST[map]',
         gbr_produk='$namafoto',deskripsi_produk='$_POST[deskripsi]'
         WHERE id_produk='$_GET[id]'");
     }
     else
     {
         $koneksi->query("UPDATE tb_produk SET nama_produk='$_POST[nama]',
-        kategori='$_POST[kategori_produk]',harga='$_POST[harga_produk]',map_link='$_POST[map]',
+        id_kategori='$_POST[kategori_produk]',harga='$_POST[harga_produk]',map_link='$_POST[map]',
         deskripsi_produk='$_POST[deskripsi]' WHERE id_produk='$_GET[id]'");
     }
     echo "<script>alert('data produk telah diubah' );</script>";
