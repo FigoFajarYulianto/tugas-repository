@@ -45,7 +45,7 @@ $semuadata=array();
 
 <body style="background-color: #F3F3F3;">
     <!-- Navbar -->
-    <header>
+    <header style="position: fixed;">
           <div class="container" style="margin-top: -20px;">
             <input type="checkbox" name="" id="check">
             
@@ -210,7 +210,7 @@ $semuadata=array();
     <!-- Hasil kategori -->
     <div class="isi">
         <div class="wrapper">
-          <div class="row" style="margin-right:-325px; margin-left:190px; margin-top: -40px;">
+          <div class="row" style="margin-right:-325px; margin-left:190px; margin-top: 30px;">
           <?php 
           $ambil1 = "SELECT * FROM tb_produk WHERE id_kategori LIKE '4'"; 
           $query = mysqli_query($koneksi, $ambil1);?>

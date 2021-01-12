@@ -44,7 +44,7 @@ include 'koneksi.php';
 
 <body style="background-color: #F3F3F3;">
   <!-- Navbar -->
-  <header>
+  <header style="position: fixed;">
           <div class="container" style="margin-top: -20px;">
             <input type="checkbox" name="" id="check">
             
@@ -211,7 +211,7 @@ include 'koneksi.php';
 
   <!-- Carousel -->
   <div class="atas">
-    <div class="isis">
+    <div class="isis" style="margin-top: 90px;">
       <div id="carouselExampleIndicators" class="carousel slide d-flex flex-column align-items-center" data-ride="carousel">
         <ol class="carousel-indicators">
           <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
@@ -339,11 +339,9 @@ include 'koneksi.php';
                                 </div>
                                 <div class="form-group row">
                                   <label class="col-lg-2" style="margin-left:20px;">Foto</label>
-                                  <input type="file" name="foto" style="position:absolute; top:220px; right:147px;">
-                                  <div class="col-lg-10" ><br>
-                                    <small class="text-muted font-italic" style="margin-left:20px;">Kosongkan jika tidak ingin mengganti foto profil.</small>
-                                  </div>
+                                    <input  class="form-control" type="file" name="foto" style="position:absolute; top:220px; right:41px; width: 400px;"><br><br>
                                 </div>
+                                <small class="text-muted font-italic" style="margin-left:20px; ">Kosongkan jika tidak ingin mengganti foto profil.</small>
                                 <button type="submit" class="btn btn-secondary" style="margin-left: 20%; margin-right: 35%; width:30%; margin-top:220px;">Update profil</button>
                             </form>
                         </div>
@@ -359,15 +357,15 @@ include 'koneksi.php';
           <div class="modal-dialog" role="document">
               <div class="modal-content">
                   <div class="modal-header">
-                      <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+                      <h5 class="modal-title" id="exampleModalLabel">yakin untuk keluar ?</h5>
                       <button class="close" type="button" data-dismiss="modal" aria-label="Close">
                           <span aria-hidden="true">×</span>
                       </button>
                   </div>
-                  <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
+                  <div class="modal-body">Jika anda yakin, silahkan tekan keluar.</div>
                   <div class="modal-footer">
-                      <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                      <a class="btn btn-primary" href="logout.php">Logout</a>
+                      <button class="btn btn-secondary" type="button" data-dismiss="modal">Kembali</button>
+                      <a class="btn btn-primary" href="logout.php">Keluar</a>
                   </div>
               </div>
           </div>
