@@ -21,7 +21,8 @@ while($tiap=$ambil->fetch_assoc())
     <?php foreach ($datakategori as $key => $value): ?>
     <div class="form-group">
         <label>Kategori Produk</label>
-        <input type="text" name="kategori_produk" class="form-control" value="<?php echo $value['nama_kategori']; ?>" <?php if($pecah["id_kategori"]==$value["id_kategori"]) {echo "selected";}?>><?php echo $value["nama_kategori"] ?>
+        <input type="text" name="kategori_produk" class="form-control" value="<?php echo $value['nama_kategori']; ?>"
+            <?php if($pecah["id_kategori"]==$value["id_kategori"]) {echo "selected";}?>><?php echo $value["nama_kategori"] ?>
     </div>
     <?php endforeach ?>
     <div class="form-group">
@@ -33,7 +34,7 @@ while($tiap=$ambil->fetch_assoc())
         <input type="text" name="map" class="form-control" value="<?php echo $pecah['map_link']; ?>">
     </div>
     <div class="form-group">
-        <img src="../produk2/assets/img/produk/<?php echo $pecah['gbr_produk'] ?>" width="200">
+        <img src="../produk2/produk2/assets/img/produk/<?php echo $pecah['gbr_produk'] ?>" width="200">
     </div>
     <div class="form-group">
         <label>Ganti Foto</label>
