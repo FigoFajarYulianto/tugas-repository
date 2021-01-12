@@ -1,6 +1,14 @@
 <h2>Tambah Produk</h2>
 <?php
 $koneksi = new mysqli("localhost", "root", "", "project_chat");
+
+$datakategori=array();
+$ambil= $koneksi->query("SELECT * FROM kategori");
+while($tiap=$ambil->fetch_assoc())
+{
+	$datakategori[]=$tiap;
+}
+
 ?>
 
 <form method="post" enctype="multipart/form-data">
@@ -8,10 +16,17 @@ $koneksi = new mysqli("localhost", "root", "", "project_chat");
         <label>nama</label>
         <input type="text" class="form-control" name="nama">
     </div>
-    <div class="form-group">
-        <label>kategori</label>
-        <input type="text" class="form-control" name="kategori">
+    <label>Nama Kategori</label>
+    <select class="form-control" name="id_kategori">
+        <option value="">Pilih Kategori</option>
+        <?php foreach ($datakategori as $key => $value): ?>
+
+        <option value="<?php echo $value["id_kategori"] ?>"><?php echo $value["nama_kategori"] ?></option>
+
+        <?php endforeach ?>
+    </select>
     </div>
+
     <div class="form-group">
         <label>Deskripsi</label>
         <textarea class="form-control" name="deskripsi" id="deskripsi" rows="10"></textarea>
@@ -41,8 +56,8 @@ $koneksi = new mysqli("localhost", "root", "", "project_chat");
 			$lokasilokasifoto =$_FILES['foto']['tmp_name'];
 			move_uploaded_file($lokasilokasifoto, "../produk2/produk2/assets/img/produk/".$namanamafoto);
 			$koneksi->query("INSERT INTO tb_produk
-				(nama_produk,kategori, deskripsi_produk,harga,map_link, gbr_produk)
-				VALUES('$_POST[nama]','$_POST[kategori]','$_POST[deskripsi]','$_POST[harga]','$_POST[map]','$namanamafoto')");
+				(nama_produk,id_kategori, deskripsi_produk,harga,map_link, gbr_produk)
+				VALUES('$_POST[nama]','$_POST[id_kategori]','$_POST[deskripsi]','$_POST[harga]','$_POST[map]','$namanamafoto')");
 			
 		
 		
