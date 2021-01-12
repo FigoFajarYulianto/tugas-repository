@@ -4,6 +4,13 @@
 
 $ambil = $koneksi->query("SELECT * FROM tb_produk WHERE id_produk= '$_GET[id]'");
 $pecah= $ambil->fetch_assoc();
+
+$datakategori=array();
+$ambil=$koneksi->query("SELECT * FROM kategori");
+while($tiap=$ambil->fetch_assoc())
+{
+    $datakategori[]=$tiap;
+}
 ?>
 
 <form method="POST" enctype="multipart/form-data">
@@ -11,10 +18,12 @@ $pecah= $ambil->fetch_assoc();
         <label>Nama Produk</label>
         <input type="text" name="nama" class="form-control" value="<?php echo $pecah['nama_produk']; ?>">
     </div>
+    <?php foreach ($datakategori as $key => $value): ?>
     <div class="form-group">
         <label>Kategori Produk</label>
-        <input type="text" name="kategori_produk" class="form-control" value="<?php echo $pecah['kategori']; ?>">
+        <input type="text" name="kategori_produk" class="form-control" value="<?php echo $value['nama_kategori']; ?>" <?php if($pecah["id_kategori"]==$value["id_kategori"]) {echo "selected";}?>><?php echo $value["nama_kategori"] ?>
     </div>
+    <?php endforeach ?>
     <div class="form-group">
         <label>Harga Rp</label>
         <input type="number" name="harga_produk" class="form-control" value="<?php echo $pecah['harga']; ?>">
@@ -52,7 +61,7 @@ if (isset($_POST['ubah']))
         move_uploaded_file($lokasifoto, "../produk2/produk2/assets/img/produk/$namafoto");
 
         $koneksi->query("UPDATE tb_produk SET nama_produk='$_POST[nama]',
-        kategori='$_POST[kategori_produk]',harga='$_POST[harga_produk]',map_link='$_POST[map]',
+        nama_kategori='$_POST[kategori_produk]',harga='$_POST[harga_produk]',map_link='$_POST[map]',
         gbr_produk='$namafoto',deskripsi_produk='$_POST[deskripsi]'
         WHERE id_produk='$_GET[id]'");
     }

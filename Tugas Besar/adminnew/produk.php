@@ -24,14 +24,14 @@ if(!isset($_SESSION['login'])) {
     </thead>
     <tbody>
         <?php $nomor=1;?>
-        <?php $ambil=$koneksi->query("SELECT * FROM tb_produk"); ?>
+        <?php $ambil=$koneksi->query("SELECT * FROM tb_produk LEFT JOIN kategori ON tb_produk.id_kategori=kategori.id_kategori"); ?>
         <?php while($pecah=$ambil->fetch_assoc()){?>
         <tr>
             <td><?php echo $nomor;?></td>
             <td><?php echo $pecah['nama_produk']?></td>
-            <td><?php echo $pecah['kategori']?></td>
+            <td><?php echo $pecah['nama_kategori']?></td>
             <td><?php echo $pecah['deskripsi_produk']?></td>
-            <td><?php echo $pecah['harga']?></td>
+            <td><?php echo number_format($pecah['harga'])?></td>
             <td><?php echo $pecah['map_link']?></td>
             <td>
                 <img src="../produk2/produk2/assets/img/produk/<?php echo $pecah['gbr_produk'];?>" width="100">
