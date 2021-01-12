@@ -6,14 +6,14 @@ $koneksi = new mysqli("localhost", "root", "", "project_chat");
 <?PHP  
 $keyword = $_GET["keyword"];
 
-$semuadata=array();
-$ambil = $koneksi->query("SELECT * FROM tb_produk WHERE nama_produk LIKE '%$keyword%'
-OR deskripsi_produk LIKE '%$keyword%'"); 
+// $semuadata=array();
+// $ambil = $koneksi->query("SELECT * FROM tb_produk WHERE nama_produk LIKE '%$keyword%'
+// OR deskripsi_produk LIKE '%$keyword%'"); 
 
-while($pecah = $ambil->fetch_assoc())
-{
-    $semuadata[]=$pecah;
-}
+// while($pecah = $ambil->fetch_assoc())
+// {
+//     $semuadata[]=$pecah;
+// }
 
 // if (!isset($_SESSION["user_status"]))
 // {
@@ -74,7 +74,7 @@ while($pecah = $ambil->fetch_assoc())
                         <div class="autocom-box">
                           <!-- here list are inserted from javascript -->
                         </div>
-                        <div class="icon"><i class="fas fa-search"></i></div>
+                        <div class="icon" style="margin-top: 1px;"><i class="fas fa-search"></i></div>
                       </div>
                     </div>
                   </form>
