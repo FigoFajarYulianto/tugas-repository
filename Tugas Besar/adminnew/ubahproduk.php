@@ -18,12 +18,15 @@ while($tiap=$ambil->fetch_assoc())
         <label>Nama Produk</label>
         <input type="text" name="nama" class="form-control" value="<?php echo $pecah['nama_produk']; ?>">
     </div>
-    <?php foreach ($datakategori as $key => $value): ?>
     <div class="form-group">
         <label>Kategori Produk</label>
-        <input type="text" name="kategori_produk" class="form-control" value="<?php echo $value['nama_kategori']; ?>" <?php if($pecah["id_kategori"]==$value["id_kategori"]) {echo "selected";}?>><?php echo $value["nama_kategori"] ?>
+        <select class="form-control" name="kategori_produk" id="">
+        <option value="">Pilih kategori</option>
+        <?php foreach ($datakategori as $key => $value): ?>
+        <option type="text" name="kategori_produk" class="form-control" value="<?php echo $value['nama_kategori']; ?>" <?php if($pecah["id_kategori"]==$value["id_kategori"]) {echo "selected";}?>><?php echo $value["nama_kategori"] ?></option>
     </div>
     <?php endforeach ?>
+    </select>
     <div class="form-group">
         <label>Harga Rp</label>
         <input type="number" name="harga_produk" class="form-control" value="<?php echo $pecah['harga']; ?>">
@@ -33,7 +36,7 @@ while($tiap=$ambil->fetch_assoc())
         <input type="text" name="map" class="form-control" value="<?php echo $pecah['map_link']; ?>">
     </div>
     <div class="form-group">
-        <img src="../produk2/assets/img/produk/<?php echo $pecah['gbr_produk'] ?>" width="200">
+        <img src="../produk2/produk2/assets/img/produk/<?php echo $pecah['gbr_produk'] ?>" width="200">
     </div>
     <div class="form-group">
         <label>Ganti Foto</label>
@@ -58,7 +61,7 @@ if (isset($_POST['ubah']))
     //jika foto dirubah
     if (!empty($lokasifoto))
     {
-        move_uploaded_file($lokasifoto, "../produk2/produk2/assets/img/produk/$namafoto");
+        move_uploaded_file($lokasifoto, "../produk2/produk2/assets/img/produk/.$namafoto");
 
         $koneksi->query("UPDATE tb_produk SET nama_produk='$_POST[nama]',
         nama_kategori='$_POST[kategori_produk]',harga='$_POST[harga_produk]',map_link='$_POST[map]',
