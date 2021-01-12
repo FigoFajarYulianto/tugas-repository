@@ -9,6 +9,9 @@
   color: #fff;
   background: #ff7979;
 } */
+body{
+  background-color: #F3F3F3;
+}
 .atas .isi{
   display: flex;
   align-items: center;
@@ -17,11 +20,10 @@
   background:transparent;
   padding: 0 20px 0 20px ;
   margin-top: -2%;
-
 } 
 .isi .wrapper{
   position: relative;
-  max-width: 75rem;  
+  max-width: 100%;  
   padding-top: -300px;
   display: flex;
   align-items: center;

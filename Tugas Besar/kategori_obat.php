@@ -3,10 +3,11 @@ include 'koneksi.php';
 session_start();
 $semuadata=array();
 // $ambil = $koneksi->query("SELECT * FROM tb_produk  JOIN kategori ON tb_produk.id_kategori=kategori.id_kategori"); 
-// $ambil1 = $koneksi->query("SELECT * FROM tb_produk WHERE id_kategori LIKE '6'");
-// while($pecah = $ambil1->fetch_assoc())
+// $ambil1 = "SELECT * FROM tb_produk WHERE id_kategori LIKE '1'";
+// $query = mysqli_query($koneksi, $ambil1);
+// while($pecah = $query->fetch_assoc())
 // {
-//     $semuadata[]=$pecah;
+//     $semuadata[] = $pecah;
 // }
 // echo "<pre>";
 // print_r ($semuadata);
@@ -42,10 +43,10 @@ $semuadata=array();
   <title>MAKETAN</title>
 </head>
 
-<body>
+<body style="background-color: #F3F3F3;">
     <!-- Navbar -->
     <header>
-          <div class="container">
+          <div class="container" style="margin-top: -20px;">
             <input type="checkbox" name="" id="check">
             
             <div class="logo-container">
@@ -85,30 +86,41 @@ $semuadata=array();
                     </ul>
                 </div>
                 <div class="login-navbar">
-                  <?php if (isset($_SESSION['user_status'])):?>
+                <?php if (isset($_SESSION['user_status'])):?>
+                    <?php $id_user = $_SESSION['user_id'];
+                    $s = mysqli_query($koneksi,"select * from user where user_id='$id_user'");
+                    $saya = mysqli_fetch_assoc($s); ?>
                     <div class="nav_right">
                       <ul>
                       <li class="nav-item dropdown no-arrow">
-                            <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
+                            <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"s
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <span class="small" style="margin-right: -60px;">Douglas McGee</span>
-                                <img class="rounded-circle"  src="Login/gambar/user/avatar1.png">
+                                <span class="small" style="margin-right: -80px; font-size:1rem; font-weight: bold;"><?php echo $saya['user_nama']; ?></span>
+                                <img class="rounded-circle"  src="gambar/user/<?php echo $saya['user_foto']; ?>">
                             </a>
+                            
                             <!-- Dropdown - User Information -->
                             <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
                                 aria-labelledby="userDropdown">
-                                <a class="dropdown-item" href="#">
+                                <a class="dropdown-item" href="profil.php" data-toggle="modal" data-target="#profilModal">
                                     <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
                                     Profile
-                                </a>
-                                <a class="dropdown-item" href="#">
+                                </a> 
+                                <?php $sql = mysqli_query($koneksi, "SELECT * FROM buka_toko WHERE user_id ='$_SESSION[user_id]'");?>                      
+                                <?php $cek = mysqli_num_rows($sql); ?>
+                                <?php if(isset($_SESSION['user_id'])) { ?>           
+                                  <?php if ($cek > 0) { ?>
+                                  <a class="dropdown-item" href="profil_toko.php">
                                     <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
-                                    Settings
-                                </a>
-                                <a class="dropdown-item" href="logout.php">
+                                    profil toko
+                                  </a>
+                                <?php }else{ ?>
+                                <a class="dropdown-item" href="buka_toko2/buka_toko.php">
                                     <i class="fas fa-list fa-sm fa-fw mr-2 text-gray-400"></i>
-                                    Activity Log
+                                    buat toko
                                 </a>
+                                <?php } ?>
+                                <?php } ?>
                                 <div class="dropdown-divider"></div>
                                 <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
                                     <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
@@ -128,7 +140,6 @@ $semuadata=array();
                   </div>
                 </div>
             <?php endif ?>
-
             <div class="hamburger-menu-container">
                 <div class="hamburger-menu">
                     <div></div>
@@ -196,8 +207,8 @@ $semuadata=array();
     <!-- Akhir navbar -->
 
 
-<!-- Hasil kategori -->
-<div class="isi">
+    <!-- Hasil kategori -->
+    <div class="isi">
         <div class="wrapper">
           <div class="row" style="margin-right:-325px; margin-left:190px; margin-top: -40px;">
           <?php 
@@ -205,7 +216,7 @@ $semuadata=array();
           $query = mysqli_query($koneksi, $ambil1);?>
           <?php 
             // pagination
-            $batas = 5;
+            $batas = 20;
             $halaman = isset($_GET["halaman"]) ? $_GET["halaman"]: 1;
             $halaman_awal = $halaman>1 ? ($halaman*$batas) - $batas : 0;
             
@@ -234,7 +245,7 @@ $semuadata=array();
                           <p><?php echo substr($kategori['map_link'], 0, 13)?></p>
                           </div>
                       </div>
-                      <div class="price">Rp.<?php echo $kategori['harga'] ?></div>
+                      <div class="price">Rp.<?php echo number_format($kategori['harga'])?></div>
                       <hr id="hrdown" style="height:1px;border:none;color:#333;background-color:#333;">
                       <div class="buttons">
                           <button>Chat</button>
@@ -257,12 +268,12 @@ $semuadata=array();
             echo "<li class='page-item disabled '><a class='page-link' href='#'>Previous</a></li>";
 
           }else{
-            echo "<li class='page-item'><a class='page-link' href='kategori_obat.php?halaman=$previous'>Previous</a></li>";
+            echo "<li class='page-item'><a class='page-link' href='kategori_pertanian.php?halaman=$previous'>Previous</a></li>";
           }
         ?>
         <?php 
           for($i=1; $i<=$total_halaman; $i++){
-            echo "<li class='page-item'><a class='page-link' href='kategori_obat.php?halaman=$i'>$i</a></li>";
+            echo "<li class='page-item'><a class='page-link' href='kategori_pertanian.php?halaman=$i'>$i</a></li>";
           }
         ?>
         <?php 
@@ -271,7 +282,7 @@ $semuadata=array();
           echo "<li class='page-item disabled '><a class='page-link' href='#'>next</a></li>";
 
         }else{
-          echo "<li class='page-item'><a class='page-link' href='kategori_obat.php?halaman=$next'>next</a></li>";
+          echo "<li class='page-item'><a class='page-link' href='kategori_pertanian.php?halaman=$next'>next</a></li>";
         }
         ?>
       </ul>
@@ -280,46 +291,6 @@ $semuadata=array();
   </div>
 
     <!-- Akhir kategori -->
-
-
-
-
-
-
-
-
-
-  <!-- footer -->
-  <div class="footer-ku">
-    <div class="card-footer text-center">
-      <div class="card-header" style="font-size: 42px;font-family: Roboto; font-weight: bold; padding: 4px 4px;">
-        Follow us
-      </div>
-      <div class="card-body">
-        <a href=" #" class="btn d-flex justify-content-center">
-          <img src=" logo/twitter.png" alt="">
-          <img src="logo/instagram.png" alt="">
-          <img src="logo/facebook.png" alt="">
-        </a>
-      </div>
-    </div>
-  </div>
-  <!-- penutup footer -->
-
-  <!-- Modal Pencarian -->
-  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" style="top:30px;">
-    <div class="modal-dialog">
-      <div class="modal-content m-c-head">
-        <div class="d-flex justify-content-between">
-          <span class="font-weight-bold title"> Pencarian Terakhir</span>
-          <span class="font-weight-bold " style="color: #d50000;"> Hapus Semua</span>
-        </div>
-        <span class="ml-2 mt-2" style="font-size: 14px;">Pupuk</span>
-        <span class="ml-2 mt-2" style="font-size: 14px;">Alat Pertanian</span>
-      </div>
-    </div>
-  </div>
-  <!-- Penutup Modal Pencarian -->
 
     <!-- Logout Modal-->
     <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
@@ -342,29 +313,32 @@ $semuadata=array();
       </div>
 
 
-  <!-- Css Chat -->
-  <style>
-  .button_message .btn-secondary {
-  background-color: rgb(85, 85, 85);
-  color: white;
-  padding: 5px 0px;
-  border: none;
-  cursor: pointer;
-  opacity: 0.8;
-  position: fixed;
-  bottom: 23px;
-  right: 28px;
-  width: 280px;
-  border-radius: 12px;
-  font-size: 30px;
-  font-variant: small-caps;
-  }
-  </style>
 
-  <!-- Chat -->
-  <div class="button_message">
-    <a class="btn btn-secondary" href="user/index.php" role="button">Chat</a>
+
+
+
+
+
+  <!-- footer -->
+  <?php include 'footer.php'?>
+  <!-- // footer -->
+
+  <!-- Modal Pencarian -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" style="top:30px;">
+    <div class="modal-dialog">
+      <div class="modal-content m-c-head">
+        <div class="d-flex justify-content-between">
+          <span class="font-weight-bold title"> Pencarian Terakhir</span>
+          <span class="font-weight-bold " style="color: #d50000;"> Hapus Semua</span>
+        </div>
+        <span class="ml-2 mt-2" style="font-size: 14px;">Pupuk</span>
+        <span class="ml-2 mt-2" style="font-size: 14px;">Alat Pertanian</span>
+      </div>
+    </div>
   </div>
+  <!-- Penutup Modal Pencarian -->
+
+
 
 
 
