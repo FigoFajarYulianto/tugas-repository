@@ -201,7 +201,6 @@ $semuadata=array();
         float: right;
         margin-right:15px ;
         margin-top: 10px;
-
     }
     </style>
     <!-- Akhir navbar -->
@@ -210,7 +209,7 @@ $semuadata=array();
     <!-- Hasil kategori -->
     <div class="isi">
         <div class="wrapper">
-          <div class="row" style="margin-right:-325px; margin-left:190px; margin-top: -40px;">
+          <div class="row" style="margin-top: -40px; width:80%; margin-right: auto; margin-left: auto; ">
           <?php 
           $ambil1 = "SELECT * FROM tb_produk WHERE id_kategori LIKE '1'"; 
           $query = mysqli_query($koneksi, $ambil1);?>
