@@ -56,15 +56,14 @@ while($pecah = $ambil->fetch_assoc())
 </head>
 
 <body>
-    <!-- Navbar -->
-    <header>
-          <div class="container">
+     <!-- Navbar -->
+  <header style="position: fixed;">
+          <div class="container" style="margin-top: -20px;">
             <input type="checkbox" name="" id="check">
             
             <div class="logo-container">
                 <a href="Dasboard.php" type="button" style="text-decoration:none"><h3 class="logo">MAKE<span>TAN</span></h3></a>
             </div>
-
             <div class="nav-btn">
                 <div class="nav-links">
                   <form action="pencarian.php" method="get">
@@ -81,47 +80,58 @@ while($pecah = $ambil->fetch_assoc())
                   </form>
                     <ul style="padding-bottom: -20px;">
                         <li class="nav-link" style="--i: .6s">
-                            <a href="#">Pertanian</a>
+                            <a href="kategori_pertanian.php" method="get">Pertanian</a>
                         </li>
                         <li class="nav-link" style="--i: .85s">
-                            <a href="#">Alat</a>
+                            <a href="kategori_alat.php" method="get" name="alat">Alat</a>
                         </li>
                         <li class="nav-link" style="--i: 1.1s">
-                            <a href="#">Pupuk</a>
+                            <a href="kategori_pupuk.php" method="get" name="pupuk">Pupuk</a>
                         </li>
                         <li class="nav-link" style="--i: 1.35s">
-                            <a href="#">Bibit</a>
+                            <a href="kategori_bibit.php" method="get" name="bibit">Bibit</a>
                         </li>
                         <li class="nav-link" style="--i: 1.8s">
-                            <a href="#">Obat</a>
+                            <a href="kategori_obat.php" method="get" name="obat">Obat</a>
                         </li>
                     </ul>
                 </div>
                 <div class="login-navbar">
                   <?php if (isset($_SESSION['user_status'])):?>
+                    <?php $id_user = $_SESSION['user_id'];
+                    $s = mysqli_query($koneksi,"select * from user where user_id='$id_user'");
+                    $saya = mysqli_fetch_assoc($s); ?>
                     <div class="nav_right">
                       <ul>
                       <li class="nav-item dropdown no-arrow">
-                            <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
+                            <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"s
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <span class="small" style="margin-right: -60px;">Douglas McGee</span>
-                                <img class="rounded-circle"  src="Login/gambar/user/avatar1.png">
+                                <span class="small" style="margin-right: -80px; font-size:1rem; font-weight: bold;"><?php echo $saya['user_nama']; ?></span>
+                                <img class="rounded-circle"  src="gambar/user/<?php echo $saya['user_foto']; ?>">
                             </a>
+                            
                             <!-- Dropdown - User Information -->
                             <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
                                 aria-labelledby="userDropdown">
-                                <a class="dropdown-item" href="#">
+                                <a class="dropdown-item" href="profil.php" data-toggle="modal" data-target="#profilModal">
                                     <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
                                     Profile
-                                </a>
-                                <a class="dropdown-item" href="#">
+                                </a> 
+                                <?php //$sql = mysqli_query($koneksi, "SELECT * FROM buka_toko WHERE user_id ='$_SESSION[user_id]'");?>                      
+                                <?php //$cek = mysqli_num_rows($sql); ?>
+                                <?php //if(isset($_SESSION['user_id'])) { ?>           
+                                  <?php //if ($cek > 0) { ?>
+                                  <!-- <a class="dropdown-item" href="profil_toko.php">
                                     <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
-                                    Settings
-                                </a>
-                                <a class="dropdown-item" href="logout.php">
+                                    profil toko
+                                  </a> -->
+                                <?php //}else{ ?>
+                                <!-- <a class="dropdown-item" href="buka_toko2/buka_toko.php">
                                     <i class="fas fa-list fa-sm fa-fw mr-2 text-gray-400"></i>
-                                    Activity Log
-                                </a>
+                                    buat toko
+                                </a> -->
+                                <?php //} ?>
+                                <?php //} ?>
                                 <div class="dropdown-divider"></div>
                                 <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
                                     <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
@@ -141,15 +151,14 @@ while($pecah = $ambil->fetch_assoc())
                   </div>
                 </div>
             <?php endif ?>
-
             <div class="hamburger-menu-container">
                 <div class="hamburger-menu">
                     <div></div>
                 </div>
             </div>
         </div>
+        
     </header>
-
     <style type="text/css">
     header .img-search {
     width: 18px;
@@ -176,7 +185,7 @@ while($pecah = $ambil->fetch_assoc())
         padding: 9px;
         display: flex;
         justify-content: center;
-        align-items: center;
+        align-items: center;  
         padding-left: 20px;
     }
 
@@ -206,7 +215,12 @@ while($pecah = $ambil->fetch_assoc())
 
     }
     </style>
-    <!-- Akhir navbar -->
+    <main>
+        <section>
+            <div class="overlay"></div>
+        </section>
+    </main>
+  <!-- Akhir navbar -->
 
 
     <!-- Hasil Pencarian -->
