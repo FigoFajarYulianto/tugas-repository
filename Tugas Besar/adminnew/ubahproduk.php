@@ -19,17 +19,19 @@ while($tiap=$ambil->fetch_assoc())
         <input type="text" name="nama" class="form-control" value="<?php echo $pecah['nama_produk']; ?>">
     </div>
     <div class="form-group">
-        <label>Kategori Produk</label>
-        <select class="form-control" name="kategori_produk" id="">
-            <option value="">Pilih kategori</option>
+        <label>Kategori</label>
+        <select class="form-control" name="id_kategori">
+            <option value="">Pilih Kategori</option>
             <?php foreach ($datakategori as $key => $value): ?>
-            <option type="text" name="kategori_produk" class="form-control"
-                value="<?php echo $value['nama_kategori']; ?>"
+
+            <option value="<?php echo $value["id_kategori"] ?>"
                 <?php if($pecah["id_kategori"]==$value["id_kategori"]) {echo "selected";}?>>
                 <?php echo $value["nama_kategori"] ?></option>
+
+            <?php endforeach ?>
+        </select>
     </div>
-    <?php endforeach ?>
-    </select>
+
     <div class="form-group">
         <label>Harga Rp</label>
         <input type="number" name="harga_produk" class="form-control" value="<?php echo $pecah['harga']; ?>">
@@ -67,14 +69,14 @@ if (isset($_POST['ubah']))
         move_uploaded_file($lokasifoto, "../produk2/produk2/assets/img/produk/$namafoto");
 
         $koneksi->query("UPDATE tb_produk SET nama_produk='$_POST[nama]',
-        id_kategori='$_POST[kategori_produk]',harga='$_POST[harga_produk]',map_link='$_POST[map]',
+        id_kategori='$_POST[id_kategori]',harga='$_POST[harga_produk]',map_link='$_POST[map]',
         gbr_produk='$namafoto',deskripsi_produk='$_POST[deskripsi]'
         WHERE id_produk='$_GET[id]'");
     }
     else
     {
         $koneksi->query("UPDATE tb_produk SET nama_produk='$_POST[nama]',
-        id_kategori='$_POST[kategori_produk]',harga='$_POST[harga_produk]',map_link='$_POST[map]',
+        id_kategori='$_POST[id_kategori]',harga='$_POST[harga_produk]',map_link='$_POST[map]',
         deskripsi_produk='$_POST[deskripsi]' WHERE id_produk='$_GET[id]'");
     }
     echo "<script>alert('data produk telah diubah' );</script>";
