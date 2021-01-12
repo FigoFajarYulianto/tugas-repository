@@ -39,7 +39,7 @@ while($tiap=$ambil->fetch_assoc())
         <input type="text" name="map" class="form-control" value="<?php echo $pecah['map_link']; ?>">
     </div>
     <div class="form-group">
-        <img src="../produk2/produk2/assets/img/produk/<?php echo $pecah['gbr_produk'] ?>" width="200">
+        <img src="../produk2/produk2/assets/img/produk/<?php echo $pecah['gbr_produk'] ?>" width="100">
     </div>
     <div class="form-group">
         <label>Ganti Foto</label>
