@@ -241,7 +241,7 @@ include 'koneksi.php';
     <!-- Kategori Pilihan -->
     <div class="isi">
         <div class="wrapper">
-          <div class="row" style="margin-top: -10px; margin-right: -40px;">
+          <div class="row" style="margin-top: -10px;">
             <?php $ambil = "SELECT * FROM tb_produk JOIN kategori ON tb_produk.id_kategori=kategori.id_kategori"; 
             $query = mysqli_query($koneksi, $ambil);?>
             <?php 
@@ -265,7 +265,7 @@ include 'koneksi.php';
               <div class="card">
                   <img src="produk2/assets/img/produk/<?php echo $perproduk['gbr_produk'] ?>" alt="" class="img-responsive">
                   <div class="content">
-                      <div class="row">
+                      <div class="col-md" style="margin-left: -11px;">
                           <div class="details">
                           <span><?php echo substr($perproduk['nama_produk'], 0, 13)?></span>
                           <p><?php echo substr($perproduk['map_link'], 0, 13)?></p>
@@ -274,7 +274,7 @@ include 'koneksi.php';
                       <div class="price">Rp.<?php echo number_format($perproduk['harga']) ?></div>
                       <hr id="hrdown" style="height:1px;border:none;color:#333;background-color:#333;">
                       <div class="buttons">
-                          <button><a href="https://bit.ly/3ooyooh" style="text-decoration:none; color:black;">Chat</a></button>
+                          <button><a href="https://bit.ly/3ooyooh" style="text-decoration:none; color:white;">Chat</a></button>
                           <button><a href="detail.php?id=<?php echo $perproduk['id_produk']?>" style="text-decoration:none; color:white;">Detail</a></button>
                       </div>
                   </div>

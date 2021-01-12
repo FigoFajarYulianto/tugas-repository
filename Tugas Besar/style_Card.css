@@ -19,6 +19,9 @@
   margin-top: -2%;
 
 } 
+.isi .row{
+  max-width: 76rem;
+}
 .isi .wrapper{
   position: relative;
   max-width: 75rem;  
@@ -107,7 +110,7 @@
   font-weight: 400;
 }
 .content .price{
-  color: #ff7979;
+  color: black;
   font-size: 18px;
   font-weight: 700;
   padding-left: 5px;
@@ -128,25 +131,27 @@
   font-size: 15px;
   font-weight: 500;
   border-radius: 3px;
-  border: 2px solid #ff7979;
+  border: 2px solid black;
   text-transform: uppercase;
   transition: all 0.3s ease;
 }
-.isi .wrapper .card .buttons button:first-child{
-  color: #ff7979;
+.isi .buttons button:first-child{
+  color:  #fff;
   margin-right: 10px;
-  background: #fff;
+  background:black;
 }
 .isi button:first-child:hover{
-  color: #fff;
-  background: #ff7979;
+  color:white;
+  background:rgba(0, 0, 0, 0.795);
+  box-shadow: 0 0 40px 40px #3498db inset, 0 0 0 0 #3498db;
 }
 .isi .buttons button:last-child{
-  color: #fff;
-  margin-left: 10px;
-  background: #ff7979;
+  color:  #fff;
+  margin-right: 10px;
+  background:black;
 }
 .isi button:last-child:hover{
-  background: #ff6666;
-  border-color: #ff6666;
+  color:white;
+  background:rgba(0, 0, 0, 0.795);
+  box-shadow: 0 0 40px 40px #3498db inset, 0 0 0 0 #3498db;
 }

@@ -220,7 +220,7 @@
                     <div class="col-2">
                         <h3 style="margin-bottom: 10px; color: white"><?php echo $p->nama_produk ?></h3>
                         <h4 style="color: white">Rp. <?php echo number_format($p->harga) ?></h4>
-                        <p style="margin: 15px, 0; text-align: justify; line-height:25px; font-size:14px; color: white">Deskripsi : <br>
+                        <p style="margin: 15px, 0; text-align: justify; line-height:25px; font-size:14px; color: white;">Deskripsi : <br>
                             <?php echo $p->deskripsi_produk ?>
                         </p>
                     </div>
