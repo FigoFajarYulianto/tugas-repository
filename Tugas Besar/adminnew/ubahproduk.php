@@ -45,7 +45,7 @@ if (isset($_POST['ubah']))
     //jika foto dirubah
     if (!empty($lokasifoto))
     {
-        move_uploaded_file($lokasifoto, "../produk2/assets/img/produk/$namafoto");
+        move_uploaded_file($lokasifoto, "../produk2/produk2/assets/img/produk/$namafoto");
 
         $koneksi->query("UPDATE tb_produk SET nama_produk='$_POST[nama]',
         kategori='$_POST[kategori_produk]',harga='$_POST[harga_produk]',map_link='$_POST[map]',

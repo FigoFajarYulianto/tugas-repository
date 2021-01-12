@@ -145,6 +145,10 @@ if(!isset($_SESSION['login'])) {
                     {
                         include 'detail.php'; 
                     }
+                    elseif ($_GET['halaman']=="tambahproduk")
+                    {
+                        include 'tambahproduk.php'; 
+                    }
                     elseif ($_GET['halaman']=="hapusproduk")
                     {
                         include 'hapusproduk.php'; 

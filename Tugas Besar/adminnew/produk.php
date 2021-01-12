@@ -34,7 +34,7 @@ if(!isset($_SESSION['login'])) {
             <td><?php echo $pecah['harga']?></td>
             <td><?php echo $pecah['map_link']?></td>
             <td>
-                <img src="../produk2/assets/img/produk/<?php echo $pecah['gbr_produk'];?>" width="100">
+                <img src="../produk2/produk2/assets/img/produk/<?php echo $pecah['gbr_produk'];?>" width="100">
             </td>
 
             <td>
@@ -50,3 +50,4 @@ if(!isset($_SESSION['login'])) {
         <?php }?>
     </tbody>
 </table>
+<a href="admin.php?halaman=tambahproduk" class="btn btn-primary">Tambah Produk</a>
