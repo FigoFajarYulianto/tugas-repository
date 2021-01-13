@@ -222,8 +222,7 @@ $keyword = $_GET["keyword"];
     </main>
   <!-- Akhir navbar -->
   <?php 
-          $ambil2 = "SELECT * FROM tb_produk WHERE nama_produk LIKE '%$keyword%'
-          OR deskripsi_produk LIKE '%$keyword%'"; 
+          $ambil2 = "SELECT * FROM tb_produk WHERE nama_produk LIKE '%$keyword%'"; 
           $query = mysqli_query($koneksi, $ambil2);?>
           <?php 
             // pagination
@@ -237,8 +236,7 @@ $keyword = $_GET["keyword"];
             $total_data = mysqli_num_rows($query);
             $total_halaman = ceil($total_data / $batas);
 
-            $sql = "SELECT * FROM tb_produk  WHERE nama_produk LIKE '%$keyword%'
-            OR deskripsi_produk LIKE '%$keyword%' LIMIT $halaman_awal, $batas";
+            $sql = "SELECT * FROM tb_produk  WHERE nama_produk LIKE '%$keyword%' LIMIT $halaman_awal, $batas";
             $query = mysqli_query($koneksi, $sql);
             $nomor = $halaman_awal + 1;
 
@@ -256,7 +254,7 @@ $keyword = $_GET["keyword"];
             while($pencarian = $query->fetch_assoc()) {
             ?>
               <div class="card">
-                  <img src="produk2/assets/img/produk/<?php echo $pencarian['gbr_produk'] ?>" alt="" class="img-responsive">
+                  <img src="produk2/produk2/assets/img/produk/<?php echo $pencarian['gbr_produk'] ?>" alt="" class="img-responsive">
                   <div class="content">
                       <div class="col" style="margin-left: -30px;">
                           <div class="details">
@@ -267,8 +265,8 @@ $keyword = $_GET["keyword"];
                       <div class="price">Rp.<?php echo number_format($pencarian['harga'])?></div>
                       <hr id="hrdown" style="height:1px;border:none;color:#333;background-color:#333;">
                       <div class="buttons">
-                          <button><a href="https://bit.ly/3ooyooh" style="text-decoration:none; color:black;">Chat</a></button>
-                          <button><a href="detail.php?id=<?php echo $perproduk['id_produk']?>" style="text-decoration:none; color:white;">Detail</a></button>
+                          <button><a href="https://bit.ly/3ooyooh" style="text-decoration:none; color:white;">Chat</a></button>
+                          <button><a href="detail.php?id=<?php echo $pencarian['id_produk']?>" style="text-decoration:none; color:white;">Detail</a></button>
                       </div>
                   </div>
               </div>
