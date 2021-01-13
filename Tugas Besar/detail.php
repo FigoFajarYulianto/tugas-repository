@@ -19,20 +19,21 @@
     <html lang="en">
 
     <head>
-    <!-- Required meta tags -->
-    <!-- <meta charset="utf-8">
+        <!-- Required meta tags -->
+        <!-- <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"> -->
 
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
-    <!-- My Fonts -->
-    <!-- <link rel="preconnect" href="https://fonts.gstatic.com">
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
+            integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+        <!-- My Fonts -->
+        <!-- <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Viga&display=swap" rel="stylesheet">
 
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet"> -->
-    <!-- My Css -->
-    <!-- <link rel="stylesheet" href="style_dasboard.css"> -->
+        <!-- My Css -->
+        <!-- <link rel="stylesheet" href="style_dasboard.css"> -->
 
         <!-- My Css Card -->
         <link rel="stylesheet" href="style_Card_pencarian.css">
@@ -42,8 +43,8 @@
         <!-- <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
         <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script> -->
 
-    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
-    <title>MAKETAN</title>
+        <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+        <title>MAKETAN</title>
     </head>
 
     <body>
@@ -51,25 +52,27 @@
         <header>
             <div class="container" style="margin-top: -20px;">
                 <input type="checkbox" name="" id="check">
-                
+
                 <div class="logo-container">
-                    <a href="Dasboard.php" type="button" style="text-decoration:none"><h3 class="logo">MAKE<span>TAN</span></h3></a>
+                    <a href="Dasboard.php" type="button" style="text-decoration:none">
+                        <h3 class="logo">MAKE<span>TAN</span></h3>
+                    </a>
                 </div>
 
                 <div class="nav-btn">
                     <div class="nav-links">
-                    <form action="pencarian.php" method="get">
-                        <div class="wrapper">
-                        <div class="search-input">
-                            <a href="" target="_blank" hidden></a>
-                            <input type="text" class="form-control" name="keyword" placeholder="Cari Produk..">
-                            <div class="autocom-box">
-                            <!-- here list are inserted from javascript -->
+                        <form action="pencarian.php" method="get">
+                            <div class="wrapper">
+                                <div class="search-input">
+                                    <a href="" target="_blank" hidden></a>
+                                    <input type="text" class="form-control" name="keyword" placeholder="Cari Produk..">
+                                    <div class="autocom-box">
+                                        <!-- here list are inserted from javascript -->
+                                    </div>
+                                    <div class="icon"><i class="fas fa-search"></i></div>
+                                </div>
                             </div>
-                            <div class="icon"><i class="fas fa-search"></i></div>
-                        </div>
-                        </div>
-                    </form>
+                        </form>
                         <ul style="padding-bottom: -20px;">
                             <li class="nav-link" style="--i: .6s">
                                 <a href="kategori_pertanian.php">Pertanian</a>
@@ -89,72 +92,75 @@
                         </ul>
                     </div>
                     <div class="login-navbar">
-                    <?php if (isset($_SESSION['user_status'])):?>
+                        <?php if (isset($_SESSION['user_status'])):?>
                         <?php $id_user = $_SESSION['user_id'];
                         $s = mysqli_query($koneksi,"select * from user where user_id='$id_user'");
                         $saya = mysqli_fetch_assoc($s); ?>
                         <div class="nav_right">
-                        <ul>
-                        <li class="nav-item dropdown no-arrow">
-                                <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"s
-                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    <span class="small" style="margin-right: -80px; font-size:1rem; font-weight: bold;"><?php echo $saya['user_nama']; ?></span>
-                                    <img class="rounded-circle"  src="gambar/user/<?php echo $saya['user_foto']; ?>">
-                                </a>
-                                
-                                <!-- Dropdown - User Information -->
-                                <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
-                                    aria-labelledby="userDropdown">
-                                    <a class="dropdown-item" href="profil.php" data-toggle="modal" data-target="#profilModal">
-                                        <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
-                                        Profile
-                                    </a> 
-                                    <?php $sql = mysqli_query($koneksi, "SELECT * FROM buka_toko WHERE user_id ='$_SESSION[user_id]'");?>                      
-                                    <?php $cek = mysqli_num_rows($sql); ?>
-                                    <?php if(isset($_SESSION['user_id'])) { ?>           
-                                    <?php if ($cek > 0) { ?>
-                                    <a class="dropdown-item" href="profil_toko.php">
-                                        <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
-                                        profil toko
+                            <ul>
+                                <li class="nav-item dropdown no-arrow">
+                                    <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" s
+                                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        <span class="small"
+                                            style="margin-right: -80px; font-size:1rem; font-weight: bold;"><?php echo $saya['user_nama']; ?></span>
+                                        <img class="rounded-circle" src="gambar/user/<?php echo $saya['user_foto']; ?>">
                                     </a>
-                                    <?php }else{ ?>
-                                    <a class="dropdown-item" href="buka_toko2/buka_toko.php">
-                                        <i class="fas fa-list fa-sm fa-fw mr-2 text-gray-400"></i>
-                                        buat toko
-                                    </a>
-                                    <?php } ?>
-                                    <?php } ?>
-                                    <div class="dropdown-divider"></div>
-                                    <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
-                                        <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
-                                        Logout
-                                    </a>
-                                </div>
-                            </li>
-                        </ul>
+
+                                    <!-- Dropdown - User Information -->
+                                    <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
+                                        aria-labelledby="userDropdown">
+                                        <a class="dropdown-item" href="profil.php" data-toggle="modal"
+                                            data-target="#profilModal">
+                                            <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
+                                            Profile
+                                        </a>
+                                        <?php $sql = mysqli_query($koneksi, "SELECT * FROM buka_toko WHERE user_id ='$_SESSION[user_id]'");?>
+                                        <?php $cek = mysqli_num_rows($sql); ?>
+                                        <?php if(isset($_SESSION['user_id'])) { ?>
+                                        <?php if ($cek > 0) { ?>
+                                        <a class="dropdown-item" href="profil_toko.php">
+                                            <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
+                                            profil toko
+                                        </a>
+                                        <?php }else{ ?>
+                                        <a class="dropdown-item" href="buka_toko2/buka_toko.php">
+                                            <i class="fas fa-list fa-sm fa-fw mr-2 text-gray-400"></i>
+                                            buat toko
+                                        </a>
+                                        <?php } ?>
+                                        <?php } ?>
+                                        <div class="dropdown-divider"></div>
+                                        <a class="dropdown-item" href="#" data-toggle="modal"
+                                            data-target="#logoutModal">
+                                            <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
+                                            Logout
+                                        </a>
+                                    </div>
+                                </li>
+                            </ul>
                         </div>
                     </div>
-                        <?php else: ?>
+                    <?php else: ?>
 
                     <div class="log-sign" style="--i: 1.8s">
-                            <a href="Login/login.php" class="btn transparent">Masuk</a>
-                            <a href="Login/daftar.php" class="btn solid">Daftar</a>
-                        </div>
-                    </div>
-                    </div>
-                <?php endif ?>
-
-                <div class="hamburger-menu-container">
-                    <div class="hamburger-menu">
-                        <div></div>
+                        <a href="Login/login.php" class="btn transparent">Masuk</a>
+                        <a href="Login/daftar.php" class="btn solid">Daftar</a>
                     </div>
                 </div>
+            </div>
+            <?php endif ?>
+
+            <div class="hamburger-menu-container">
+                <div class="hamburger-menu">
+                    <div></div>
+                </div>
+            </div>
             </div>
         </header>
 
         <style type="text/css">
         header .img-search {
-        width: 18px;
+            width: 18px;
         }
 
         header .wrap-search {
@@ -203,7 +209,7 @@
 
         header .wrap-search img {
             float: right;
-            margin-right:15px ;
+            margin-right: 15px;
             margin-top: 10px;
 
         }
@@ -211,18 +217,20 @@
         <!-- Akhir navbar -->
 
         <!-- Detail Produk -->
-        <div class="section"   style="height:100%; margin-top:20px; margin-left:20%; margin-right:20%;">
+        <div class="section" style="height:100%; margin-top:20px; margin-left:20%; margin-right:20%;">
             <div class="container" style="height: 100%;">
                 <div class="box" style="width: 100%;">
                     <div class="col-2" style="width: 100%; font-family:monospace;">
-                    <img src="produk2/produk2/assets/img/produk/<?php echo $p->gbr_produk ?>" style="width: 100%; height:400px;">
+                        <img src="produk2/produk2/assets/img/produk/<?php echo $p->gbr_produk ?>"
+                            style="width: 100%; height:400px;">
                     </div>
                     <div class="col-2" style="color:white;">
                         <h3 style="margin-bottom: 10px; color: white"><?php echo $p->nama_produk ?></h3>
-                        <h4 style="color: white">Rp. <?php echo number_format($p->harga) ?></h4>
+                        <h4 style="color: white">Rp. <?php echo ($p->harga) ?></h4>
                         <h10 style="margin-bottom: 10px; color: white"><?php echo $p->map_link ?></h10>
                         <br>
-                        <p style="margin: 15px, 0; text-align: justify; color:white; line-height:25px; font-size:14px;">Deskripsi : <br>
+                        <p style="margin: 15px, 0; text-align: justify; color:white; line-height:25px; font-size:14px;">
+                            Deskripsi : <br>
                             <?php echo $p->deskripsi_produk  
                             ?>
                         </p>
@@ -231,7 +239,7 @@
             </div>
         </div>
         <!-- End Detail Produk -->
-    
+
 
         <!-- Logout Modal-->
         <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
@@ -260,48 +268,49 @@
 
 
 
-    <!-- footer -->
-    <?php include 'footer.php'?>
-    <!-- penutup footer -->
+        <!-- footer -->
+        <?php include 'footer.php'?>
+        <!-- penutup footer -->
 
-    <!-- Modal Pencarian -->
-    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" style="top:30px;">
-        <div class="modal-dialog">
-        <div class="modal-content m-c-head">
-            <div class="d-flex justify-content-between">
-            <span class="font-weight-bold title"> Pencarian Terakhir</span>
-            <span class="font-weight-bold " style="color: #d50000;"> Hapus Semua</span>
+        <!-- Modal Pencarian -->
+        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true"
+            style="top:30px;">
+            <div class="modal-dialog">
+                <div class="modal-content m-c-head">
+                    <div class="d-flex justify-content-between">
+                        <span class="font-weight-bold title"> Pencarian Terakhir</span>
+                        <span class="font-weight-bold " style="color: #d50000;"> Hapus Semua</span>
+                    </div>
+                    <span class="ml-2 mt-2" style="font-size: 14px;">Pupuk</span>
+                    <span class="ml-2 mt-2" style="font-size: 14px;">Alat Pertanian</span>
+                </div>
             </div>
-            <span class="ml-2 mt-2" style="font-size: 14px;">Pupuk</span>
-            <span class="ml-2 mt-2" style="font-size: 14px;">Alat Pertanian</span>
         </div>
+        <!-- Penutup Modal Pencarian -->
+
+        <!-- Css Chat -->
+        <style>
+        .button_message .btn-secondary {
+            background-color: rgb(85, 85, 85);
+            color: white;
+            padding: 5px 0px;
+            border: none;
+            cursor: pointer;
+            opacity: 0.8;
+            position: fixed;
+            bottom: 23px;
+            right: 28px;
+            width: 280px;
+            border-radius: 12px;
+            font-size: 30px;
+            font-variant: small-caps;
+        }
+        </style>
+
+        <!-- Chat -->
+        <div class="button_message">
+            <a class="btn btn-secondary" href="user/index.php" role="button">Chat</a>
         </div>
-    </div>
-    <!-- Penutup Modal Pencarian -->
-
-    <!-- Css Chat -->
-    <style>
-    .button_message .btn-secondary {
-    background-color: rgb(85, 85, 85);
-    color: white;
-    padding: 5px 0px;
-    border: none;
-    cursor: pointer;
-    opacity: 0.8;
-    position: fixed;
-    bottom: 23px;
-    right: 28px;
-    width: 280px;
-    border-radius: 12px;
-    font-size: 30px;
-    font-variant: small-caps;
-    }
-    </style>
-
-    <!-- Chat -->
-    <div class="button_message">
-        <a class="btn btn-secondary" href="user/index.php" role="button">Chat</a>
-    </div>
 
 
 
@@ -311,13 +320,17 @@
         <!-- My JS -->
         <!-- <script src="script_Card.js"></script> -->
 
-    <!-- Optional JavaScript; choose one of the two! -->
+        <!-- Optional JavaScript; choose one of the two! -->
 
-    <!-- Option 1: jQuery and Bootstrap Bundle (includes Popper) -->
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
+        <!-- Option 1: jQuery and Bootstrap Bundle (includes Popper) -->
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+            integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous">
+        </script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous">
+        </script>
 
-    <!-- Option 2: jQuery, Popper.js, and Bootstrap JS
+        <!-- Option 2: jQuery, Popper.js, and Bootstrap JS
         < src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></>
         < src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></>
         < src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" integrity="sha384-w1Q4orYjBQndcko6MimVbzY0tgp4pWB4lZ7lr30WKz0vr/aWKhXdBNmNb5D92v7s" crossorigin="anonymous"></>

@@ -34,7 +34,7 @@ while($tiap=$ambil->fetch_assoc())
 
     <div class="form-group">
         <label>Harga Rp</label>
-        <input type="number" name="harga_produk" class="form-control" value="<?php echo $pecah['harga']; ?>">
+        <input type="text" name="harga_produk" class="form-control" value="<?php echo $pecah['harga']; ?>">
     </div>
     <div class="form-group">
         <label>Map Lokasi Toko</label>
