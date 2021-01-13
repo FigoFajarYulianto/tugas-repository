@@ -1,7 +1,7 @@
 <?php  
 $id_produk=$_GET["id"];
 
- $ambil=$koneksi->query("SELECT * FROM tb_produk LEFT JOIN kategori ON tb_produk.id_kategori=kategori.id_kategori");
+$ambil=$koneksi->query("SELECT*FROM tb_produk LEFT JOIN kategori ON tb_produk.id_kategori=kategori.id_kategori WHERE id_produk='$id_produk'");
 $detailproduk=$ambil->fetch_assoc();
 
 $fotoproduk=array();
