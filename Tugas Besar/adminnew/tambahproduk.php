@@ -10,6 +10,14 @@ while($tiap=$ambil->fetch_assoc())
 }
 
 ?>
+<?php 
+$datasatuan=array();
+$satuan= $koneksi->query("SELECT * FROM satuan");
+while($satuanbarang=$satuan->fetch_assoc())
+{
+	$datasatuan[]=$satuanbarang;
+}
+?>
 
 <form method="post" enctype="multipart/form-data">
     <div class="form-group">
@@ -25,7 +33,6 @@ while($tiap=$ambil->fetch_assoc())
 
         <?php endforeach ?>
     </select>
-    </div>
 
     <div class="form-group">
         <label>Deskripsi</label>
@@ -38,6 +45,15 @@ while($tiap=$ambil->fetch_assoc())
         <label>Harga (Rp)</label>
         <input type="text" class="form-control" name="harga">
     </div>
+    <label>Pilih Satuan</label>
+    <select class="form-control" name="id_satuan">
+        <option value="">Pilih Satuan</option>
+        <?php foreach ($datasatuan as $key => $value): ?>
+
+        <option value="<?php echo $value["id_satuan"] ?>"><?php echo $value["nama_satuan"] ?></option>
+
+        <?php endforeach ?>
+    </select>
     <div class="form-group">
         <label>Lokasi </label>
         <input type="text" class="form-control" name="map">
@@ -56,8 +72,8 @@ while($tiap=$ambil->fetch_assoc())
 			$lokasilokasifoto =$_FILES['foto']['tmp_name'];
 			move_uploaded_file($lokasilokasifoto, "../produk2/produk2/assets/img/produk/".$namanamafoto);
 			$koneksi->query("INSERT INTO tb_produk
-				(nama_produk,id_kategori, deskripsi_produk,harga,map_link, gbr_produk)
-				VALUES('$_POST[nama]','$_POST[id_kategori]','$_POST[deskripsi]','$_POST[harga]','$_POST[map]','$namanamafoto')");
+				(nama_produk,id_kategori, deskripsi_produk,harga,id_satuan,map_link, gbr_produk)
+				VALUES('$_POST[nama]','$_POST[id_kategori]','$_POST[deskripsi]','$_POST[harga]','$_POST[id_satuan]','$_POST[map]','$namanamafoto')");
 			
 		
 		

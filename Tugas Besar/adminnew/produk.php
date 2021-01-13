@@ -17,6 +17,7 @@ if(!isset($_SESSION['login'])) {
             <th>KATEGORI</th>
             <th>DESKRIPSI</th>
             <th>HARGA</th>
+            <th>SATUAN</th>
             <th>MAP LINK</th>
             <th>GAMBAR</th>
             <th>AKSI</th>
@@ -24,7 +25,7 @@ if(!isset($_SESSION['login'])) {
     </thead>
     <tbody>
         <?php $nomor=1;?>
-        <?php $ambil=$koneksi->query("SELECT * FROM tb_produk LEFT JOIN kategori ON tb_produk.id_kategori=kategori.id_kategori"); ?>
+        <?php $ambil=$koneksi->query("SELECT * FROM tb_produk LEFT JOIN kategori ON tb_produk.id_kategori=kategori.id_kategori JOIN satuan ON tb_produk.id_satuan=satuan.id_satuan"); ?>
         <?php while($pecah=$ambil->fetch_assoc()){?>
         <tr>
             <td><?php echo $nomor;?></td>
@@ -32,6 +33,7 @@ if(!isset($_SESSION['login'])) {
             <td><?php echo $pecah['nama_kategori']?></td>
             <td><?php echo $pecah['deskripsi_produk']?></td>
             <td><?php echo ($pecah['harga'])?></td>
+            <td><?php echo $pecah['nama_satuan']?></td>
             <td><?php echo $pecah['map_link']?></td>
             <td>
                 <img src="../produk2/produk2/assets/img/produk/<?php echo $pecah['gbr_produk'];?>" width="100">
