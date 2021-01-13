@@ -68,6 +68,10 @@
 						<small><a href="daftar.php">Daftar Sekarang</a></small>
 					</p>
 
+					<p class="text-center mt-3">
+						<a href="reset-password.php">Lupa Kata Sandi?</a>
+					</p>
+
 				</form>
 
 			</div>
