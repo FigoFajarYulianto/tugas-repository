@@ -80,26 +80,4 @@
 
 </div>
 
-<!-- Css for background image information -->
-<style>
-.button {
- background-color: #4CAF50; /* Green */
-  border: none;
-  color: white;
-  padding: 15px 32px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 16px;
-  font-family: "Fantasy";
-}
-</style>
-<!-- End of background image information -->
-
-<!-- Button for background image information -->
-<div class="button">
-<a type="button">Diambil oleh Dong Zhang</a>
-<div>
-<!-- End of button for background image information -->
-
 <?php include 'footer.php'; ?>
