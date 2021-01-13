@@ -210,7 +210,7 @@ $semuadata=array();
     <!-- Hasil kategori -->
     <div class="isi">
         <div class="wrapper">
-          <div class="row" style="margin-top: 30px; width:80%; margin-right: auto; margin-left: auto; ">
+          <div class="row" style="margin-top: 30px; width:70%; margin-right: auto; margin-left: auto; ">
           <?php 
           $ambil1 = "SELECT * FROM tb_produk WHERE id_kategori LIKE '1'"; 
           $query = mysqli_query($koneksi, $ambil1);?>
@@ -248,7 +248,7 @@ $semuadata=array();
                       <div class="price">Rp.<?php echo number_format($kategori['harga'])?></div>
                       <hr id="hrdown" style="height:1px;border:none;color:#333;background-color:#333;">
                       <div class="buttons">
-                          <button><a href="https://bit.ly/3ooyooh" style="text-decoration:none; color:black;">Chat</a></button>
+                          <button><a href="https://bit.ly/3ooyooh" style="text-decoration:none; color:white;">Chat</a></button>
                           <button><a href="detail.php?id=<?php echo $perproduk['id_produk']?>" style="text-decoration:none; color:white;">Detail</a></button>
                       </div>
                   </div>
