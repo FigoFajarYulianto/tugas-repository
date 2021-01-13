@@ -81,7 +81,7 @@ $semuadata=array();
                             <a href="kategori_bibit.php">Bibit</a>
                         </li>
                         <li class="nav-link" style="--i: 1.8s">
-                            <a href="kategori_obat.php">Obat</a>
+                            <a href="kategori_obat.php" method="get" name="obat">Obat</a>
                         </li>
                     </ul>
                 </div>
@@ -237,7 +237,7 @@ $semuadata=array();
             ?>
 
               <div class="card">
-                  <img src="produk2/assets/img/produk/<?php echo $kategori['gbr_produk'] ?>" alt="" class="img-responsive">
+                  <img src="produk2/produk2/assets/img/produk/<?php echo $kategori['gbr_produk'] ?>" alt="" class="img-responsive">
                   <div class="content">
                       <div class="row">
                           <div class="details">
@@ -248,8 +248,8 @@ $semuadata=array();
                       <div class="price">Rp.<?php echo number_format($kategori['harga']) ?></div>
                       <hr id="hrdown" style="height:1px;border:none;color:#333;background-color:#333;">
                       <div class="buttons">
-                          <button>Chat</button>
-                          <button>Detail</button>
+                      <button><a href="https://bit.ly/3ooyooh" style="text-decoration:none; color:white;">Chat</a></button>
+                          <button><a href="detail.php?id=<?php echo $kategori['id_produk']?>" style="text-decoration:none; color:white;">Detail</a></button>
                       </div>
                   </div>
               </div>

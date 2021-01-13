@@ -237,7 +237,7 @@ $semuadata=array();
             ?>
 
               <div class="card">
-                  <img src="produk2/assets/img/produk/<?php echo $kategori['gbr_produk'] ?>" alt="" class="img-responsive">
+                  <img src="produk2/produk2/assets/img/produk/<?php echo $kategori['gbr_produk'] ?>" alt="" class="img-responsive">
                   <div class="content">
                       <div class="row">
                           <div class="details">
