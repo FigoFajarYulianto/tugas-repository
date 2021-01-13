@@ -14,6 +14,7 @@ if(!isset($_SESSION['login'])) {
             <th>No</th>
             <th>Email</th>
             <th>Nama Pengguna</th>
+            <th>Nomor Telepon</th>
             <th>Foto</th>
             <th>Aksi</th>
         </tr>
@@ -26,6 +27,7 @@ if(!isset($_SESSION['login'])) {
             <td><?php echo $nomor;?></td>
             <td><?php echo $pecah['user_email']?></td>
             <td><?php echo $pecah['user_nama']?></td>
+            <td><?php echo $pecah['user_telepon']?></td>
             <td>
                 <img src="../gambar/user/<?php echo $pecah['user_foto'];?>" width="100">
             </td>
