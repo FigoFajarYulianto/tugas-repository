@@ -92,8 +92,8 @@ include 'koneksi.php';
                       <ul>
                       <li class="nav-item dropdown no-arrow">
                             <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"s
-                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <span class="small" style="margin-right: -80px; font-size:1rem; font-weight: bold;"><?php echo $saya['user_nama']; ?></span>
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color: white;">
+                                <span class="small" style="margin-right: -80px; font-size:0,7rem; font-weight: bold; color:white; font-family:Verdana, Geneva, Tahoma, sans-serif;"><?php echo $saya['user_nama']; ?></span>
                                 <img class="rounded-circle"  src="gambar/user/<?php echo $saya['user_foto']; ?>">
                             </a>
                             
@@ -263,7 +263,7 @@ include 'koneksi.php';
             ?>
             <?php while($perproduk = $query->fetch_assoc()) { ?>
               <div class="card">
-                  <img src="produk2/assets/img/produk/<?php echo $perproduk['gbr_produk'] ?>" alt="" class="img-responsive">
+                  <img src="produk2/produk2/assets/img/produk/<?php echo $perproduk['gbr_produk'] ?>" alt="" class="img-responsive">
                   <div class="content">
                       <div class="col-md" style="margin-left: -11px;">
                           <div class="details">
@@ -337,12 +337,18 @@ include 'koneksi.php';
                                     <label> Email </label>
                                     <input type="email" name="email" class="form-control" value="<?php echo $saya['user_email']; ?>">
                                 </div>
+                                <div class="form-grub" style="width: 400px;">
+                                    <label> Nomor Telepon </label>
+                                    <input type="number" name="telepon" class="form-control" value="<?php echo $saya['user_telepon']; ?>">
+                                </div>
+                                
                                 <div class="form-group row">
                                   <label class="col-lg-2" style="margin-left:20px;">Foto</label>
-                                    <input  class="form-control" type="file" name="foto" style="position:absolute; top:220px; right:41px; width: 400px;"><br><br>
+                                  
+                                    <input  class="form-control" type="file" name="foto" style="position:absolute; top:220px; right:41px; width: 400px; margin-top:70px;"><br><br>
                                 </div>
-                                <small class="text-muted font-italic" style="margin-left:20px; ">Kosongkan jika tidak ingin mengganti foto profil.</small>
-                                <button type="submit" class="btn btn-secondary" style="margin-left: 20%; margin-right: 35%; width:30%; margin-top:220px;">Update profil</button>
+                                <small class="text-muted font-italic" style="margin-left:0px; ">Kosongkan jika tidak ingin mengganti foto profil.</small>
+                                <button type="submit" class="btn btn-secondary" style="margin-left: 20%; margin-right: 10%; width:30%; margin-top:140px;">Update profil</button>
                             </form>
                         </div>
                     </div>

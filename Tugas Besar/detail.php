@@ -214,14 +214,17 @@
         <div class="section"   style="height:100%; margin-top:20px; margin-left:20%; margin-right:20%;">
             <div class="container" style="height: 100%;">
                 <div class="box" style="width: 100%;">
-                    <div class="col-2" style="width: 100%;">
-                    <img src="produk2/assets/img/produk/<?php echo $p->gbr_produk ?>" style="width: 100%; height:400px;">
+                    <div class="col-2" style="width: 100%; font-family:monospace;">
+                    <img src="produk2/produk2/assets/img/produk/<?php echo $p->gbr_produk ?>" style="width: 100%; height:400px;">
                     </div>
-                    <div class="col-2">
+                    <div class="col-2" style="color:white;">
                         <h3 style="margin-bottom: 10px; color: white"><?php echo $p->nama_produk ?></h3>
                         <h4 style="color: white">Rp. <?php echo number_format($p->harga) ?></h4>
-                        <p style="margin: 15px, 0; text-align: justify; line-height:25px; font-size:14px; color: white;">Deskripsi : <br>
-                            <?php echo $p->deskripsi_produk ?>
+                        <h10 style="margin-bottom: 10px; color: white"><?php echo $p->map_link ?></h10>
+                        <br>
+                        <p style="margin: 15px, 0; text-align: justify; color:white; line-height:25px; font-size:14px;">Deskripsi : <br>
+                            <?php echo $p->deskripsi_produk  
+                            ?>
                         </p>
                     </div>
                 </div>
