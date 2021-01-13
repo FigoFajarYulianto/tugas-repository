@@ -36,7 +36,7 @@ while($tiap=$ambil->fetch_assoc())
     </div>
     <div class="form-group">
         <label>Harga (Rp)</label>
-        <input type="number" class="form-control" name="harga">
+        <input type="text" class="form-control" name="harga">
     </div>
     <div class="form-group">
         <label>Lokasi </label>

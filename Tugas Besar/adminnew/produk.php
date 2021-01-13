@@ -31,7 +31,7 @@ if(!isset($_SESSION['login'])) {
             <td><?php echo $pecah['nama_produk']?></td>
             <td><?php echo $pecah['nama_kategori']?></td>
             <td><?php echo $pecah['deskripsi_produk']?></td>
-            <td><?php echo number_format($pecah['harga'])?></td>
+            <td><?php echo ($pecah['harga'])?></td>
             <td><?php echo $pecah['map_link']?></td>
             <td>
                 <img src="../produk2/produk2/assets/img/produk/<?php echo $pecah['gbr_produk'];?>" width="100">
