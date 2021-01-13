@@ -68,7 +68,7 @@ input:valid + span:after {
 
                         <div class="form-group">
                             <label>Nomer Telepon</label>
-                            <input type="tel" name="telepon" pattern="[0-9]{11,14}" class="form-control" required='required'
+                            <input type="tel" name="telepon" pattern="[0-9]{11,12}" class="form-control" required='required'
                             autocomplete="off" placeholder="Masukkan nomer telepon ..">
                             <span class="note">Contoh : 081234567891</span>
                         </div>
