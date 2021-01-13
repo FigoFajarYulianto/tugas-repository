@@ -263,7 +263,7 @@ include 'koneksi.php';
             ?>
             <?php while($perproduk = $query->fetch_assoc()) { ?>
               <div class="card">
-                  <img src="produk2/assets/img/produk/<?php echo $perproduk['gbr_produk'] ?>" alt="" class="img-responsive">
+                  <img src="produk2/produk2/assets/img/produk/<?php echo $perproduk['gbr_produk'] ?>" alt="" class="img-responsive">
                   <div class="content">
                       <div class="col-md" style="margin-left: -11px;">
                           <div class="details">
