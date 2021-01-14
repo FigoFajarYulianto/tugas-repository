@@ -54,7 +54,7 @@
                 <input type="checkbox" name="" id="check">
 
                 <div class="logo-container">
-                    <a href="Dasboard.php" type="button" style="text-decoration:none">
+                    <a href="index.php" type="button" style="text-decoration:none">
                         <h3 class="logo">MAKE<span>TAN</span></h3>
                     </a>
                 </div>

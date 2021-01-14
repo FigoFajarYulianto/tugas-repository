@@ -1,7 +1,7 @@
 <?php
 //skrip koneksi
 session_start();
-$koneksi = new mysqli("localhost", "root", "", "project_chat");
+include 'koneksi.php';
 ?>
 <?PHP  
 $keyword = $_GET["keyword"];

@@ -1,7 +1,7 @@
 <?php
 session_start();
 //koneksi ke database
-$koneksi = new mysqli("localhost", "root", "", "project_chat");
+$koneksi = new mysqli("localhost", "root", "", "maketan");
 
 if(!isset($_SESSION['login'])) {
     header("location: login.php");

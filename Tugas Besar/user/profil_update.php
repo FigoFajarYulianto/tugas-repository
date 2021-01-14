@@ -7,9 +7,10 @@ $user = $_SESSION['user_id'];
 
 $nama = $_POST['nama'];
 $email = $_POST['email'];
+$nomer = $_POST['telepon'];
 $password = md5($_POST['password']);
 
-mysqli_query($koneksi, "update user set user_nama='$nama', user_email='$email' where user_id='$user'");
+mysqli_query($koneksi, "update user set user_nama='$nama', user_email='$email', user_telepon='$nomer' where user_id='$user'");
 
 // update password jika diganti
 if($_POST['password'] != ""){
@@ -34,6 +35,6 @@ if($filename_foto!=""){
 }
 
 
-header("Location:../Dasboard.php");
+header("Location:../index.php");
 
 ?>

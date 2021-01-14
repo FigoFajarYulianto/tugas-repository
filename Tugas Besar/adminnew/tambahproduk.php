@@ -1,6 +1,6 @@
 <h2>Tambah Produk</h2>
 <?php
-$koneksi = new mysqli("localhost", "root", "", "project_chat");
+$koneksi = new mysqli("localhost", "root", "", "maketan");
 
 $datakategori=array();
 $ambil= $koneksi->query("SELECT * FROM kategori");

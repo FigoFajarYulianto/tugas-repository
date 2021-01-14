@@ -1,6 +1,6 @@
 <h2>Ubah Produk</h2>
 <?php
-$koneksi = new mysqli("localhost", "root", "", "project_chat");
+$koneksi = new mysqli("localhost", "root", "", "maketan");
 
 $ambil = $koneksi->query("SELECT * FROM tb_produk WHERE id_produk= '$_GET[id]'");
 $pecah= $ambil->fetch_assoc();
@@ -90,7 +90,7 @@ if (isset($_POST['ubah']))
         move_uploaded_file($lokasifoto, "../produk2/produk2/assets/img/produk/$namafoto");
 
         $koneksi->query("UPDATE tb_produk SET nama_produk='$_POST[nama]',
-        id_kategori='$_POST[id_kategori]',harga='$_POST[harga_produk]',satuan='$_POST[id_satuan]',map_link='$_POST[map]',
+        id_kategori='$_POST[id_kategori]',harga='$_POST[harga_produk]',id_satuan='$_POST[id_satuan]',map_link='$_POST[map]',
         gbr_produk='$namafoto',deskripsi_produk='$_POST[deskripsi]'
         WHERE id_produk='$_GET[id]'");
     }

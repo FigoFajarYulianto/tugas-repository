@@ -1,7 +1,7 @@
 <?php
 //skrip koneksi
 session_start();
-$koneksi = new mysqli("localhost", "root", "", "project_chat");
+include 'koneksi.php';
 ?>
 <?PHP  
 $keyword = $_GET["keyword"];
@@ -62,7 +62,7 @@ $keyword = $_GET["keyword"];
             <input type="checkbox" name="" id="check">
             
             <div class="logo-container">
-                <a href="Dasboard.php" type="button" style="text-decoration:none"><h3 class="logo">MAKE<span>TAN</span></h3></a>
+                <a href="index.php" type="button" style="text-decoration:none"><h3 class="logo">MAKE<span>TAN</span></h3></a>
             </div>
             <div class="nav-btn">
                 <div class="nav-links">
@@ -222,7 +222,7 @@ $keyword = $_GET["keyword"];
     </main>
   <!-- Akhir navbar -->
   <?php 
-          $ambil2 = "SELECT * FROM tb_produk WHERE nama_produk LIKE '%$keyword%'"; 
+          $ambil2 = "SELECT * FROM tb_produk JOIN satuan ON tb_produk.id_satuan=satuan.id_satuan WHERE nama_produk LIKE '%$keyword%'"; 
           $query = mysqli_query($koneksi, $ambil2);?>
           <?php 
             // pagination
@@ -236,7 +236,7 @@ $keyword = $_GET["keyword"];
             $total_data = mysqli_num_rows($query);
             $total_halaman = ceil($total_data / $batas);
 
-            $sql = "SELECT * FROM tb_produk  WHERE nama_produk LIKE '%$keyword%' LIMIT $halaman_awal, $batas";
+            $sql = "SELECT * FROM tb_produk JOIN satuan ON tb_produk.id_satuan=satuan.id_satuan WHERE nama_produk LIKE '%$keyword%' LIMIT $halaman_awal, $batas";
             $query = mysqli_query($koneksi, $sql);
             $nomor = $halaman_awal + 1;
 
@@ -262,7 +262,7 @@ $keyword = $_GET["keyword"];
                           <p><?php echo substr($pencarian['map_link'], 0, 13) ?></p>
                           </div>
                       </div>
-                      <div class="price">Rp.<?php echo number_format($pencarian['harga'])?></div>
+                      <div class="price">Rp.<?php echo number_format($pencarian['harga'])?> /<?php echo $pencarian['nama_satuan'] ?></div>
                       <hr id="hrdown" style="height:1px;border:none;color:#333;background-color:#333;">
                       <div class="buttons">
                           <button><a href="https://bit.ly/3ooyooh" style="text-decoration:none; color:white;">Chat</a></button>
