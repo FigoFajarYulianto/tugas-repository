@@ -68,8 +68,16 @@
 						<small><a href="daftar.php">Daftar Sekarang</a></small>
 					</p>
 
+					<!-- form untuk lupa password -->
+					<?php
+					if (isset($_GET["newpwd"])) {
+						if ($_GET["newpwd"] == "passwordupdated") {
+							echo '<p class="signupsuccess">Password anda telah di reset!</p>';
+						}
+					}
+					?>
 					<p class="text-center mt-3">
-						<a href="reset-password.php">Lupa Kata Sandi?</a>
+						<a href="requestReset.php">Lupa Kata Sandi?</a>
 					</p>
 
 				</form>

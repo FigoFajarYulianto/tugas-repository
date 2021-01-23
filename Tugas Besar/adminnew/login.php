@@ -79,11 +79,13 @@ $koneksi = new mysqli("localhost", "root", "", "maketan");
                         {
                             $ambil = $koneksi->query("SELECT * FROM admin WHERE username='$_POST[user]'
                             AND password_admin = '$_POST[pass]'");
-                            $yangcocok = $ambil->num_rows;
-                            if ($yangcocok==1)
-                        { $_SESSION['admin']=$ambil->fetch_assoc();
+                            $yangcocok = mysqli_num_rows($ambil);
+                            if ($yangcocok == 1){ 
+                                // $_SESSION['admin']=$ambil->fetch_assoc();
+                                $data = mysqli_fetch_assoc($ambil);
                             // set session
-                            $_SESSION['login'] = true;
+                            $_SESSION['login'] = $data['id'];
+                            $_SESSION['user_status'] = 'login';
 
                             //cek remember me
                             if( isset($_POST['remember']) ) {

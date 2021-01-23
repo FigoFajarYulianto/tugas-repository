@@ -22,10 +22,10 @@ while($satuanbarang=$satuan->fetch_assoc())
 <form method="post" enctype="multipart/form-data">
     <div class="form-group">
         <label>nama</label>
-        <input type="text" class="form-control" name="nama">
+        <input type="text" class="form-control" name="nama" required>
     </div>
     <label>Nama Kategori</label>
-    <select class="form-control" name="id_kategori">
+    <select class="form-control" name="id_kategori" required>
         <option value="">Pilih Kategori</option>
         <?php foreach ($datakategori as $key => $value): ?>
 
@@ -36,17 +36,17 @@ while($satuanbarang=$satuan->fetch_assoc())
 
     <div class="form-group">
         <label>Deskripsi</label>
-        <textarea class="form-control" name="deskripsi" id="deskripsi" rows="10"></textarea>
+        <textarea class="form-control" name="deskripsi" id="deskripsi" rows="10" required></textarea>
         <script>
         CKEDITOR.replace('deskripsi');
         </script>
     </div>
     <div class="form-group">
         <label>Harga (Rp)</label>
-        <input type="text" class="form-control" name="harga">
+        <input type="text" class="form-control" name="harga" required>
     </div>
     <label>Pilih Satuan</label>
-    <select class="form-control" name="id_satuan">
+    <select class="form-control" name="id_satuan" required>
         <option value="">Pilih Satuan</option>
         <?php foreach ($datasatuan as $key => $value): ?>
 
@@ -56,11 +56,11 @@ while($satuanbarang=$satuan->fetch_assoc())
     </select>
     <div class="form-group">
         <label>Lokasi </label>
-        <input type="text" class="form-control" name="map">
+        <input type="text" class="form-control" name="map" required>
     </div>
     <div class="form-group">
         <label>Foto</label>
-        <input type="file" class="form-control" name="foto">
+        <input type="file" class="form-control" name="foto" required>
     </div>
 
     <button class="btn btn-primary" name="save">simpan</button>

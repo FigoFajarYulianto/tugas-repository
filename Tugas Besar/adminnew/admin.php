@@ -64,7 +64,7 @@ if(!isset($_SESSION['login'])) {
 
 
             </div>
-            <a href="index.html" class="logo"><b>MAKE<span>TAN</span></b></a>
+            <a href="admin.php" class="logo"><b>MAKE<span>TAN</span></b></a>
             <div class="top-menu">
                 <ul class="nav pull-right top-menu">
                     <li><a class="logout" href="admin.php?halaman=logout">LOGOUT</a></li>
@@ -84,18 +84,19 @@ if(!isset($_SESSION['login'])) {
             <ul class="nav" id="main-menu">
                 <aside>
                     <div id="sidebar" class="nav-collapse ">
-
+                    <?php if (isset($_SESSION['login'])):?>
                         <?php 
-                    $admin = mysqli_query($koneksi,"SELECT * FROM admin");
-                    $saya = mysqli_fetch_assoc($admin);
+                        $id = $_SESSION['login'];
+                    $admin = mysqli_query($koneksi,"SELECT * FROM admin WHERE id='$id'");
+                    $akun = mysqli_fetch_assoc($admin);
                 ?>
                         <ul class="sidebar-menu" id="nav-accordion">
                             <li class="text-center">
-                                <img src="../AADMIN/img/<?php echo $saya['foto_admin'] ?>"
+                                <img src="../AADMIN/img/<?php echo $akun['foto_admin'] ?>"
                                     class="user-image img-responsive" />
                             </li>
                             <h5 class="centered">
-                                <?php echo $saya ['nama_lengkap'] ?></h5>
+                                <?php echo $akun ['nama_lengkap'] ?></h5>
 
                             <li class="mt">
                                 <a class="active" href="admin.php">
@@ -125,6 +126,7 @@ if(!isset($_SESSION['login'])) {
 
 
     </nav>
+    <?php endif ?>
     <!-- /. NAV SIDE  -->
     <section id="main-content">
         <section class="wrapper">

@@ -261,7 +261,7 @@ include 'koneksi.php';
             $nomor = $halaman_awal + 1;
             ?>
             <?php while($perproduk = $query->fetch_assoc()) { ?>
-              <div class="card">
+              <div class="card" style="margin-top:40px;">
                   <img src="produk2/produk2/assets/img/produk/<?php echo $perproduk['gbr_produk'] ?>" alt="" class="img-responsive">
                   <div class="content">
                       <div class="col-md" style="margin-left: -11px;">

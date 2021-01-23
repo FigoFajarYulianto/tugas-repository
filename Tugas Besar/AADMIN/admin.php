@@ -279,7 +279,7 @@ $koneksi = new mysqli("localhost", "root", "", "project_chat");
             <div id="sidebar" class="nav-collapse ">
                 <!-- sidebar menu start-->
                 <?php 
-                    $admin = mysqli_query($koneksi,"SELECT * FROM admin");
+                    $admin = mysqli_query($koneksi,"SELECT user_email,user_password * FROM admin");
                     $saya = mysqli_fetch_assoc($admin);
                 ?>
                 <ul class="sidebar-menu" id="nav-accordion">
