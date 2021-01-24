@@ -43,7 +43,7 @@ while($satuanbarang=$satuan->fetch_assoc())
     </div>
     <div class="form-group">
         <label>Harga (Rp)</label>
-        <input type="text" class="form-control" name="harga" required>
+        <input type="number" class="form-control" name="harga" min="1" max="99999999999" required>
     </div>
     <label>Pilih Satuan</label>
     <select class="form-control" name="id_satuan" required>
